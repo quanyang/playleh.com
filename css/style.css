@@ -68,6 +68,16 @@ footer {
   padding-bottom: 100px;
 }
 
+@media only screen and (max-device-width: 600px) {
+    #about,
+    #feature,
+    #contact,
+    footer {
+      padding-top: 20px;
+      padding-bottom: 20px;
+    }
+}
+
 .section-title {
   padding-bottom: 62px;
 }
@@ -276,6 +286,11 @@ footer {
   padding-top: 10px;
 }
 
+@media only screen and (max-device-width: 600px) {
+    #about .about-thumb {
+      padding-top: 0px;
+    }
+}
 
 /* feature section */
 #feature {
