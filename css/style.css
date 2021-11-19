@@ -64,8 +64,18 @@ strong {
 #feature,
 #contact,
 footer {
-  padding-top: 30px;
-  padding-bottom: 30px;
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+
+@media only screen and (max-device-width: 600px) {
+    #about,
+    #feature,
+    #contact,
+    footer {
+      padding-top: 20px;
+      padding-bottom: 20px;
+    }
 }
 
 .section-title {
@@ -276,6 +286,11 @@ footer {
   padding-top: 10px;
 }
 
+@media only screen and (max-device-width: 600px) {
+    #about .about-thumb {
+      padding-top: 0px;
+    }
+}
 
 /* feature section */
 #feature {
