@@ -6,12 +6,11 @@ http://www.templatemo.com/tm-490-comila
 
 */
 
-body
-	{
-		background: #111112;
-   font-family: 'Rajdhani', sans-serif;
-    font-weight: 400;
-	}
+body {
+  background: #111112;
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 400;
+}
 
 html,body {
   width: 100%;
@@ -74,7 +73,7 @@ footer {
     #contact,
     footer {
       padding-top: 20px;
-      padding-bottom: 20px;
+      padding-bottom: 60px;
     }
 }
 
