@@ -13,7 +13,7 @@
           {
             "/": "/joinLobby*",
             "?": {
-              "code": "?*"
+              "code": "??????"
             },
             "comment": "Matches any URL with a path that starts with /joinLobby, with a query parameter: code."
           }
