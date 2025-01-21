@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="apple-itunes-app" content="app-id=id1546705439">
+    <title>Redirecting to App Store</title>
+    <script>
+        function redirectToAppStore() {
+            const appStoreLink = "https://apps.apple.com/app/id1546705439";
+            const fallbackTimeout = 1000;
+
+            setTimeout(() => {
+                window.location.href = appStoreLink;
+            }, fallbackTimeout);
+        }
+
+        window.onload = redirectToAppStore;
+    </script>
+</head>
+<body>
+    <h1>Redirecting to the AppStore...</h1>
+    <p>If you are not redirected automatically, <a href="https://apps.apple.com/app/id1546705439">click here</a>.</p>
+</body>
+</html>
