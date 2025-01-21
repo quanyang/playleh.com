@@ -1,0 +1,24 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "7XC6678JB7.Play.MahjongLeh.Preview",
+        "components": [
+          {
+            "#": "no_universal_links",
+            "exclude": true,
+            "comment": "Matches any URL with a fragment that equals no_universal_links and instructs the system not to open it as a universal link."
+          },
+          {
+            "/": "/joinLobby",
+            "?": {
+              "code": "??????"
+            },
+            "comment": "Matches any URL with a path that starts with /joinLobby, with a query parameter: code."
+          }
+        ]
+      }
+    ]
+  }
+}
