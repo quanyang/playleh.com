@@ -102,20 +102,21 @@
                             </p>
                             <ol>
                                 <li><strong>Draw:</strong> Draw one tile from the wall</li>
+                                <li><strong>Melding using tiles in hand (Optional):</strong> After drawing a tile, a player may form a quadruplet meld using tiles in their hand</li>
                                 <li><strong>Discard:</strong> Discard one tile face-up</li>
-                                <li><strong>Melding (Optional):</strong> Other players may claim the discarded tile to form a meld</li>
+                                <li><strong>Melding by claiming the discard (Optional):</strong> Other players may claim the discarded tile to form a meld</li>
                             </ol>
 
                             <h4>Melding Actions</h4>
                             <p>
-                            During gameplay, players can claim discarded tiles to form melds:
+                            During gameplay, players can form melds either using the tiles in their hand, or by claiming a discarded tile:
                             </p>
                             <ul>
                                  <li><strong>Triplet (Pong, 碰):</strong> Claim a discarded tile from any player to form a triplet. You must reveal the triplet and discard a tile.</li>
                                 <li><strong>Sequence (Chi, 吃):</strong> Claim the discarded tile from the player immediately before you to form a sequence. You must reveal the sequence and discard a tile.</li>
                                 <li><strong>Quadruplet (Gang, 槓):</strong> Form a quadruplet either by:
                                     <ul>
-                                        <li>Concealed Gang (暗槓): You have all four identical tiles in hand.</li>
+                                        <li>Concealed Gang (暗槓): You have all four identical tiles in hand on your turn.</li>
                                         <li>Exposed Gang (明槓): You claim a discarded tile to complete three identical tiles already in your hand.</li>
                                         <li>Exposed Gang (明槓): You add a fourth tile to an already exposed Pong.</li>
                                     </ul>
@@ -133,7 +134,7 @@
                                 <li>Continue your turn normally</li>
                             </ol>
                             <p>
-                            Bonus tiles do not count toward your hand structure but may provide bonus points (tai, 台) when calculating your score.
+                            Bonus tiles do not count toward your hand structure but may provide bonus Tai (台) when calculating your score.
                             </p>
 
                             <h3>Winning (Hu, 胡)</h3>
@@ -143,46 +144,46 @@
                             <ul>
                                 <li><strong>Self-draw (zimo, 自摸):</strong> Drawing the winning tile from the wall</li>
                                 <li><strong>Win on discard:</strong> Claiming another player's discard to complete your hand</li>
-                                <!--<li><strong>Robbing the Gang (抢槓):</strong> Winning by robbing a tile that another player adds to an already exposed pong to form an exposed Gang</li>-->
+                                <li><strong>Robbing the Gang (抢槓):</strong> Winning by robbing a tile that another player adds to an already exposed pong to form an exposed Gang</li>
                             </ul>
 
                             <h3>Scoring</h3>
                             <p>
-                            Scoring in MahjongLeh uses a Tai (台)-based scoring system. Winning hands earn tai based on hand composition and bonuses. The minimum tai requirement to win is configurable (commonly 1 tai).
+                            Scoring in MahjongLeh uses a Tai (台)-based scoring system. Winning hands earn Tai based on hand composition and bonuses. The minimum Tai requirement to win is configurable (commonly 1 Tai).
                             </p>
 
                             <h4>Meld & Tile Bonuses</h4>
                             <ul>
-                                <li><strong>Pong of Dragons:</strong> One tai for each Dragon triplet</li>
-                                <li><strong>Pong of Seat Wind:</strong> One tai for a triplet matching your seat wind</li>
-                                <li><strong>Pong of Prevailing Wind:</strong> One tai for a triplet matching the prevailing wind</li>
-                                <li><strong>Flower matching seat number:</strong> One tai for each Flower matching your seat number</li>
-                                <li><strong>All four flowers of the same group:</strong> Additional one tai bonus for collecting all four Flower of the same group</li>
-                                <li><strong>Animal Tiles:</strong> One tai for each Animal tile</li>
-                                <li><strong>All Four Animals:</strong> Additional one tai bonus for collecting all four Animal tiles</li>
+                                <li><strong>Pong of Dragons:</strong> One Tai for each Dragon triplet</li>
+                                <li><strong>Pong of Seat Wind:</strong> One Tai for a triplet matching your seat wind</li>
+                                <li><strong>Pong of Prevailing Wind:</strong> One Tai for a triplet matching the prevailing wind</li>
+                                <li><strong>Flower matching seat number:</strong> One Tai for each Flower matching your seat number</li>
+                                <li><strong>All four flowers of the same group:</strong> Additional one Tai bonus for collecting all four Flower of the same group</li>
+                                <li><strong>Animal Tiles:</strong> One Tai for each Animal tile</li>
+                                <li><strong>All Four Animals:</strong> Additional one Tai bonus for collecting all four Animal tiles</li>
                             </ul>
 
                             <h4>Win Bonuses</h4>
                             <ul>
-                                <!--<li><strong>Robbing the Gang (抢槓):</strong> Additional one tai bonus for winning by robbing the Gang</li>-->
+                                <li><strong>Robbing the Gang (抢槓):</strong> Additional one Tai bonus for winning by robbing the Gang</li>
                                 <li><strong>Replacement Tile Bonus (花上/槓上):</strong> Self-drawn Win from a replacement tile drawn from a Gang or a bonus tile</li>
-                                <li><strong>Double Gang Bonus (槓槓胡):</strong> Self-drawn Win after drawing two replacement tiles from a Gang</li>
-                                <li><strong>Concealed hand (门清):</strong> One tai bonus for winning with a fully concealed hand (no exposed melds)</li>
+                                <li><strong>Double Gang Bonus (槓槓胡):</strong> Self-drawn Win from a second replacement tile after two consecutive Gang</li>
+                                <li><strong>Concealed hand (门清):</strong> One Tai bonus for winning with a fully concealed hand (no exposed melds)</li>
                                 <li><strong>Self-drawn hand (Zimo, 自摸):</strong> Double points bonus for self-drawing the winning tile</li>
                             </ul>
 
                             <h4>Winning Hands</h4>
                             <ul>
-                                <li><strong>Coward Hand (鸡胡) - 0 Tai:</strong> A basic hand consisting of 4 melds and a pair that did not qualify for any other winning combination</li>
+                                <li><strong>Coward Hand (鸡胡) - 0 Tai:</strong> A winning hand consisting of 4 melds and a pair that did not qualify for any other winning combination</li>
                                 <li><strong>Ping Hu (平胡) - 4 Tai:</strong> A winning hand consisting of no bonus tiles, 4 Chi melds and a pair. The pair cannot be made up of a dragon tile, prevailing wind tile, or the player's seat wind tile. The hand must also be won by either self-drawn or by waiting for more than one tile option (no Kalong or Dan Diao)</li>
                                 <li><strong>All Chow (臭平胡) - 1 Tai:</strong> Same rules as Ping Hu, with the exception that the player has bonus tiles</li>
-                                <li><strong>All Pong (碰碰胡) - 2 Tai:</strong> A basic winning hand consisting of 4 pong melds and a pair</li>
-                                <li><strong>Mixed Suit (半色) - 2 Tai:</strong> A basic winning hand consisting of tiles from honor tiles and only one suit</li>
+                                <li><strong>All Pong (碰碰胡) - 2 Tai:</strong> A winning hand consisting of 4 pong melds and a pair</li>
+                                <li><strong>Mixed Suit (半色) - 2 Tai:</strong> A winning hand consisting of tiles from honor tiles and only one suit</li>
                                 <li><strong>Pure Suit (清一色) - 4 Tai:</strong> A winning hand consisting of tiles from only one suit</li>
                                 <li><strong>Pure Honors (字一色) - 6 Tai:</strong> A winning hand consisting of only honor tiles</li>
-                                <li><strong>Three Lesser Scholars (小三元) - 1 Tai:</strong> A basic winning hand with 2 pong melds and the pair made up of dragon tiles</li>
+                                <li><strong>Three Lesser Scholars (小三元) - 1 Tai:</strong> A winning hand with 2 pong melds and the pair made up of dragon tiles</li>
                                 <li><strong>Three Great Scholars (大三元) - 10 Tai:</strong> A winning hand with 3 pong melds made up of dragon tiles</li>
-                                <li><strong>Four Lesser Blessings (小四喜) - 2 Tai:</strong> A basic winning hand with 3 wind pong melds and a wind pair</li>
+                                <li><strong>Four Lesser Blessings (小四喜) - 2 Tai:</strong> A winning hand with 3 wind pong melds and a wind pair</li>
                                 <li><strong>Four Great Blessings (大四喜) - 13 Tai:</strong> A winning hand with 4 pong melds made up of all 4 wind tiles</li>
                                 <li><strong>Mixed Terminals (混老头) - 2 Tai:</strong> A winning hand consisting of only terminal tiles (1s and 9s) and honor tiles</li>
                                 <li><strong>Pure Terminals (清老頭) - 13 Tai:</strong> A winning hand consisting of only terminal tiles (1s and 9s) and no honor tiles</li>
