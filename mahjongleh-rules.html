@@ -49,7 +49,7 @@
                         <div class="section-title">
                             <h1>MahjongLeh</h1>
                             <h2>Rules and Regulations</h2>
-                            <p id="updated-at">Updated at 2025-12-28</p>
+                            <p id="updated-at">Updated at 05-01-2026</p>
                             <p>
                             The following rules apply only to Matchmaking and Multiplayer online games.<br/>
                             Rules for Single-player or Offline modes may differ depending on the version of the MahjongLeh application.
@@ -85,7 +85,7 @@
                             <h3>Gameplay</h3>
                             <h4>Winning objective</h4>
                             <p>
-                            To win (Hu, 胡), a player needs to form a complete hand consisting of four sets (melds) and one pair (also called the Eye) to win. A set can be either:
+                            To win (Hu, 胡), a player needs to form a complete hand consisting of four sets (melds) and one pair (also called the Eye). A set can be either:
                             </p>
                             <ul>
                                 <li><strong>Triplet (Pong, 碰):</strong> Three identical tiles (e.g., three 5 Circles)</li>
@@ -96,9 +96,25 @@
                             A pair consists of two identical tiles. Once you have four sets and one pair, you can declare a win (Hu), provided the minimum Tai requirement has been met. More information on Scoring can be found below.
                             </p>
 
+                            <h4>Game Setup</h4>
+                            <p>The game is played with 4 players, and the players are seated randomly, with the player seated in the east starting as the dealer. The dealer position rotates to the next player in counterclockwise order, except when the dealer wins, or when the game ends in a stalemate and no Gangs were formed during the game.</p>
+
+                            <h5>Prevailing Wind & Seat Wind</h5>
+                            <p>
+                            Each round has a <strong>Prevailing Wind</strong>, and each player is assigned a <strong>Seat Wind</strong>.
+                            </p>
+                            <ul>
+                                <li>
+                                    <strong>Seat Wind:</strong> Determined by the player's position at the table (East, South, West, North).
+                                </li>
+                                <li>
+                                    <strong>Prevailing Wind:</strong> Represents the current round wind. The prevailing wind rotates in the order East -> South -> West -> North after each player has served as the dealer.
+                                </li>
+                            </ul>
+
                             <h4>Game Flow</h4>
                             <p>
-                            The game is played with 4 players. Each player starts with 13 tiles, and the dealer (East) starts with 14 tiles. Players take turns in counterclockwise order:
+                            Each player starts with 13 tiles, and the dealer (East) starts with 14 tiles. Players take turns in counterclockwise order:
                             </p>
                             <ol>
                                 <li><strong>Draw:</strong> Draw one tile from the wall</li>
@@ -137,17 +153,18 @@
                             Bonus tiles do not count toward your hand structure but may provide bonus Tai (台) when calculating your total Tai.
                             </p>
 
-                            <h3>Winning (Hu, 胡)</h3>
+                            <h4>Winning (Hu, 胡)</h4>
                             <p>
                             To win a hand, you must have a complete hand with four sets and one pair. You can win by:
                             </p>
                             <ul>
                                 <li><strong>Self-draw (zimo, 自摸):</strong> Drawing the winning tile from the wall</li>
                                 <li><strong>Win on discard:</strong> Claiming another player's discard to complete your hand</li>
-                                <li><strong>Robbing the Gang (抢槓):</strong> Winning by robbing a tile that another player adds to an already exposed pong to form an exposed Gang</li>
+                                <li><strong>Robbing the Gang (抢槓):</strong> Winning by robbing a tile that another player adds to an already exposed pong to form an <strong>Exposed Gang (明槓)</strong>.
+                                A special exception applies where a player waiting on their final tile to complete <strong>Thirteen Terminals (十三幺)</strong> may rob a <strong>Concealed Gang (暗槓)</strong>.</li>
                             </ul>
 
-                            <h3>Scoring</h3>
+                            <h3>Payouts & Scoring</h3>
                             <p>
                             Scoring in MahjongLeh uses a Tai (台)-based scoring system. Winning hands earn Tai based on hand composition and bonuses. The minimum Tai requirement to win is configurable (commonly 1 Tai).
                             </p>
@@ -157,7 +174,7 @@
                                 <li><strong>Pong of Dragons:</strong> One Tai for each Dragon triplet</li>
                                 <li><strong>Pong of Seat Wind:</strong> One Tai for a triplet matching your seat wind</li>
                                 <li><strong>Pong of Prevailing Wind:</strong> One Tai for a triplet matching the prevailing wind</li>
-                                <li><strong>Flower matching seat number:</strong> One Tai for each Flower matching your seat number</li>
+                                <li><strong>Flower matching seat number:</strong> One Tai for each Flower matching your Seat Wind's number (East - 1, South - 2, West - 3, North - 4)</li>
                                 <li><strong>All four flowers of the same group:</strong> Additional one Tai bonus for collecting all four Flower of the same group</li>
                                 <li><strong>Animal Tiles:</strong> One Tai for each Animal tile</li>
                                 <li><strong>All Four Animals:</strong> Additional one Tai bonus for collecting all four Animal tiles</li>
@@ -178,7 +195,7 @@
                                 <li><strong>Ping Hu (平胡) - 4 Tai:</strong> A winning hand consisting of no bonus tiles, four Chi melds and one pair. The pair cannot be made up of a dragon tile, prevailing wind tile, or the player's seat wind tile. The hand must also be won by either self-drawn or by waiting for more than one tile option (no Kalong or Dan Diao)</li>
                                 <li><strong>All Chow (臭平胡) - 1 Tai:</strong> Same rules as Ping Hu, with the exception that the player has bonus tiles</li>
                                 <li><strong>All Pong (碰碰胡) - 2 Tai:</strong> A winning hand consisting of four Pong melds and one pair</li>
-                                <li><strong>Mixed Suit (半色) - 2 Tai:</strong> A winning hand consisting of tiles from honor tiles and only one suit</li>
+                                <li><strong>Mixed Suit (半色) - 2 Tai:</strong> A winning hand consisting of honor tiles and tiles from only one suit</li>
                                 <li><strong>Pure Suit (清一色) - 4 Tai:</strong> A winning hand consisting of tiles from only one suit</li>
                                 <li><strong>Pure Suit Ping Hu (一色平胡) - 2 Tai:</strong> A Ping Hu hand consisting of tiles from only one suit. (May stack with other combinations depending on configuration)</li>
                                 <li><strong>Pure Honors (字一色) - 6 Tai:</strong> A winning hand consisting of only honor tiles</li>
@@ -192,7 +209,130 @@
                                 <li><strong>Thirteen Terminals (十三幺) - 13 Tai:</strong> A winning hand consisting of one of each terminal suit tile (1 and 9) and each honor tile, plus a duplicate tile to form the pair</li>
                             </ul>
 
-                            <h3>Special Rules</h3>
+                            <h4>Payout Calculation</h4>
+                            <p>
+                            At the end of a win, Tai (台) are converted into Credits. The maximum Tai for a game is configurable within the ranges of 1-30.<br/>
+                            The following table summarizes the payouts:
+                            </p>
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>Tai (台)</th>
+                                        <th>Others</th>
+                                        <th>Player who discard the tile</th>
+                                        <th>Total Credits Payout</th>
+                                        <th>Self-drawn hand (自摸)</th>
+                                        <th>Total Credits Payout (Self-drawn hand, 自摸)</th>
+                                    </tr>
+                                </thead>
+                                <tr>
+                                    <td>1</td>
+                                    <td>10</td>
+                                    <td>20</td>
+                                    <td>10+10+20 = 40</td>
+                                    <td>20</td>
+                                    <td>20+20+20 = 60</td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>20</td>
+                                    <td>40</td>
+                                    <td>20+20+40 = 80</td>
+                                    <td>40</td>
+                                    <td>40+40+40 = 120</td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>40</td>
+                                    <td>80</td>
+                                    <td>40+40+80 = 160</td>
+                                    <td>80</td>
+                                    <td>80+80+80 = 240</td>
+                                </tr>
+                                <tr>
+                                    <td>4</td>
+                                    <td>80</td>
+                                    <td>160</td>
+                                    <td>80+80+160 = 320</td>
+                                    <td>160</td>
+                                    <td>160+160+160 = 480</td>
+                                </tr>
+                                <tr>
+                                    <td>5</td>
+                                    <td>160</td>
+                                    <td>320</td>
+                                    <td>160+160+320 = 640</td>
+                                    <td>320</td>
+                                    <td>320+320+320 = 960</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="6">
+                                        ...
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>10</td>
+                                    <td>5120</td>
+                                    <td>10240</td>
+                                    <td>5120+5120+10240 = 20480</td>
+                                    <td>10240</td>
+                                    <td>10240+10240+10240 = 30720</td>
+                                </tr>
+                            </table>
+
+                            <p>
+                                Example scenario:<br/>
+                                If player A discards a tile that is claimed by player B to win with an 'All Pong' hand, the hand is considered to be 2 Tai (assuming no other bonuses). According to the payout calculation, player C and D will each pay 20 credits to player B, and being the player who discarded the winning tile, player A will pay 40 credits. In total, player B will receive 80 credits.
+                             </p>
+
+                            <h4>Instant Payout</h4>
+                            <p>
+                            Certain actions trigger immediate credit exchanges before the hand ends. Instant payouts are settled immediately and are not affected by the final outcome of the hand. Instant payouts are disabled once the last drawable tile has been drawn.
+                            </p>
+                            <ol>
+                                <li>
+                                    <strong>Exposed Gang (明槓) - 20 credits:</strong> Each player will pay 20 credits to the player who formed the Gang.
+                                </li>
+                                <li>
+                                    <strong>Concealed Gang (暗槓) - 40 credits:</strong> Each player will pay 40 credits to the player who formed the Gang.
+                                </li>
+                                <li>
+                                    <strong>Pair of Flower tiles matching Player's seat (咬到) - 20 credits:</strong> If a player draws both Flower tiles that matches their seat number, every other player will pay 20 credits to the player.
+                                </li>
+                                <li>
+                                    <strong>Matching Animal tiles (咬到) - 20 credits:</strong> If a player draws a matching pair of Animal tiles (e.g. Rooster and Centipede, or Cat and Mouse), every other player will pay 20 credits to the player.
+                                </li>
+                                <li>
+                                    <strong>Bitten (咬到) before replacement tiles - 40 credits:</strong> For the above mentioned 咬到 events (3 and 4), if they were done before any replacement tiles were drawn, the player receives 40 credits from each player instead of 20.
+                                </li>
+                                <li>
+                                    <strong>All four flowers of the same group - 40 credits:</strong> If a player draws all four Flower tiles of the same group, every other player will pay 40 credits to the player.
+                                </li>
+                                 <li>
+                                    <strong>All four Animal tiles - 40 credits:</strong> If a player draws all four Animal tiles, every other player will pay 40 credits to the player.
+                                </li>
+                            </ol>
+
+                            <h4>Shooter Rule</h4>
+                            <p>
+                                When enabled, the Shooter rule applies additional penalties to the <strong>Shooter</strong> who discards a tile that leads to an instant payout or a win. The shooter is responsible for paying on behalf of everyone.
+                            </p>
+                            <p>
+                                The shooter rule only applies in the following scenarios:
+                            </p>
+                            <ul>
+                                <li>
+                                    When a player wins by claiming a discarded tile, the player who discarded the winning tile is known as the <strong>Shooter</strong>. 
+                                </li>
+                                <li>
+                                    When a player forms an Exposed Gang meld by claiming a discarded tile, the player who discarded the tile is known as the <strong>Shooter</strong>.
+                                </li>
+                                <li>
+                                    When a player wins by Robbing the Gang, the player who formed the Gang is known as the <strong>Shooter</strong>.
+                                </li>
+                            </ul>
+
+                            <h3>Ending the Game</h3>
                             <h4>Dead Wall</h4>
                             <p>
                             The dead wall is a reserve of 15 tiles used for: Bonus tile draws, Gang replacement draws. Tiles in the dead wall are not part of the drawable wall.
@@ -203,12 +343,62 @@
                             A game ends when:
                             </p>
                             <ul>
-                                <li>A player declares Hu (win)</li>
-                                <li>The game ends in a stalemate when there are no more drawable tiles remaining in the live wall (excluding the 15 tiles in the dead wall)</li>
+                                <li>A player wins</li>
+                                <li>The game ends in a stalemate when there are no more drawable tiles remaining in the live wall (excluding the 15 tiles in the dead wall). When a player draws the last drawable tile, they need not discard any tile (you might be asked to select one, but it is not actually discarded). After drawing the last tile, the player will not be allowed to draw anymore replacement tiles for bonus tiles or Gang, and will not get any instant payouts as well. The player is allowed to win using the last drawn tile.</li>
                             </ul>
                             <p>
                             If the game ends without a winner, it is considered a stalemate, and no points are exchanged.
                             </p>
+
+                            <h3>Special discard Rules</h3>
+                            <h4>Sacred & Missed Discard Rules</h4>
+                            <p>
+                            MahjongLeh enforces the <strong>Sacred Discard (回头牌)</strong> and <strong>Missed Discard (过水牌)</strong> rule to prevent players from claiming tiles they have previously declined.
+                            </p>
+                            <ul>
+                                <li>
+                                    <strong>Sacred Discard:</strong> If a player discards a tile, they may not later claim the same tile from another player's discard.
+                                </li>
+                                <li>
+                                    <strong>Missed Discard:</strong> If a player passes on a discarded tile and did not claim it, they may not later claim the same tile from another player's discard.
+                                </li>
+                                <li>
+                                    The restriction is lifted only after the player has drawn a tile during their own turn.
+                                </li>
+                            </ul>
+
+                            <h4>Swap Calling (换吃) Rule</h4>
+                            <p>
+                            MahjongLeh enforces the <strong>Swap Calling (换吃)</strong> rule.
+                            </p>
+                            <ul>
+                                <li>
+                                    When a player Chows (吃) a discarded tile to form a sequence, they are <strong>not allowed</strong> to immediately discard:
+                                    <ul>
+                                        <li>The same tile that was used to Chow, or</li>
+                                        <li>A tile on the opposite end of the same sequence</li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    Example: If a player Chows a <strong>4</strong> to form <strong>4-5-6</strong>, they may not discard a <strong>4</strong> or <strong>6</strong> in that turn.
+                                </li>
+                                <li>
+                                    This rule prevents players from effectively swapping tiles through repeated Chow actions.
+                                </li>
+                                <li>
+                                    The restriction applies only to the discard made immediately after the Chow.
+                                </li>
+                            </ul>
+
+                            <h3>Glossary</h3>
+                            <ul>
+                                <li>
+                                    <strong>Kalong (卡张):</strong> Waiting on the middle tile of a sequence (e.g., waiting for 5 to complete 4-5-6).
+                                </li>
+                                <li>
+                                    <strong>Dan Diao (单吊):</strong> Waiting on a single tile to complete the final pair.
+                                </li>
+                            </ul>
                         </div>
                     </div>
                 </div>
