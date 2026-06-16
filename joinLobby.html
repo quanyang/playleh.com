@@ -26,23 +26,48 @@
     <title>Redirecting to the store</title>
     <script>
         const appStoreLink = "https://apps.apple.com/app/apple-store/id1546705439?pt=120505680&ct=sharelobbycode&mt=8";
-        const playStoreLink = "https://play.google.com/store/apps/details?id=com.playleh.mahjongleh&referrer=utm_source%3Dsharelobbycode";
+        const playStoreApp = "market://details?id=com.playleh.mahjongleh&referrer=utm_source%3Dsharelobbycode";
+        const playStoreWeb = "https://play.google.com/store/apps/details?id=com.playleh.mahjongleh&referrer=utm_source%3Dsharelobbycode";
 
-        function getStoreLink() {
-            return /android/i.test(navigator.userAgent) ? playStoreLink : appStoreLink;
+        const isAndroid = /android/i.test(navigator.userAgent);
+
+        // Web URL used for the visible "click here" link — always opens
+        // something useful, even without a store app installed.
+        function getStoreWebLink() {
+            return isAndroid ? playStoreWeb : appStoreLink;
         }
 
         function redirectToStore() {
-            const fallbackTimeout = 1000;
+            if (!isAndroid) {
+                setTimeout(() => {
+                    window.location.href = appStoreLink;
+                }, 1000);
+                return;
+            }
+
+            // Try to open the Play Store app directly via the market:// scheme.
+            // If it isn't available, the page stays in the foreground and we
+            // fall back to the Play Store website.
+            let leftPage = false;
+            const markLeft = () => { leftPage = true; };
+            document.addEventListener("visibilitychange", markLeft);
+            window.addEventListener("pagehide", markLeft);
+
+            window.location.href = playStoreApp;
+
             setTimeout(() => {
-                window.location.href = getStoreLink();
-            }, fallbackTimeout);
+                document.removeEventListener("visibilitychange", markLeft);
+                window.removeEventListener("pagehide", markLeft);
+                if (!leftPage && !document.hidden) {
+                    window.location.href = playStoreWeb;
+                }
+            }, 1500);
         }
 
         window.onload = function () {
             const link = document.getElementById("store-link");
             if (link) {
-                link.href = getStoreLink();
+                link.href = getStoreWebLink();
             }
             redirectToStore();
         };
