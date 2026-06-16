@@ -577,3 +577,16 @@ footer a:hover {
 }
 
 }
+
+/* App store badges (App Store + Google Play) */
+.app-badges a {
+  display: inline-block;
+}
+.app-badges a + a {
+  margin-left: 12px;
+}
+.app-badges img {
+  height: 54px;
+  width: auto;
+  vertical-align: middle;
+}
