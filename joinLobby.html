@@ -23,22 +23,58 @@
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <link rel="manifest" href="/site.webmanifest">
-    <title>Redirecting to App Store</title>
+    <title>Redirecting to the store</title>
     <script>
-        function redirectToAppStore() {
-            const appStoreLink = "https://apps.apple.com/app/apple-store/id1546705439?pt=120505680&ct=sharelobbycode&mt=8";
-            const fallbackTimeout = 1000;
+        const appStoreLink = "https://apps.apple.com/app/apple-store/id1546705439?pt=120505680&ct=sharelobbycode&mt=8";
+        const playStoreApp = "market://details?id=com.playleh.mahjongleh&referrer=utm_source%3Dsharelobbycode";
+        const playStoreWeb = "https://play.google.com/store/apps/details?id=com.playleh.mahjongleh&referrer=utm_source%3Dsharelobbycode";
 
-            setTimeout(() => {
-                window.location.href = appStoreLink;
-            }, fallbackTimeout);
+        const isAndroid = /android/i.test(navigator.userAgent);
+
+        // Web URL used for the visible "click here" link — always opens
+        // something useful, even without a store app installed.
+        function getStoreWebLink() {
+            return isAndroid ? playStoreWeb : appStoreLink;
         }
 
-        window.onload = redirectToAppStore;
+        function redirectToStore() {
+            if (!isAndroid) {
+                setTimeout(() => {
+                    window.location.href = appStoreLink;
+                }, 1000);
+                return;
+            }
+
+            // Try to open the Play Store app directly via the market:// scheme.
+            // If it isn't available, the page stays in the foreground and we
+            // fall back to the Play Store website.
+            let leftPage = false;
+            const markLeft = () => { leftPage = true; };
+            document.addEventListener("visibilitychange", markLeft);
+            window.addEventListener("pagehide", markLeft);
+
+            window.location.href = playStoreApp;
+
+            setTimeout(() => {
+                document.removeEventListener("visibilitychange", markLeft);
+                window.removeEventListener("pagehide", markLeft);
+                if (!leftPage && !document.hidden) {
+                    window.location.href = playStoreWeb;
+                }
+            }, 1500);
+        }
+
+        window.onload = function () {
+            const link = document.getElementById("store-link");
+            if (link) {
+                link.href = getStoreWebLink();
+            }
+            redirectToStore();
+        };
     </script>
 </head>
 <body>
-    <h1>Redirecting to the AppStore...</h1>
-    <p>If you are not redirected automatically, <a href="https://apps.apple.com/app/apple-store/id1546705439?pt=120505680&ct=sharelobbycode&mt=8">click here</a>.</p>
+    <h1>Redirecting to the store...</h1>
+    <p>If you are not redirected automatically, <a id="store-link" href="https://apps.apple.com/app/apple-store/id1546705439?pt=120505680&ct=sharelobbycode&mt=8">click here</a>.</p>
 </body>
 </html>
