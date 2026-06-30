@@ -588,5 +588,19 @@ footer a:hover {
 .app-badges img {
   height: 54px;
   width: auto;
+  max-width: 100%;
   vertical-align: middle;
+}
+
+@media (max-width: 480px) {
+  .app-badges a {
+    display: block;
+  }
+  .app-badges a + a {
+    margin-left: 0;
+    margin-top: 12px;
+  }
+  .app-badges img {
+    height: 48px;
+  }
 }
