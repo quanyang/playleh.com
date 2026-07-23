@@ -123,7 +123,12 @@ git diff --check
 
 For a local static preview, serve this repository from loopback. The page deliberately maps an HTTP
 loopback host to port `8080` on that same host and refuses to initialize destructive controls on any
-non-loopback, non-canonical origin. Set the backend's exact page origin, for example:
+non-loopback, non-canonical origin. Use `localhost` or `127.0.0.1` for browser testing: `localhost`
+is a default Firebase authorized domain, and Chrome rejects IPv6-literal CSP sources, so the page's
+CSP intentionally lists only the IPv4/name loopback backends. The page's `script-src` must keep
+`https://apis.google.com`; Firebase popup sign-in loads its gapi channel script from there and fails
+with `auth/internal-error` before any popup if it is blocked. Set the backend's exact page origin,
+for example:
 
 ```sh
 SUPPORTER_ACCOUNT_DELETION_WEB_ORIGIN=http://127.0.0.1:8081

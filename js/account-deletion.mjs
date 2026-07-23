@@ -206,6 +206,7 @@ async function beginSignIn(provider) {
         showStatus("Account ownership verified. Review the deletion consequences before continuing.", "success");
         document.querySelector("#confirmation-title")?.focus();
     } catch (error) {
+        logLoopbackDiagnostic(error);
         showStatus(messageForError(error), "error");
     } finally {
         setBusy(false);
@@ -359,6 +360,21 @@ function messageForError(error) {
         return "This sign-in provider is not configured for web account recovery yet. Nothing was deleted; contact PlayLeh support.";
     }
     return "The account operation could not be completed. Nothing was reported as deleted; please retry or contact support.";
+}
+
+function logLoopbackDiagnostic(error) {
+    // Local-debug aid only: never active on the canonical origin, and prints
+    // only the error code/message, never tokens, UIDs, or credentials.
+    const host = window.location.hostname;
+    if (host !== "localhost" && host !== "127.0.0.1" && host !== "[::1]" && host !== "::1") {
+        return;
+    }
+    console.error(
+        "local-debug failure:",
+        error?.code ?? error?.name ?? "unknown",
+        "-", error?.message ?? "",
+        "-", error?.customData?.message ?? "",
+    );
 }
 
 async function safeSignOut() {
