@@ -4,6 +4,57 @@ The public page is `https://playleh.com/account-deletion.html`. It satisfies the
 requirement for an external deletion resource without requiring the application to be installed.
 It is intentionally not deployed by this branch.
 
+## Static-site architecture and Firebase Web app
+
+This flow is intentionally a static site. `playleh.com` may continue to serve the checked-in HTML,
+CSS, and JavaScript from GitHub Pages (or another static host). It does not require Firebase Hosting,
+server-side rendering, a Cloud Function, or a second MahjongLeh backend.
+
+A Firebase **Web app** is only a browser-client registration inside the existing
+`mahjongleh-433ce` Firebase project. It is not a new Firebase project, a separate account universe,
+a downloadable application, or a website deployment. It supplies the public browser configuration
+used by the Firebase JavaScript SDK:
+
+- `apiKey`;
+- `appId`;
+- `authDomain`;
+- `projectId`.
+
+Those values identify the client and project; they do not authorize account deletion. They may be
+committed after the dedicated Web app exists and its API key is restricted appropriately. Never put
+Firebase Admin credentials, an Apple private key/client secret, Google OAuth secrets, provider
+access tokens, backend credentials, or service-account JSON in this repository.
+
+The same Firebase project is mandatory so an Apple/Google login resolves to the same Firebase UID
+used by the iOS and Android apps. Firebase's hosted `authDomain` handler performs the provider
+exchange; the static page keeps the resulting Firebase session in memory, obtains a fresh ID token,
+and calls the separate MahjongLeh backend:
+
+```text
+Static playleh.com page
+  -> Firebase hosted Apple/Google authentication
+  -> fresh Firebase ID token held in browser memory
+  -> DELETE https://mahjong-go.playleh.com/v1/account
+  -> backend verifies token/revocation and prepares deletion
+  -> browser revokes Apple authorization when possible and deletes Firebase user
+```
+
+The backend remains the trusted dynamic component. Exact-origin CORS only lets the browser send the
+request; it does not authenticate the user or grant deletion. The backend derives the project/UID
+from the verified bearer token and never accepts an identity asserted by the static page.
+
+### Handoff rules for the next implementer
+
+- Do not create a new Firebase project or a separate user database.
+- Do not move the page to Firebase Hosting merely because Firebase calls the registration a
+  “Web app”; static GitHub Pages hosting is supported.
+- Do not reuse an iOS/Android API key or app ID. Register the dedicated Web app and copy its public
+  configuration.
+- Do not add secrets or server-side deletion authority to the static site.
+- Do not deploy the site or production backend to make testing easier. Complete the loopback/local
+  backend flow and real-provider browser matrix first.
+- Keep the API-key sentinel and disabled controls until the real Web config is committed and tested.
+
 ## Trust and privacy boundary
 
 - The page uses the Firebase JavaScript SDK with in-memory persistence only.
