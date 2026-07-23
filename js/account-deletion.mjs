@@ -204,7 +204,7 @@ async function beginSignIn(provider) {
         elements.acknowledge.checked = false;
         updateDeleteAvailability();
         showStatus("Account ownership verified. Review the deletion consequences before continuing.", "success");
-        elements.confirmationPanel.querySelector("h2").focus?.();
+        document.querySelector("#confirmation-title")?.focus();
     } catch (error) {
         showStatus(messageForError(error), "error");
     } finally {
