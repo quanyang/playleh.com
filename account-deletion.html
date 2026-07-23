@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="referrer" content="no-referrer">
+    <meta name="description" content="Request permanent deletion of your MahjongLeh account and associated data.">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'none'; object-src 'none'; form-action 'none'; script-src 'self' https://www.gstatic.com; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src https://identitytoolkit.googleapis.com https://securetoken.googleapis.com https://www.googleapis.com https://accounts.google.com https://appleid.apple.com https://mahjongleh-433ce.firebaseapp.com https://mahjong-go.playleh.com http://127.0.0.1:8080 http://localhost:8080 http://[::1]:8080; frame-src https://accounts.google.com https://appleid.apple.com https://mahjongleh-433ce.firebaseapp.com">
+    <title>Delete your MahjongLeh account | PlayLeh</title>
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="css/account-deletion.css">
+</head>
+<body>
+    <header class="site-header">
+        <a class="brand" href="/" aria-label="PlayLeh home">PlayLeh</a>
+        <span class="product">MahjongLeh</span>
+    </header>
+
+    <main class="page-shell">
+        <section class="hero" aria-labelledby="page-title">
+            <p class="eyebrow">Account and data controls</p>
+            <h1 id="page-title">Delete your MahjongLeh account</h1>
+            <p class="lede">
+                You can submit and complete a deletion request here without reinstalling the app.
+                Sign in with the same provider and provider account linked to MahjongLeh so we can
+                verify ownership.
+            </p>
+        </section>
+
+        <div id="status" class="status" role="status" aria-live="polite" hidden></div>
+
+        <section id="sign-in-panel" class="card" aria-labelledby="sign-in-title">
+            <div class="step-number" aria-hidden="true">1</div>
+            <div>
+                <h2 id="sign-in-title">Verify the account</h2>
+                <p>
+                    Choose the Apple or Google account you previously linked in MahjongLeh.
+                    Signing in with an unrelated provider may create a new empty account; if that
+                    happens, we remove it and do not treat your original account as deleted.
+                </p>
+                <div class="provider-actions">
+                    <button id="google-sign-in" class="button button-secondary" type="button" disabled>
+                        Continue with Google
+                    </button>
+                    <button id="apple-sign-in" class="button button-dark" type="button" disabled>
+                        Continue with Apple
+                    </button>
+                </div>
+                <p class="privacy-note">
+                    This page keeps the sign-in session only in memory. It does not load Analytics,
+                    and it never displays or stores your Firebase ID, provider credential, or
+                    authentication token.
+                </p>
+            </div>
+        </section>
+
+        <section id="confirmation-panel" class="card" aria-labelledby="confirmation-title" hidden>
+            <div class="step-number" aria-hidden="true">2</div>
+            <div>
+                <h2 id="confirmation-title" tabindex="-1">Review permanent deletion</h2>
+                <p id="verified-provider" class="verified"></p>
+                <ul class="consequences">
+                    <li>Your Firebase MahjongLeh account will be permanently deleted.</li>
+                    <li>
+                        Associated account and Analytics data will be submitted for deletion.
+                        Some purchase, fraud-prevention, security, webhook, and financial records
+                        may be retained where needed for legal, operational, ownership, or recovery
+                        obligations.
+                    </li>
+                    <li>
+                        Deleting MahjongLeh does not cancel an App Store or Google Play subscription,
+                        and a new MahjongLeh account does not automatically inherit a retained
+                        purchase.
+                    </li>
+                </ul>
+                <div class="subscription-links" aria-label="Manage subscriptions">
+                    <a href="https://play.google.com/store/account/subscriptions?package=com.playleh.mahjongleh"
+                       target="_blank" rel="noopener noreferrer">Manage Google Play subscriptions</a>
+                    <a href="https://apps.apple.com/account/subscriptions"
+                       target="_blank" rel="noopener noreferrer">Manage App Store subscriptions</a>
+                </div>
+                <label class="confirmation-check">
+                    <input id="acknowledge-consequences" type="checkbox">
+                    <span>I understand deletion is permanent and store billing may continue.</span>
+                </label>
+                <label class="delete-phrase" for="delete-phrase">
+                    Type <strong>DELETE</strong> to confirm
+                </label>
+                <input id="delete-phrase" class="text-input" type="text" inputmode="text"
+                       autocomplete="off" autocapitalize="characters" spellcheck="false">
+                <div class="destructive-actions">
+                    <button id="delete-account" class="button button-danger" type="button" disabled>
+                        Permanently delete account
+                    </button>
+                    <button id="use-different-account" class="button button-link" type="button">
+                        Use a different account
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <section id="completion-panel" class="card completion" aria-labelledby="completion-title" hidden>
+            <div class="step-number" aria-hidden="true">✓</div>
+            <div>
+                <h2 id="completion-title">Deletion completed</h2>
+                <p>
+                    Your MahjongLeh Firebase account was deleted and the associated data-deletion
+                    request was submitted.
+                </p>
+                <p id="apple-follow-up" hidden>
+                    Apple authorization could not be revoked automatically. Remove MahjongLeh from
+                    your Apple Account’s “Sign in with Apple” settings to finish disconnecting it.
+                </p>
+                <a class="button button-secondary" href="/">Return to PlayLeh</a>
+            </div>
+        </section>
+
+        <aside class="support-card" aria-labelledby="support-title">
+            <h2 id="support-title">Guest-only or cannot sign in?</h2>
+            <p>
+                An anonymous guest account has no Apple or Google credential that can prove
+                ownership on the web. If your account was guest-only, or provider recovery fails,
+                contact PlayLeh support. Never send a password, Firebase token, Apple credential,
+                Google credential, or store receipt by email.
+            </p>
+            <a href="mailto:contact@playleh.com?subject=MahjongLeh%20account%20deletion%20request">
+                Contact contact@playleh.com
+            </a>
+        </aside>
+
+        <p class="legal-links">
+            <a href="/privacy-policy.html">Privacy Policy</a>
+            <span aria-hidden="true">·</span>
+            <a href="/terms-of-service.html">Terms of Service</a>
+        </p>
+
+        <noscript>
+            <p class="status status-error">
+                JavaScript is required for verified self-service deletion. You can still request
+                deletion by emailing contact@playleh.com.
+            </p>
+        </noscript>
+    </main>
+
+    <script type="module" src="js/account-deletion-bootstrap.mjs"></script>
+</body>
+</html>
