@@ -348,6 +348,13 @@ function messageForError(error) {
     if (code === "auth/network-request-failed") {
         return "The sign-in service is temporarily unreachable. Nothing was deleted; check your connection and retry.";
     }
+    if (code === "auth/web-storage-unsupported"
+        || code === "auth/operation-not-supported-in-this-environment") {
+        return "This browser blocks the storage that secure sign-in requires. Nothing was deleted; open this page in a standard browser such as Chrome, Safari, or Firefox.";
+    }
+    if (code === "auth/unauthorized-domain") {
+        return "This website address is not authorized for MahjongLeh sign-in. Nothing was deleted; open https://playleh.com/account-deletion.html directly.";
+    }
     if (code === "auth/operation-not-allowed") {
         return "This sign-in provider is not configured for web account recovery yet. Nothing was deleted; contact PlayLeh support.";
     }
