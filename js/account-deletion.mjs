@@ -22,10 +22,12 @@ import {
 const firebaseConfig = {
     // Firebase Web API keys identify a project; they are not server credentials.
     // Keep this key restricted to the Firebase APIs and deployed hosts documented
-    // in account-deletion-runbook.md.
-    apiKey: "REPLACE_WITH_FIREBASE_WEB_APP_API_KEY",
+    // in account-deletion-runbook.md. measurementId is deliberately omitted: this
+    // page never loads Analytics.
+    apiKey: "AIzaSyD4THOW_CMEpEK2qKZXaWMTFXdYiv_cZ-g",
     authDomain: "mahjongleh-433ce.firebaseapp.com",
     projectId: "mahjongleh-433ce",
+    appId: "1:822092511461:web:809906a12d0877cceabc0c",
 };
 const deletionEndpoint = deletionEndpointFor(window.location);
 const firebaseWebAppConfigured = !firebaseConfig.apiKey.startsWith("REPLACE_");
@@ -148,6 +150,7 @@ const workflow = createDeletionWorkflow({
             cache: "no-store",
             redirect: "error",
             referrerPolicy: "no-referrer",
+            signal: AbortSignal.timeout(30_000),
         });
     },
 
@@ -293,6 +296,8 @@ function showStatus(message, kind = "info") {
     elements.status.className = kind === "error"
         ? "status status-error"
         : kind === "success" ? "status status-success" : "status";
+    // Errors in a destructive flow should be announced assertively.
+    elements.status.setAttribute("role", kind === "error" ? "alert" : "status");
     elements.status.hidden = false;
 }
 
@@ -325,6 +330,10 @@ function messageForError(error) {
             }
             return "The deletion request was not accepted. Nothing was deleted; please retry later.";
         }
+    }
+    if (error?.name === "TimeoutError") {
+        return "The deletion service did not respond in time. Your account was not deleted; "
+            + "it is safe to retry later.";
     }
     const code = typeof error?.code === "string" ? error.code : "";
     if (code === "auth/popup-closed-by-user" || code === "auth/cancelled-popup-request") {

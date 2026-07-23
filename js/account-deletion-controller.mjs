@@ -53,8 +53,8 @@ export function createDeletionWorkflow(dependencies) {
                     throw new DeletionWorkflowError("unsupported-provider");
                 }
                 if (session !== null) {
-                    await dependencies.signOut();
                     session = null;
+                    await bestEffortSignOut(dependencies);
                 }
                 const candidate = await dependencies.signIn(provider);
                 if (candidate.accountStatus === "new") {

@@ -54,6 +54,13 @@ from the verified bearer token and never accepts an identity asserted by the sta
 - Do not deploy the site or production backend to make testing easier. Complete the loopback/local
   backend flow and real-provider browser matrix first.
 - Keep the API-key sentinel and disabled controls until the real Web config is committed and tested.
+- The page activates only on `https://playleh.com` or HTTP loopback. The backend's non-production
+  allowance for other exact HTTPS origins exists for potential future staging, but this page
+  deliberately fails closed there; staging it would require editing `deletionEndpointFor` and is not
+  part of this rollout.
+- The single static file serves both production and local testing, so its CSP keeps loopback
+  `connect-src` entries. They are inert in production because endpoint selection refuses loopback
+  backends when the page is served from `playleh.com`.
 
 ## Trust and privacy boundary
 
@@ -87,10 +94,15 @@ from the verified bearer token and never accepts an identity asserted by the sta
    committed API-key sentinel deliberately keeps sign-in disabled until a follow-up commit supplies
    the real public Web config. Restrict that public key to only the Firebase APIs this page needs and
    the intended web hosts.
-4. In Firebase Authentication, add `playleh.com` to authorized domains. Confirm Google and Apple
-   providers are enabled and that Apple's Service ID/private-key/return-URL configuration supports
-   the existing Firebase handler. Popup sign-in is deliberate: redirect sign-in on non-Firebase
-   hosting has extra cross-browser storage and domain configuration requirements.
+4. In Firebase Authentication, add `playleh.com` to authorized domains (`localhost` is authorized
+   by default, which is what makes local Google-provider testing work with no console change).
+   Confirm the Google provider is enabled. Apple web sign-in additionally requires an Apple
+   **Services ID** — unlike the native mobile flow — registered in the Apple Developer portal with
+   the MahjongLeh App ID as its primary App ID, domain `mahjongleh-433ce.firebaseapp.com`, and
+   return URL `https://mahjongleh-433ce.firebaseapp.com/__/auth/handler`, then entered in the
+   Firebase Apple provider dialog together with the Team ID, Key ID, and Sign in with Apple private
+   key. Popup sign-in is deliberate: redirect sign-in on non-Firebase hosting has extra
+   cross-browser storage and domain configuration requirements.
 5. Merge the website disclosure dependency before this branch, then publish this page.
 6. Run the complete real-browser/device matrix below.
 7. Only after the page is functional, enter
