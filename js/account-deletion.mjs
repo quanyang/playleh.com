@@ -337,7 +337,8 @@ function messageForError(error) {
             + "it is safe to retry later.";
     }
     const code = typeof error?.code === "string" ? error.code : "";
-    if (code === "auth/popup-closed-by-user" || code === "auth/cancelled-popup-request") {
+    if (code === "auth/popup-closed-by-user" || code === "auth/cancelled-popup-request"
+        || code === "auth/user-cancelled") {
         return "Sign-in was canceled. Nothing was deleted.";
     }
     if (code === "auth/popup-blocked") {
