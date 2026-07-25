@@ -300,6 +300,10 @@ function showStatus(message, kind = "info") {
     // Errors in a destructive flow should be announced assertively.
     elements.status.setAttribute("role", kind === "error" ? "alert" : "status");
     elements.status.hidden = false;
+    // The banner sits above all three cards, so it can be far outside the viewport of someone who
+    // just tapped a control near the bottom of a card on a phone. `nearest` does nothing when the
+    // banner is already on screen.
+    elements.status.scrollIntoView?.({ block: "nearest" });
 }
 
 function messageForError(error) {

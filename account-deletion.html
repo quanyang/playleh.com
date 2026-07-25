@@ -4,6 +4,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="referrer" content="no-referrer">
+    <!-- Opt out of engine-applied dark theming: this page's dark elements (step badges, the Apple
+         button) invert badly under Android Chrome's automatic darkening. -->
+    <meta name="color-scheme" content="only light">
     <meta name="description" content="Request permanent deletion of your MahjongLeh account and associated data.">
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'none'; object-src 'none'; form-action 'none'; script-src 'self' https://www.gstatic.com/firebasejs/ https://apis.google.com; style-src 'self' https://fonts.googleapis.com; img-src 'self' data:; font-src 'self' https://fonts.gstatic.com; connect-src https://identitytoolkit.googleapis.com https://securetoken.googleapis.com https://www.googleapis.com https://accounts.google.com https://appleid.apple.com https://mahjongleh-433ce.firebaseapp.com https://mahjong-go.playleh.com http://127.0.0.1:8080 http://localhost:8080; frame-src https://accounts.google.com https://appleid.apple.com https://mahjongleh-433ce.firebaseapp.com">
     <title>PlayLeh - Delete MahjongLeh Account</title>
@@ -31,6 +34,13 @@
                                 verify ownership.
                             </p>
                         </div>
+
+                        <noscript>
+                            <p class="status status-error">
+                                JavaScript is required for verified self-service deletion. You can still request
+                                deletion by emailing contact@playleh.com.
+                            </p>
+                        </noscript>
 
                         <div id="status" class="status" role="status" aria-live="polite" hidden></div>
 
@@ -133,12 +143,6 @@
                             </a>
                         </aside>
 
-                        <noscript>
-                            <p class="status status-error">
-                                JavaScript is required for verified self-service deletion. You can still request
-                                deletion by emailing contact@playleh.com.
-                            </p>
-                        </noscript>
                     </div>
                 </div>
             </div>
@@ -181,5 +185,6 @@
     </footer>
 
     <script type="module" src="js/account-deletion-bootstrap.mjs"></script>
+    <script nomodule src="js/account-deletion-legacy.js"></script>
 </body>
 </html>

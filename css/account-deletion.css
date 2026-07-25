@@ -28,13 +28,8 @@
 .deletion-lede {
     max-width: 640px;
     font-size: 17px;
-    color: var(--dl-muted);
-}
-
-.deletion-card *,
-.support-card *,
-.status * {
-    box-sizing: border-box;
+    /* #828282 on white is 3.84:1 — below the 4.5:1 body-text threshold. */
+    color: #4a4a4a;
 }
 
 button.dl-button,
@@ -42,11 +37,26 @@ button.dl-button,
     font-family: 'Rajdhani', sans-serif;
 }
 
+/* Focus: a plain :focus base for engines without :focus-visible (Safari < 15.4 among them), then
+   the :focus-visible refinement in its OWN rule. Keeping both in one selector list would let the
+   unsupported compound invalidate the entire rule, leaving the text input — which suppresses the
+   UA ring below — with no focus indicator at all. */
+.dl-button:focus,
+.text-input:focus,
+.confirmation-check input:focus,
+.deletion-card a:focus,
+.support-card a:focus {
+    outline: 3px solid #1368a8;
+    outline: 3px solid var(--dl-focus);
+    outline-offset: 3px;
+}
+
 .dl-button:focus-visible,
 .text-input:focus-visible,
 .confirmation-check input:focus-visible,
 .deletion-card a:focus-visible,
 .support-card a:focus-visible {
+    outline: 3px solid #1368a8;
     outline: 3px solid var(--dl-focus);
     outline-offset: 3px;
 }
@@ -76,7 +86,8 @@ button.dl-button,
 /* flow cards */
 .deletion-card {
     display: flex;
-    gap: 22px;
+    /* Spacing comes from the step badge's margin, not flex gap: Safari < 14.1 supports flexbox but
+       ignores gap, which would butt the badge against the heading. */
     margin-bottom: 26px;
     padding: 28px 26px;
     border: 1px solid var(--dl-line);
@@ -90,9 +101,15 @@ button.dl-button,
     border-top-color: var(--dl-success);
 }
 
-.deletion-card h3 {
+/* The site stylesheet renders h3 at 0.8rem uppercase below 768px, which would make these step
+   headings smaller than the body copy beside them. Restore a sane hierarchy on this page. */
+.deletion-card h3,
+.support-card h3 {
     margin: 0 0 10px;
+    color: #242424;
     color: var(--dl-ink);
+    font-size: 19px;
+    letter-spacing: 0.12rem;
     font-weight: 700;
 }
 
@@ -112,8 +129,12 @@ button.dl-button,
     width: 46px;
     height: 46px;
     line-height: 46px;
+    margin-right: 22px;
     border-radius: 50%;
     background: #111112;
+    /* Literal first: without custom-property support the var() line is dropped and the numeral
+       would inherit #333 onto this near-black badge (1.49:1) instead of vanishing into legibility. */
+    color: #f1c11a;
     color: var(--dl-accent);
     font-size: 20px;
     font-weight: 700;
@@ -143,16 +164,23 @@ button.dl-button,
     cursor: pointer;
 }
 
-.dl-button:hover:not(:disabled),
-a.dl-button:hover {
-    background: var(--dl-accent);
-    border-color: transparent;
-    color: #ffffff;
-    text-decoration: none;
+/* Hover only where a real pointer exists. Touch browsers keep :hover applied after a tap, so an
+   unguarded rule left the tapped provider button showing white-on-gold (1.70:1) until the user
+   tapped elsewhere. Dark ink on the gold reads 9.15:1. */
+@media (hover: hover) {
+    .dl-button:hover:not(:disabled),
+    a.dl-button:hover {
+        background: #f1c11a;
+        background: var(--dl-accent);
+        border-color: transparent;
+        color: #242424;
+        color: var(--dl-ink);
+        text-decoration: none;
+    }
 }
 
 .dl-button:disabled {
-    opacity: 0.45;
+    opacity: 0.55;
     cursor: not-allowed;
 }
 
@@ -162,16 +190,25 @@ a.dl-button:hover {
     color: #ffffff;
 }
 
+/* Literals first throughout: where a var() declaration is dropped for lack of custom-property
+   support, the surviving `color: #ffffff` would otherwise paint white text on the base white
+   button — making the page's one destructive action invisible. */
 .dl-button-danger {
+    background: #b80000;
     background: var(--dl-danger);
+    border-color: #b80000;
     border-color: var(--dl-danger);
     color: #ffffff;
 }
 
-.dl-button-danger:hover:not(:disabled) {
-    background: var(--dl-danger-dark);
-    border-color: var(--dl-danger-dark);
-    color: #ffffff;
+@media (hover: hover) {
+    .dl-button-danger:hover:not(:disabled) {
+        background: #8a0000;
+        background: var(--dl-danger-dark);
+        border-color: #8a0000;
+        border-color: var(--dl-danger-dark);
+        color: #ffffff;
+    }
 }
 
 .dl-button-link {
@@ -182,24 +219,29 @@ a.dl-button:hover {
     text-underline-offset: 0.2em;
 }
 
-.dl-button-link:hover:not(:disabled) {
-    background: transparent;
-    color: var(--dl-danger);
+@media (hover: hover) {
+    .dl-button-link:hover:not(:disabled) {
+        background: transparent;
+        color: #b80000;
+        color: var(--dl-danger);
+    }
 }
 
 .provider-actions {
     margin: 18px 0 6px;
 }
 
-.privacy-note {
+/* Scoped under .deletion-card so `.deletion-card p` (0,1,1) cannot outrank these. */
+.deletion-card .privacy-note {
     margin-top: 14px;
     font-size: 14px;
-    color: var(--dl-muted);
+    color: #6a6a6a;
 }
 
 /* confirmation step */
-.verified {
+.deletion-card .verified {
     font-weight: 700;
+    color: #17633a;
     color: var(--dl-success);
 }
 
@@ -222,7 +264,7 @@ a.dl-button:hover {
 .confirmation-check {
     display: flex;
     align-items: flex-start;
-    gap: 10px;
+    /* Margin on the box rather than flex gap, for Safari < 14.1. */
     margin: 16px 0 18px;
     font-size: 16px;
     font-weight: 500;
@@ -231,6 +273,7 @@ a.dl-button:hover {
 
 .confirmation-check input {
     margin-top: 5px;
+    margin-right: 10px;
     width: 18px;
     height: 18px;
 }
@@ -246,16 +289,19 @@ a.dl-button:hover {
     width: 100%;
     max-width: 280px;
     padding: 10px 14px;
-    border: 2px solid var(--dl-line);
+    /* #e4e4e4 on white is 1.27:1 — the field a user is told to type DELETE into was all but
+       invisible. This border clears the 3:1 required of UI component boundaries. */
+    border: 2px solid #767676;
     border-radius: 4px;
     font-size: 18px;
     letter-spacing: 2px;
     color: var(--dl-ink);
 }
 
+/* No `outline: none` here: the focus rules above are the only indicator, and suppressing the UA
+   ring would leave engines without :focus-visible showing nothing at all. */
 .text-input:focus {
-    border-color: var(--dl-accent);
-    outline: none;
+    border-color: #242424;
 }
 
 .destructive-actions {
@@ -269,12 +315,6 @@ a.dl-button:hover {
     border: 1px dashed #bdbdbd;
     background: #fafafa;
     text-align: left;
-}
-
-.support-card h3 {
-    margin: 0 0 10px;
-    color: var(--dl-ink);
-    font-weight: 700;
 }
 
 .support-card p {
@@ -291,8 +331,12 @@ a.dl-button:hover {
 @media (max-width: 600px) {
     .deletion-card {
         flex-direction: column;
-        gap: 12px;
         padding: 20px 16px;
+    }
+
+    .step-number {
+        margin-right: 0;
+        margin-bottom: 12px;
     }
 
     .dl-button {
@@ -300,5 +344,37 @@ a.dl-button:hover {
         width: 100%;
         margin-right: 0;
         text-align: center;
+    }
+}
+
+/* Very narrow phones: the site's wide letter-spacing on an unbreakable "MAHJONGLEH" can exceed the
+   content box, and the template's overflow-x:hidden would clip it silently rather than scroll. */
+@media (max-width: 360px) {
+    #about .section-title h1 {
+        letter-spacing: 0.05rem;
+        overflow-wrap: break-word;
+    }
+}
+
+/* Printing the completion confirmation: Bootstrap's print sheet appends every href in parentheses,
+   and these store/mailto URLs have no break opportunities, so they overflow a page box that cannot
+   scroll. The footer's icon-only links would print as bare URLs too. */
+@media print {
+    .deletion-card a:after,
+    .support-card a:after,
+    footer a:after {
+        content: "" !important;
+    }
+
+    .deletion-card,
+    .support-card {
+        page-break-inside: avoid;
+        box-shadow: none;
+    }
+
+    .provider-actions,
+    .destructive-actions,
+    footer {
+        display: none;
     }
 }
