@@ -17,6 +17,8 @@ import {
     DeletionWorkflowError,
     createDeletionWorkflow,
     deletionEndpointFor,
+    diagnosticCodeFor,
+    fetchWithTimeout,
 } from "./account-deletion-controller.mjs";
 
 const firebaseConfig = {
@@ -142,16 +144,20 @@ const workflow = createDeletionWorkflow({
     },
 
     async prepareDeletion(idToken) {
-        return fetch(deletionEndpoint, {
-            method: "DELETE",
-            headers: { Authorization: `Bearer ${idToken}` },
-            body: null,
-            credentials: "omit",
-            cache: "no-store",
-            redirect: "error",
-            referrerPolicy: "no-referrer",
-            signal: AbortSignal.timeout(30_000),
-        });
+        return fetchWithTimeout(
+            fetch,
+            deletionEndpoint,
+            {
+                method: "DELETE",
+                headers: { Authorization: `Bearer ${idToken}` },
+                body: null,
+                credentials: "omit",
+                cache: "no-store",
+                redirect: "error",
+                referrerPolicy: "no-referrer",
+            },
+            30_000,
+        );
     },
 
     async revokeAppleAccessToken(token) {
@@ -323,6 +329,10 @@ function messageForError(error) {
         if (error.code === "session-changed" || error.code === "sign-in-required") {
             return "The in-memory sign-in changed. Sign in again before retrying.";
         }
+        if (error.code === "request-timeout") {
+            return "The deletion service did not respond in time. Your account was not deleted; "
+                + "it is safe to retry later.";
+        }
         if (error.code === "backend-rejected") {
             if (error.status === 401) {
                 return "The backend could not verify this fresh sign-in. Sign in again before retrying.";
@@ -335,10 +345,6 @@ function messageForError(error) {
             }
             return "The deletion request was not accepted. Nothing was deleted; please retry later.";
         }
-    }
-    if (error?.name === "TimeoutError") {
-        return "The deletion service did not respond in time. Your account was not deleted; "
-            + "it is safe to retry later.";
     }
     const code = typeof error?.code === "string" ? error.code : "";
     if (code === "auth/popup-closed-by-user" || code === "auth/cancelled-popup-request"
@@ -369,17 +375,13 @@ function messageForError(error) {
 
 function logLoopbackDiagnostic(error) {
     // Local-debug aid only: never active on the canonical origin, and prints
-    // only the error code/message, never tokens, UIDs, or credentials.
+    // only a validated stable code. Provider messages/customData can contain
+    // emails or other account identifiers and must never reach the console.
     const host = window.location.hostname;
-    if (host !== "localhost" && host !== "127.0.0.1" && host !== "[::1]" && host !== "::1") {
+    if (host !== "localhost" && host !== "127.0.0.1") {
         return;
     }
-    console.error(
-        "local-debug failure:",
-        error?.code ?? error?.name ?? "unknown",
-        "-", error?.message ?? "",
-        "-", error?.customData?.message ?? "",
-    );
+    console.error("local-debug failure:", diagnosticCodeFor(error));
 }
 
 async function safeSignOut() {

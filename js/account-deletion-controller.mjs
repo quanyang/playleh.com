@@ -16,14 +16,70 @@ export function deletionEndpointFor(pageLocation) {
     const hostname = pageLocation?.hostname;
     const isLoopback = pageLocation?.protocol === "http:"
         && (hostname === "localhost"
-            || hostname === "127.0.0.1"
-            || hostname === "::1"
-            || hostname === "[::1]");
+            || hostname === "127.0.0.1");
     if (!isLoopback) {
         return null;
     }
-    const backendHost = hostname === "::1" || hostname === "[::1]" ? "[::1]" : hostname;
-    return `http://${backendHost}:8080/v1/account`;
+    return `http://${hostname}:8080/v1/account`;
+}
+
+export async function fetchWithTimeout(
+    fetchImplementation,
+    input,
+    init = {},
+    timeoutMilliseconds = 30_000,
+    runtime = {},
+) {
+    const AbortControllerImplementation = runtime.AbortController
+        ?? globalThis.AbortController;
+    const setTimer = runtime.setTimeout ?? globalThis.setTimeout;
+    const clearTimer = runtime.clearTimeout ?? globalThis.clearTimeout;
+
+    if (typeof AbortControllerImplementation !== "function"
+        || typeof setTimer !== "function"
+        || typeof clearTimer !== "function") {
+        throw new DeletionWorkflowError("request-timeout");
+    }
+
+    const controller = new AbortControllerImplementation();
+    let timedOut = false;
+    const timeoutID = setTimer(() => {
+        timedOut = true;
+        controller.abort();
+    }, timeoutMilliseconds);
+
+    try {
+        return await fetchImplementation(input, {
+            ...init,
+            signal: controller.signal,
+        });
+    } catch (error) {
+        if (timedOut) {
+            throw new DeletionWorkflowError("request-timeout");
+        }
+        throw error;
+    } finally {
+        clearTimer(timeoutID);
+    }
+}
+
+export function diagnosticCodeFor(error) {
+    if (error instanceof DeletionWorkflowError
+        && /^[a-z0-9-]+$/.test(error.code)) {
+        return `workflow/${error.code}`;
+    }
+
+    const externalCode = typeof error?.code === "string" ? error.code : "";
+    if (/^auth\/[a-z0-9-]+$/.test(externalCode)) {
+        return externalCode;
+    }
+
+    const errorName = typeof error?.name === "string" ? error.name : "";
+    if (/^[A-Za-z][A-Za-z0-9]*Error$/.test(errorName)) {
+        return errorName;
+    }
+
+    return "unknown";
 }
 
 export function createDeletionWorkflow(dependencies) {

@@ -1,10 +1,13 @@
 import assert from "node:assert/strict";
+import { readFileSync } from "node:fs";
 import test from "node:test";
 
 import {
     DeletionWorkflowError,
     createDeletionWorkflow,
     deletionEndpointFor,
+    diagnosticCodeFor,
+    fetchWithTimeout,
 } from "../js/account-deletion-controller.mjs";
 
 function fixture(overrides = {}) {
@@ -56,13 +59,114 @@ test("endpoint selection permits only canonical production and loopback origins"
         deletionEndpointFor(new URL("http://localhost:8081/account-deletion.html")),
         "http://localhost:8080/v1/account",
     );
-    assert.equal(
-        deletionEndpointFor(new URL("http://[::1]:8081/account-deletion.html")),
-        "http://[::1]:8080/v1/account",
-    );
+    assert.equal(deletionEndpointFor(new URL("http://[::1]:8081/account-deletion.html")), null);
     assert.equal(deletionEndpointFor(new URL("https://preview.playleh.com")), null);
     assert.equal(deletionEndpointFor(new URL("https://playleh.com.evil.example")), null);
     assert.equal(deletionEndpointFor(new URL("http://playleh.com")), null);
+});
+
+test("static CSP permits every selected loopback backend and no refused IPv6 backend", () => {
+    const page = readFileSync(new URL("../account-deletion.html", import.meta.url), "utf8");
+    assert.match(page, /connect-src[^"]*http:\/\/127\.0\.0\.1:8080/);
+    assert.match(page, /connect-src[^"]*http:\/\/localhost:8080/);
+    assert.doesNotMatch(page, /\[::1\]/);
+});
+
+test("portable request timeout aborts fetch and returns a stable workflow error", async () => {
+    let abortCalled = false;
+    let scheduledDelay = null;
+    let clearTimerArgument = null;
+    let rejectFetch;
+    const fakeSignal = { aborted: false };
+    class FakeAbortController {
+        signal = fakeSignal;
+
+        abort() {
+            abortCalled = true;
+            fakeSignal.aborted = true;
+            rejectFetch(new Error("browser-specific abort text with user@example.com"));
+        }
+    }
+    const fetchPromise = fetchWithTimeout(
+        (_input, init) => {
+            assert.equal(init.signal, fakeSignal);
+            return new Promise((_resolve, reject) => {
+                rejectFetch = reject;
+            });
+        },
+        "http://127.0.0.1:8080/v1/account",
+        { method: "DELETE" },
+        30_000,
+        {
+            AbortController: FakeAbortController,
+            setTimeout(callback, delay) {
+                scheduledDelay = delay;
+                queueMicrotask(callback);
+                return 42;
+            },
+            clearTimeout(timerID) {
+                clearTimerArgument = timerID;
+            },
+        },
+    );
+
+    await assert.rejects(
+        fetchPromise,
+        (error) => error instanceof DeletionWorkflowError
+            && error.code === "request-timeout"
+            && !error.message.includes("user@example.com"),
+    );
+    assert.equal(scheduledDelay, 30_000);
+    assert.equal(abortCalled, true);
+    assert.equal(clearTimerArgument, 42);
+});
+
+test("portable request timeout clears its timer after a successful response", async () => {
+    let passedSignal = null;
+    let clearedTimerID = null;
+    const response = { status: 204 };
+
+    const actual = await fetchWithTimeout(
+        async (_input, init) => {
+            passedSignal = init.signal;
+            return response;
+        },
+        "https://mahjong-go.playleh.com/v1/account",
+        { method: "DELETE" },
+        123,
+        {
+            AbortController,
+            setTimeout() {
+                return 7;
+            },
+            clearTimeout(timerID) {
+                clearedTimerID = timerID;
+            },
+        },
+    );
+
+    assert.equal(actual, response);
+    assert.ok(passedSignal);
+    assert.equal(clearedTimerID, 7);
+});
+
+test("diagnostics expose only stable codes and never provider messages or identifiers", () => {
+    assert.equal(diagnosticCodeFor({
+        code: "auth/network-request-failed",
+        message: "UID abc123 belongs to user@example.com",
+        customData: { message: "token secret-token" },
+    }), "auth/network-request-failed");
+    assert.equal(diagnosticCodeFor(new DeletionWorkflowError("backend-rejected")), "workflow/backend-rejected");
+    assert.equal(diagnosticCodeFor({
+        code: "auth/user@example.com",
+        name: "FirebaseError",
+        message: "secret-token",
+    }), "FirebaseError");
+    assert.equal(diagnosticCodeFor({
+        code: "user@example.com",
+        name: "not safe either",
+        message: "secret-token",
+    }), "unknown");
 });
 
 test("Google deletion verifies backend before deleting Firebase", async () => {

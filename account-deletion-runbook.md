@@ -53,7 +53,8 @@ from the verified bearer token and never accepts an identity asserted by the sta
 - Do not add secrets or server-side deletion authority to the static site.
 - Do not deploy the site or production backend to make testing easier. Complete the loopback/local
   backend flow and real-provider browser matrix first.
-- Keep the API-key sentinel and disabled controls until the real Web config is committed and tested.
+- Keep destructive controls fail-closed whenever the dedicated Firebase Web configuration cannot
+  initialize, the page is embedded, or the origin is not canonical production or approved loopback.
 - The page activates only on `https://playleh.com` or HTTP loopback. The backend's non-production
   allowance for other exact HTTPS origins exists for potential future staging, but this page
   deliberately fails closed there; staging it would require editing `deletionEndpointFor` and is not
@@ -88,12 +89,9 @@ from the verified bearer token and never accepts an identity asserted by the sta
 2. Keep `SUPPORTER_ACCOUNT_DELETION_ENABLED=false` until the named Firestore database, schema, GA4
    Admin API, runtime identity, and local end-to-end deletion path are ready. Once account creation
    is exposed, this latch must remain enabled and healthy.
-3. Register or confirm the dedicated Firebase Web app for this page. Replace or confirm the public
-   `firebaseConfig` values from that registration; do not substitute an iOS or Android API key/app
-   ID. The read-only Firebase Management check on 2026-07-23 returned no registered Web apps, so the
-   committed API-key sentinel deliberately keeps sign-in disabled until a follow-up commit supplies
-   the real public Web config. Restrict that public key to only the Firebase APIs this page needs and
-   the intended web hosts.
+3. Confirm that the committed `firebaseConfig` still matches the dedicated Firebase Web app
+   registered for this page; do not substitute an iOS or Android API key/app ID. Restrict the public
+   Web API key to only the Firebase APIs this page needs and the intended web hosts.
 4. In Firebase Authentication, add `playleh.com` to authorized domains (`localhost` is authorized
    by default, which is what makes local Google-provider testing work with no console change).
    Confirm the Google provider is enabled. Apple web sign-in additionally requires an Apple
@@ -137,7 +135,33 @@ SUPPORTER_ACCOUNT_DELETION_WEB_ORIGIN=http://127.0.0.1:8081
 Real Apple/Google popup testing additionally requires the served host to be authorized in Firebase.
 Do not add a production domain or publish this page merely to bypass local test configuration.
 
-## Release evidence matrix
+### Local non-destructive browser smoke — 2026-07-26
+
+Tested the current branch from `http://127.0.0.1:8081/account-deletion.html` against the latest local
+backend `main` on port `8080`, configured with
+`SUPPORTER_ACCOUNT_DELETION_WEB_ORIGIN=http://127.0.0.1:8081`.
+
+- Exact-origin preflight returned `204` with the expected allow-origin/method/header values; the same
+  request from `http://localhost:8081` returned `403`.
+- An exact-origin `DELETE` with a deliberately invalid smoke-test bearer token returned the typed
+  Firebase-auth `401` with CORS headers; the mismatched origin returned `403` before authentication.
+- The Codex in-app browser loaded the Firebase modules with no warning/error console entries.
+  Provider controls became enabled only after initialization; status, confirmation, and completion
+  states remained hidden. Desktop, phone, and tablet viewport checks had no horizontal overflow.
+- Safari loaded the same page with no warning/error console entries. Provider controls became
+  enabled only after initialization; status, confirmation, and completion states remained hidden.
+  Desktop and 390-pixel phone viewport checks had no horizontal overflow or out-of-bounds elements.
+- IPv6 loopback is intentionally refused because the static CSP permits only `localhost` and
+  `127.0.0.1`; the endpoint-selection unit test locks that behavior.
+
+This smoke did **not** open a provider popup, transmit a real account credential, prepare deletion,
+or delete an account. It does not clear any real-provider row in the pre-deploy matrix.
+
+## Pre-deploy release evidence matrix
+
+The automated controller tests and local static-browser matrix are necessary but do not satisfy the
+real-provider rows below. Record browser/version, account type, backend mode, result, and date for
+each row before publishing. Until then this matrix is **pending** and the page must not be deployed.
 
 - existing Google-linked account: prepare, delete Firebase user, and show success;
 - existing Apple-linked account: prepare, revoke access token, delete Firebase user, and show success;
