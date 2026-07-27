@@ -57,7 +57,7 @@ http://www.templatemo.com/tm-490-comila
                     <div class="about-thumb">
                         <div class="section-title">
                             <h1>Privacy Policy</h1>
-                            <p>The scope of this Policy is limited to information and data collected or received through the MahjongLeh application only.</p>
+                            <p>This Policy covers information and data collected or received through the MahjongLeh application and the MahjongLeh external account-deletion page.</p>
                             <p>
                                 If you choose to use the application, then you agree to
                                 the collection and use of information in relation to this
@@ -73,6 +73,9 @@ http://www.templatemo.com/tm-490-comila
                             <h4>Authentication and Account Identifiers</h4>
                             <p>
                                 The application uses Google Firebase Authentication. If you do not explicitly sign in, the application automatically creates or restores a Firebase anonymous guest account in the background. This allows account continuity and provides the foundation for future Supporter features. Explicit Apple or Google sign-in is optional; if you choose it when available, the existing guest account may be linked to that provider so that you can recover the same account on another device. Firebase and the selected provider process provider-issued credentials and may provide an account identifier and profile information permitted by you, such as a name or email address. The application does not send provider passwords to PlayLeh.
+                            </p>
+                            <p>
+                                The external account-deletion page uses the same Firebase project to verify an existing Apple- or Google-linked account. It keeps the Firebase session in browser memory, sends a fresh Firebase ID token only to the MahjongLeh backend to prepare deletion, and does not load advertising or Analytics code. The page does not display or persist your Firebase account identifier, email address, provider credential, or ID token.
                             </p>
                             <h4>Service Providers</h4>
                             <p>
@@ -105,14 +108,17 @@ http://www.templatemo.com/tm-490-comila
                             </p>
                             <h4>Data Security</h4>
                             <p>
-                                All communication between the application and our servers is encrypted in transit (TLS / HTTPS / WSS).
+                                All communication between the application, the external account-deletion page, and our servers is encrypted in transit (TLS / HTTPS / WSS), except for explicitly local loopback testing by developers.
                             </p>
                             <h4>Data Retention and Deletion</h4>
                             <p>
                                 Firebase account identifiers are retained to provide account continuity until the account is deleted. Analytics, crash, diagnostic, and advertising information is retained according to our configured settings and the relevant service provider's policies.
                             </p>
                             <p>
-                                You may request deletion of your Firebase account and related data by contacting contact@playleh.com. We may ask for an account or support identifier available through the application so that we can locate the correct record. When an in-application account deletion option is available, you may also initiate deletion there. Uninstalling the application, signing out, or declining Analytics consent does not by itself delete a Firebase account or information already retained by a service provider.
+                                You may delete your Firebase MahjongLeh account through the in-application Account screen or through the external <a href="https://playleh.com/account-deletion.html">MahjongLeh account-deletion page</a>. The external page supports verified Apple or Google accounts without requiring the application to be installed. Guest-only accounts and provider-recovery failures can use the support path shown on that page. Uninstalling the application, signing out, or declining Analytics consent does not by itself delete a Firebase account or information already retained by a service provider.
+                            </p>
+                            <p>
+                                Deletion submits associated account and Analytics data for removal. Purchase, financial, webhook, fraud-prevention, security, ownership, and recovery records may be retained where needed for legal or legitimate operational obligations. Deleting a MahjongLeh account does not cancel an App Store or Google Play subscription, and a newly created MahjongLeh account does not automatically inherit a retained purchase.
                             </p>
                         <h4>Children’s Privacy</h4>
                         <p>
@@ -134,7 +140,7 @@ http://www.templatemo.com/tm-490-comila
                             notify you of any changes by posting the new Privacy Policy on
                             this page.
                         </p>
-                        <p>This policy is effective as of 2021-11-06. Last updated 2026-07-21.</p>
+                        <p>This policy is effective as of 2021-11-06. Last updated 2026-07-23.</p>
                     </div>
                 </div>
             </div>

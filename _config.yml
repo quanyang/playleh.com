@@ -1,1 +1,4 @@
 include: [".well-known"]
+exclude:
+  - account-deletion-runbook.md
+  - tests
