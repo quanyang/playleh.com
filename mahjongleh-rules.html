@@ -59,7 +59,7 @@
                     <div class="section-title">
                         <h1>MahjongLeh</h1>
                         <h2>Rules and Regulations</h2>
-                        <p id="updated-at">Updated at 11 August 2026</p>
+                        <p id="updated-at">Updated at 22 August 2026</p>
                         <p>
                             The following rules describe Singapore Classic in Matchmaking and Multiplayer online games.<br/>
                             Seven Pairs is an optional add-on house rule that a player may enable and configure for Local Play, or that a host may enable and configure for a supported custom multiplayer lobby. Other Single-player or Offline rules may differ depending on the version of the MahjongLeh application.
@@ -197,7 +197,7 @@
                             <li><strong>Replacement Tile Bonus (花上/槓上):</strong> Self-drawn Win from a replacement tile drawn from a Gang or a bonus tile</li>
                             <li><strong>Double Gang Bonus (槓槓胡):</strong> Self-drawn Win from a second replacement tile after two consecutive Gang</li>
                             <li><strong>Concealed hand (门清):</strong> One Tai bonus for winning with a fully concealed hand (no exposed melds)</li>
-                            <li><strong>Self-drawn hand (Zimo, 自摸):</strong> Double points bonus for self-drawing the winning tile</li>
+                            <li><strong>Self-drawn Hand (Zimo, 自摸) - +1 Tai:</strong> Self-draw settlement then collects twice the normal per-player amount from each of the three opponents.</li>
                         </ul>
 
                         <h4>Winning Hands</h4>
@@ -218,6 +218,10 @@
                             <li><strong>Pure Terminals (清老頭) - 13 Tai:</strong> A winning hand consisting of only terminal tiles (1s and 9s) and no honor tiles</li>
                             <li><strong>Eighteen Arahats (十八罗汉) - 13 Tai:</strong> A winning hand consisting of four Gang melds and one pair</li>
                             <li><strong>Thirteen Terminals (十三幺) - 13 Tai:</strong> A winning hand consisting of one of each terminal suit tile (1 and 9) and each honor tile, plus a duplicate tile to form the pair</li>
+                            <li><strong>Heavenly Hand (天胡) - 10 Tai:</strong> The dealer begins with a complete winning hand before any discard. Opening Flower and Animal replacements remain eligible.</li>
+                            <li><strong>Earthly Hand (地胡) - 8 Tai:</strong> A non-dealer completes a winning hand on their first self-draw, before making any real meld.</li>
+                            <li><strong>Nine Gates (九连宝灯) - 6 Tai:</strong> A fully concealed 1112345678999 hand in one numbered suit, plus any duplicate rank from that suit. It also receives Pure Suit.</li>
+                            <li><strong>Hidden Treasure (Four Concealed Pongs, 四暗刻) - 6 Tai:</strong> Four concealed Pong or Gang sets plus a pair. It may be self-drawn, or won from a discard that completes only the pair, and also receives All Pong.</li>
                         </ul>
 
                         <h4 id="seven-pairs">Seven Pairs (七对子) — Optional House Rule</h4>
@@ -267,6 +271,34 @@
                         <h5>Multiplayer Availability</h5>
                         <p>
                             Every seated human in a custom lobby needs a compatible app version. An unsupported member cannot enable or start Seven Pairs, or join or rejoin a lobby while Seven Pairs is active. Quick Match remains Singapore Classic.
+                        </p>
+
+                        <h4 id="optional-winning-hands">Other Optional Winning Hands</h4>
+                        <p>These house rules are disabled by default and must be enabled in Match Setup.</p>
+                        <ul>
+                            <li><strong>Humanly Hand (人胡) - 5 Tai:</strong> A non-dealer wins on an ordinary discard before their own first draw and before making any real meld. It does not apply when Robbing the Gang.</li>
+                            <li><strong>Pure Green Suit (绿一色) - 2 Tai:</strong> Every non-bonus tile is Green Dragon (發) or 2, 3, 4, 6, or 8 Bamboo. It adds to a valid standard hand, and to Seven Pairs only when suit and honor stacking is enabled.</li>
+                        </ul>
+
+                        <h4 id="honor-instant-wins">Optional Honor Instant Wins</h4>
+                        <p>
+                            This house rule is disabled by default. Three Great Scholars (大三元) and Four Great Blessings (大四喜) can be enabled independently. When an enabled hand completes its third distinct Dragon set or fourth distinct Wind set, the hand ends automatically and receives the hand's listed Tai plus eligible Flower, Animal, Dragon, and Wind bonuses. The configured minimum Tai still applies.
+                        </p>
+                        <ul>
+                            <li>Completion in the initial hand, by self-draw, or by a concealed Gang uses self-draw settlement.</li>
+                            <li>Completion by claiming a discard for Pong or Gang uses discard-win settlement, including the Shooter rule. An added Gang does not trigger an Honor Instant Win.</li>
+                        </ul>
+
+                        <h4 id="automatic-flower-wins">Automatic Flower Wins</h4>
+                        <p>
+                            Where supported, these are built-in terminal events rather than Match Setup house-rule toggles. Only the eight distinct Flower tiles count; Animals do not. If the drawer owns all eight Flowers, that win takes priority. Otherwise, a player already holding the other seven may rob the newly revealed eighth Flower.
+                        </p>
+                        <ul>
+                            <li><strong>All Flowers and Seasons (八仙过海) - 10 Tai:</strong> The drawer reveals their eighth distinct Flower and wins immediately by self-draw.</li>
+                            <li><strong>Robbing the Eighth (七抢一) - 6 Tai:</strong> A player holding seven distinct Flowers claims the eighth from its drawer and wins immediately. Passing leaves the Flower with the drawer and replacement play resumes.</li>
+                        </ul>
+                        <p>
+                            Flower-win payouts use <em>u = credits per Tai × 2<sup>(awarded Tai − 1)</sup></em>, after the table's Tai cap. All Flowers pays the winner 6u, with each opponent paying 2u. For Robbing the Eighth, the drawer is the Shooter: with Shooter enabled, the drawer pays 4u and the other players pay nothing; without Shooter, the drawer pays 2u and each bystander pays 1u. The winner receives 4u in either case.
                         </p>
 
                         <h4>Payout Calculation</h4>
