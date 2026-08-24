@@ -59,10 +59,11 @@
                     <div class="section-title">
                         <h1>MahjongLeh</h1>
                         <h2>Rules and Regulations</h2>
-                        <p id="updated-at">Updated at 22 August 2026</p>
+                        <p id="updated-at">Updated at 24 August 2026</p>
                         <p>
-                            The following rules describe Singapore Classic in Matchmaking and Multiplayer online games.<br/>
-                            Seven Pairs is an optional add-on house rule that a player may enable and configure for Local Play, or that a host may enable and configure for a supported custom multiplayer lobby. Other Single-player or Offline rules may differ depending on the version of the MahjongLeh application.
+                            These rules cover Singapore Classic and the optional house rules offered by MahjongLeh.
+                            Singapore Classic rules are always active unless a section is marked optional or availability-gated.
+                            Optional rules are disabled by default and must be enabled in Match Setup. Quick Match always uses Singapore Classic; Local Play and custom multiplayer availability are stated below.
                         </p>
                         
                         <h3>General</h3> 
@@ -200,7 +201,10 @@
                             <li><strong>Self-drawn Hand (Zimo, 自摸) - 0 Tai:</strong> A normal self-draw adds no Tai. Settlement collects 2u from each of the three opponents.</li>
                         </ul>
 
-                        <h4>Winning Hands</h4>
+                        <h4>Singapore Classic Winning Hands — Always Active</h4>
+                        <p>
+                            These hands and timing awards apply whenever their conditions are met. Compatible awards are added together before the table's maximum Tai cap.
+                        </p>
                         <ul>
                             <li><strong>Coward Hand (鸡胡) - 0 Tai:</strong> A winning hand consisting of any four melds and one pair, provided it does not qualify for any other winning hand combination</li>
                             <li><strong>Ping Hu (平胡) - 4 Tai:</strong> A winning hand consisting of no bonus tiles, four Chi melds and one pair. The pair cannot be made up of a dragon tile, prevailing wind tile, or the player's seat wind tile. The hand must also be won by either self-drawn or by waiting for more than one tile option (no Kalong or Dan Diao)</li>
@@ -220,7 +224,7 @@
                             <li><strong>Thirteen Terminals (十三幺) - 13 Tai:</strong> A winning hand consisting of one of each terminal suit tile (1 and 9) and each honor tile, plus a duplicate tile to form the pair</li>
                             <li><strong>Heavenly Hand (天胡) - 10 Tai:</strong> The dealer begins with a complete winning hand before any discard. Opening Flower and Animal replacements remain eligible.</li>
                             <li><strong>Earthly Hand (地胡) - 8 Tai:</strong> A non-dealer completes a winning hand on their first self-draw, before anyone at the table has made a real Chow, Pong, or Gang. Singleton Flower or Animal reveals do not disqualify it.</li>
-                            <li><strong>Nine Gates (九连宝灯) - 6 Tai:</strong> A fully concealed 1112345678999 hand in one numbered suit, plus any duplicate rank from that suit. It also receives Pure Suit.</li>
+                            <li><strong>Nine Heavenly Gates (九连宝灯) - 6 Tai:</strong> A fully concealed 1112345678999 hand in one numbered suit, plus any duplicate rank from that suit. It also receives Pure Suit.</li>
                             <li><strong>Hidden Treasure (Four Concealed Pongs, 四暗刻) - 6 Tai:</strong> Four concealed Pong or Gang sets plus a pair. It may be self-drawn, or won from a discard that completes only the pair, and also receives All Pong.</li>
                         </ul>
 
@@ -274,25 +278,25 @@
                             Every seated human in a custom lobby needs a compatible app version. An unsupported member cannot enable or start Seven Pairs, or join or rejoin a lobby while Seven Pairs is active. Quick Match remains Singapore Classic.
                         </p>
 
-                        <h4 id="optional-winning-hands">Other Optional Winning Hands — Local Play Only</h4>
+                        <h4 id="optional-winning-hands">Optional House Rules — Local Play Only</h4>
                         <p>These Local Play house rules are disabled by default and are not available in online tables.</p>
                         <ul>
                             <li><strong>Humanly Hand (人胡) - 5 Tai:</strong> A non-dealer wins on an ordinary discard before their own first draw and before anyone at the table has made a real Chow, Pong, or Gang. Singleton Flower or Animal reveals do not disqualify it. It does not apply when Robbing the Gang.</li>
                             <li><strong>Pure Green Suit (绿一色) - 2 Tai:</strong> Every non-bonus tile is Green Dragon (發) or 2, 3, 4, 6, or 8 Bamboo. It adds to a valid standard hand, and to Seven Pairs only when suit and honor stacking is enabled.</li>
                         </ul>
 
-                        <h4 id="honor-instant-wins">Optional Honor Instant Wins</h4>
+                        <h4 id="honor-instant-wins">Honor Instant Wins — Optional House Rule</h4>
                         <p>
-                            This house rule is disabled by default. Three Great Scholars (大三元) and Four Great Blessings (大四喜) can be enabled independently. When an enabled hand completes its third distinct Dragon set or fourth distinct Wind set, the hand ends automatically and receives the hand's listed Tai plus eligible Flower, Animal, Dragon, and Wind bonuses. The configured minimum Tai still applies.
+                            This house rule is disabled by default and is available in Local Play and custom multiplayer; Quick Match remains Singapore Classic. Three Great Scholars (大三元) and Four Great Blessings (大四喜) can be enabled independently. The ordinary complete-hand versions listed above remain part of Singapore Classic; these toggles additionally end the hand as soon as the enabled third distinct Dragon set or fourth distinct Wind set is completed, without requiring four sets and a pair. The win receives the hand's listed Tai plus eligible Flower, Animal, Dragon, and Wind bonuses. The configured minimum Tai still applies.
                         </p>
                         <ul>
                             <li>Completion in the initial hand, by self-draw, or by a concealed Gang uses self-draw settlement.</li>
                             <li>Completion by claiming a discard for Pong or Gang uses discard-win settlement, including the Shooter rule. An added Gang does not trigger an Honor Instant Win.</li>
                         </ul>
 
-                        <h4 id="automatic-flower-wins">Automatic Flower Wins</h4>
+                        <h4 id="automatic-flower-wins">Automatic Flower Wins — Not House-Rule Toggles</h4>
                         <p>
-                            In Local Play, these automatic terminal wins are available without a Match Setup toggle. Online, they are default-off and enabled only when every seated player advertises <code>action:robbing_the_eighth:v1</code>; that unanimous capability snapshot is frozen when the game starts. Unsupported online tables continue classic Flower reveal and replacement play. Only the eight distinct Flower tiles count; Animals do not. If the drawer owns all eight Flowers, that win takes priority. Otherwise, a player already holding the other seven may rob the newly revealed eighth Flower.
+                            These terminal wins apply automatically in Local Play and have no Match Setup toggle. Online, they apply only when every seated player supports <code>action:robbing_the_eighth:v1</code> and the online feature is enabled; that unanimous capability snapshot is frozen when the game starts. Unsupported online tables continue classic Flower reveal and replacement play. Only the eight distinct Flower tiles count; Animals do not. If the drawer owns all eight Flowers, that win takes priority. Otherwise, a player already holding the other seven may rob the newly revealed eighth Flower.
                         </p>
                         <ul>
                             <li><strong>All Flowers and Seasons (八仙过海) - 10 Tai:</strong> The drawer reveals their eighth distinct Flower and wins immediately by self-draw.</li>
@@ -301,6 +305,16 @@
                         <p>
                             Both Flower terminal wins bypass the configured minimum Tai. Their winning-hand Tai and eligible Flower and Animal awards are combined, then the table's maximum Tai cap is applied once for payout. With <em>u = credits per Tai × 2<sup>(awarded Tai − 1)</sup></em>, All Flowers pays the winner 6u, with each opponent paying 2u. For Robbing the Eighth, the drawer is the Shooter: with Shooter enabled, the drawer pays 4u and the other players pay nothing; without Shooter, the drawer pays 2u and each bystander pays 1u. The winner receives 4u in either case.
                         </p>
+
+                        <h4 id="payment-house-rules">Payment Variants — Optional House Rules</h4>
+                        <p>
+                            Both Payment switches are independent and disabled by default. Local Play always offers them; a custom-lobby host may use them when compatible multiplayer support is available. Quick Match uses Singapore Classic payments.
+                        </p>
+                        <ul>
+                            <li><strong>Gang Shang: Discarder Pays All:</strong> Only an Exposed (Visible) Gang claimed directly from another player's discard qualifies. If the Gang player self-draws during that Gang's uninterrupted replacement sequence, the original discarder pays the full ordinary self-draw total and the other two opponents pay nothing. The immediate Gang declaration payment still applies. Flower and Animal replacements preserve responsibility; it ends when the Gang player discards, the turn or player changes, a replacement draw fails, the Gang is cancelled or robbed, or another Gang begins. Concealed and Added Gangs do not qualify.</li>
+                            <li><strong>Refund Gang Payment When Robbed:</strong> Gang payment remains immediate, as in Singapore Classic. After a confirmed Robbing the Gang win becomes public, the exact payment for that Gang is reversed once before the usual Hu settlement. Passing, an invalid or cancelled robbery, or a Gang that is not robbed causes no refund. The refund does not change the Hu settlement or reveal whether another player could rob the Gang; it also covers the rare permitted robbery of a Concealed Gang for Thirteen Terminals.</li>
+                            <li><strong>When both are enabled:</strong> A robbed Gang is paid, refunded once, then settled as an ordinary Robbing the Gang win; no Gang Shang responsibility remains. If the Gang is not robbed and the replacement sequence ends in self-draw, its immediate payment remains and the original discarder covers the self-draw settlement.</li>
+                        </ul>
 
                         <h4>Payout Calculation</h4>
                         <p>
