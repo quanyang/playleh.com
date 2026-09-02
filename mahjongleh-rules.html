@@ -59,7 +59,7 @@
                     <div class="section-title">
                         <h1>MahjongLeh</h1>
                         <h2>Rules and Regulations</h2>
-                        <p id="updated-at">Updated at 24 August 2026</p>
+                        <p id="updated-at">Updated at 2 September 2026</p>
                         <p>
                             These rules cover Singapore Classic and the optional house rules offered by MahjongLeh.
                             Singapore Classic rules are always active unless a section is marked optional or availability-gated.
@@ -90,7 +90,7 @@
                         </p>
                         <ul>
                             <li>Flower: Spring (春), Summer (夏), Autumn (秋), Winter (冬), Plum (梅), Orchid (蘭), Chrysanthemum (菊), and Bamboo (竹)</li>
-                            <li>Animal: Cat (貓), Mouse (老鼠), Rooster (公雞), and Centipede (蜈蚣)</li>
+                            <li>Animal: Mouse (老鼠), Cat (貓), Centipede (蜈蚣), and Chicken (公雞)</li>
                         </ul>
 
                         <h3>Gameplay</h3>
@@ -316,6 +316,48 @@
                             <li><strong>When both are enabled:</strong> A robbed Gang is paid, refunded once, then settled as an ordinary Robbing the Gang win. No Gang Shang responsibility remains. If the Gang is not robbed and the uninterrupted chain ends in self-draw, its immediate payment remains and the original discarder covers the self-draw settlement.</li>
                         </ul>
 
+                        <h4 id="animal-special">Animal Special — Optional House Rule</h4>
+                        <p>
+                            <strong>Animal Special is disabled by default and is not part of Singapore Classic.</strong>
+                            Local Play offers it; a custom-lobby host may use it when compatible multiplayer support is available. Quick Match remains Singapore Classic.
+                        </p>
+
+                        <h5>Selection and Animal Pairs</h5>
+                        <ul>
+                            <li>Before the first physical 13-tile deal, players choose one remaining animal in the initial East, South, West, North order: Mouse, Cat, Centipede, and Chicken.</li>
+                            <li>Mouse pairs with Cat. Centipede pairs with Chicken.</li>
+                            <li>A choice is only a preference. It does not draw, grant, reserve, remove, or reveal the physical tile; all four Animal tiles remain in the shuffled wall.</li>
+                            <li>After all four choices are locked, each assignment follows that player rather than their changing seat wind. It remains unchanged across every hand and complete game set in the same lobby session, including reconnects and AI takeovers.</li>
+                        </ul>
+
+                        <h5>Special Payouts</h5>
+                        <p>
+                            Let <em>y</em> be the normal Yao Dao payment from each opponent: the Exposed-Gang multiplier × credits per Tai. Under the default settings, <em>y</em> is 20 credits. A player's physical opening 13 means only the 13 tiles initially dealt to that player; it excludes the banker's pre-drawn 14th tile and every opening replacement tile.
+                        </p>
+                        <div class="table-responsive">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr><th>Event</th><th>Payment from each opponent</th><th>How it interacts with classic Yao Dao</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>The selected animal is in the physical opening 13</td><td>2<em>y</em> (40 credits by default)</td><td>Replaces normal processing for that selected-animal reveal.</td></tr>
+                                    <tr><td>The selected animal and its partner are both in the physical opening 13</td><td>6<em>y</em> total (120 credits by default)</td><td>The 2<em>y</em> selected-animal award and an additional 4<em>y</em> selected-pair award replace the ordinary opening pair award.</td></tr>
+                                    <tr><td>The selected animal appears outside the physical opening 13 without completing its pair</td><td><em>y</em> (20 credits by default)</td><td>Applies to the banker's pre-drawn 14th tile, an opening replacement, or a later reveal.</td></tr>
+                                    <tr><td>A pair involving the selected animal is completed outside the physical opening 13</td><td>2<em>y</em> (40 credits by default)</td><td>Replaces the ordinary Animal-pair award, regardless of which animal in the pair is revealed first.</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <ul>
+                            <li>Each award is an immediate Yao Dao payment from all three opponents. It adds no Tai, does not satisfy the minimum Tai, and does not make a hand eligible to win.</li>
+                            <li>Animal pairs that do not involve the selected animal retain their classic payout. The All Four Animals payout also remains separate and stacks when eligible.</li>
+                            <li>The usual instant-payout wall limit still applies: no Animal Special payment is made after the last drawable tile has been drawn.</li>
+                        </ul>
+
+                        <h5>Multiplayer Availability</h5>
+                        <p>
+                            Every seated human in a custom lobby needs a compatible app version. An unsupported player cannot enable or start Animal Special, or join or rejoin a lobby while Animal Special is active. Quick Match remains Singapore Classic.
+                        </p>
+
                         <h4>Payout Calculation</h4>
                         <p>
                             At the end of a win, Tai (台) are converted into Credits. The maximum Tai for a game is configurable within the ranges of 1-30.<br/>
@@ -407,7 +449,7 @@
                                 <strong>Pair of Flower tiles matching Player's seat (咬到) - 20 credits:</strong> If a player draws both Flower tiles that matches their seat number, every other player will pay 20 credits to the player.
                             </li>
                             <li>
-                                <strong>Matching Animal tiles (咬到) - 20 credits:</strong> If a player draws a matching pair of Animal tiles (e.g. Rooster and Centipede, or Cat and Mouse), every other player will pay 20 credits to the player.
+                                <strong>Matching Animal tiles (咬到) - 20 credits:</strong> If a player draws a matching pair of Animal tiles (e.g. Mouse and Cat, or Centipede and Chicken), every other player will pay 20 credits to the player.
                             </li>
                             <li>
                                 <strong>Bitten (咬到) before replacement tiles - 40 credits:</strong> For the above mentioned 咬到 events (3 and 4), if they were done before any replacement tiles were drawn, the player receives 40 credits from each player instead of 20.
