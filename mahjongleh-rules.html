@@ -325,7 +325,6 @@
                         <h5>Selection and Animal Pairs</h5>
                         <ul>
                             <li>Before the first physical 13-tile deal, players choose in the initial East, South, West, then North seat order. Each chooses one of the remaining animals: Mouse, Cat, Centipede, or Chicken.</li>
-                            <li>In Local Play, the human choice has no timer. AI players choose automatically. In multiplayer, the active human player has up to 15 seconds; when time expires, their app submits a random remaining animal.</li>
                             <li>Mouse pairs with Cat. Centipede pairs with Chicken.</li>
                             <li>A choice is only a preference. It does not draw, grant, reserve, remove, or reveal the physical tile; all four Animal tiles remain in the shuffled wall.</li>
                             <li>After all four choices are locked, each assignment follows that player rather than their changing seat wind. It remains unchanged across every hand and complete game set in the same Local Play session or multiplayer lobby, including disconnects, AI takeovers, and rejoins.</li>
@@ -333,23 +332,23 @@
 
                         <h5>Special Payouts</h5>
                         <p>
-                            Let <em>y</em> be the normal Yao Dao payment from each opponent: the Exposed-Gang multiplier × credits per Tai. Under the default settings, <em>y</em> is 20 credits. A player's physical opening 13 means only the 13 tiles initially dealt to that player; it excludes the banker's pre-drawn 14th tile and every opening replacement tile.
+                            <strong>The payments below use the default game settings.</strong> A player's physical opening 13 means only the 13 tiles initially dealt to that player; it excludes the banker's pre-drawn 14th tile and every opening replacement tile.
                         </p>
                         <div class="table-responsive">
                             <table class="table table-bordered">
                                 <thead>
-                                    <tr><th>Event</th><th>Payment from each opponent</th><th>How it interacts with classic Yao Dao</th></tr>
+                                    <tr><th>Event</th><th>Default payment from each opponent</th><th>How it interacts with classic Yao Dao</th></tr>
                                 </thead>
                                 <tbody>
-                                    <tr><td>The selected animal is in the physical opening 13</td><td>2<em>y</em> (40 credits by default)</td><td>Replaces normal processing for that selected-animal reveal.</td></tr>
-                                    <tr><td>The selected animal and its partner are both in the physical opening 13</td><td>6<em>y</em> total (120 credits by default)</td><td>The 2<em>y</em> selected-animal award and an additional 4<em>y</em> selected-pair award replace the ordinary opening pair award.</td></tr>
-                                    <tr><td>The selected animal appears outside the physical opening 13 without completing its pair</td><td><em>y</em> (20 credits by default)</td><td>Applies to the banker's pre-drawn 14th tile, an opening replacement, or a later reveal.</td></tr>
-                                    <tr><td>A pair involving the selected animal is completed outside the physical opening 13</td><td>2<em>y</em> (40 credits by default)</td><td>Replaces the ordinary Animal-pair award, regardless of which animal in the pair is revealed first.</td></tr>
+                                    <tr><td>The selected animal is in the physical opening 13</td><td>40 credits</td><td>Replaces normal processing for that selected-animal reveal.</td></tr>
+                                    <tr><td>The selected animal and its partner are both in the physical opening 13</td><td>120 credits</td><td>The selected-animal and selected-pair awards replace the ordinary opening pair award.</td></tr>
+                                    <tr><td>The selected animal appears outside the physical opening 13 without completing its pair</td><td>20 credits</td><td>Applies to the banker's pre-drawn 14th tile, an opening replacement, or a later reveal.</td></tr>
+                                    <tr><td>A pair involving the selected animal is completed outside the physical opening 13</td><td>40 credits</td><td>Replaces the ordinary Animal-pair award, regardless of which animal in the pair is revealed first.</td></tr>
                                 </tbody>
                             </table>
                         </div>
                         <ul>
-                            <li>For a pair formed entirely outside the physical opening 13, reveal order changes the combined total: selected animal first pays <em>y</em>, then its partner pays 2<em>y</em> (3<em>y</em> total); partner first pays nothing, then the selected animal pays 2<em>y</em> when it completes the pair.</li>
+                            <li>For a pair formed entirely outside the physical opening 13, apply each reveal separately. Revealing the selected animal before its partner collects 20 credits from each opponent; if its partner is revealed later, that reveal collects 40 credits. If the partner appears first, it collects nothing; revealing the selected animal later collects 40 credits.</li>
                             <li>Each award is an immediate Yao Dao payment from all three opponents. It adds no Tai, does not satisfy the minimum Tai, and does not make a hand eligible to win.</li>
                             <li>Animal pairs that do not involve the selected animal retain their classic payout. The classic All Four Animals instant payout and its separate one-Tai scoring bonus are unchanged and stack when eligible.</li>
                             <li>The usual instant-payout wall limit still applies: no Animal Special payment is made after the last drawable tile has been drawn.</li>
