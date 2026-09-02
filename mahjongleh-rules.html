@@ -198,7 +198,7 @@
                             <li><strong>Replacement Tile Bonus (花上/槓上) - 1 Tai:</strong> A self-drawn win from a replacement tile drawn after a Gang or bonus tile</li>
                             <li><strong>Double Gang Bonus (槓槓胡) - 3 Tai:</strong> A self-drawn win from the second replacement tile after two consecutive Gangs. It awards 3 Tai instead of the ordinary 1 Tai Replacement Tile Bonus.</li>
                             <li><strong>Concealed Hand (门清) - 1 Tai:</strong> One Tai bonus only for a self-drawn win with a fully concealed hand (no exposed melds). Seven Pairs uses its configured final Tai and does not add this bonus.</li>
-                            <li><strong>Self-drawn Hand (Zimo, 自摸) - 0 Tai:</strong> A normal self-draw adds no Tai. Settlement collects 2u from each of the three opponents.</li>
+                            <li><strong>Self-drawn Hand (Zimo, 自摸) - 0 Tai:</strong> A normal self-draw adds no Tai. For settlement, find the applicable capped Tai row in the payout table below. Each opponent pays the amount in the <strong>Self-drawn Hand column</strong>, and the winner receives the amount in the <strong>Total Credits Payout column for a self-drawn hand</strong>.</li>
                         </ul>
 
                         <h4>Singapore Classic Winning Hands — Always Active</h4>
@@ -296,15 +296,20 @@
 
                         <h4 id="automatic-flower-wins">Automatic Flower Wins — Not House-Rule Toggles</h4>
                         <p>
-                            These terminal wins apply automatically in Local Play and have no Match Setup toggle. Online, they apply only when every seated player supports <code>action:robbing_the_eighth:v1</code> and the online feature is enabled; that unanimous capability snapshot is frozen when the game starts. Unsupported online tables continue classic Flower reveal and replacement play. Only the eight distinct Flower tiles count; Animals do not. If the drawer owns all eight Flowers, that win takes priority. Otherwise, a player already holding the other seven may rob the newly revealed eighth Flower.
+                            These terminal wins apply automatically in Local Play and have no Match Setup toggle. Online, they apply only when every seated player's app supports them and the online feature is enabled. Otherwise, online tables continue classic Flower reveal and replacement play. Only the eight distinct Flower tiles count; Animals do not. If the drawer owns all eight Flowers, that win takes priority. Otherwise, a player already holding the other seven may rob the newly revealed eighth Flower.
                         </p>
                         <ul>
                             <li><strong>All Flowers and Seasons (八仙过海) - 10 Tai:</strong> The drawer reveals their eighth distinct Flower and wins immediately by self-draw.</li>
                             <li><strong>Robbing the Eighth (七抢一) - 6 Tai:</strong> A player holding seven distinct Flowers claims the eighth from its drawer and wins immediately. Passing leaves the Flower with the drawer and replacement play resumes.</li>
                         </ul>
                         <p>
-                            Both Flower terminal wins bypass the configured minimum Tai. Their winning-hand Tai and eligible Flower and Animal awards are combined, then the table's maximum Tai cap is applied once for payout. With <em>u = credits per Tai × 2<sup>(awarded Tai − 1)</sup></em>, All Flowers pays the winner 6u, with each opponent paying 2u. For Robbing the Eighth, the drawer is the Shooter: with Shooter enabled, the drawer pays 4u and the other players pay nothing; without Shooter, the drawer pays 2u and each bystander pays 1u. The winner receives 4u in either case.
+                            Both Flower terminal wins bypass the configured minimum Tai. Their winning-hand Tai and eligible Flower and Animal awards are combined, then the table's maximum Tai cap is applied once. Players use the final capped Tai row in the payout table below.
                         </p>
+                        <ul>
+                            <li><strong>All Flowers:</strong> Each opponent pays the amount in the <strong>Self-drawn Hand column</strong>. The winner receives the corresponding amount in the <strong>Total Credits Payout column for a self-drawn hand</strong>.</li>
+                            <li><strong>Robbing the Eighth with Shooter enabled:</strong> Treat the Flower drawer as the discarder. The drawer pays the full amount in the <strong>Total Credits Payout column</strong>; the other two opponents pay nothing.</li>
+                            <li><strong>Robbing the Eighth without Shooter:</strong> The drawer pays the amount in the <strong>Discarder column</strong>, and each other opponent pays the amount in the <strong>Each Other Opponent column</strong>. The winner receives the amount shown in the <strong>Total Credits Payout column</strong>.</li>
+                        </ul>
 
                         <h4 id="payment-house-rules">Payment Variants — Optional House Rules</h4>
                         <p>
@@ -325,52 +330,52 @@
                             <thead>
                                 <tr>
                                     <th>Tai (台)</th>
-                                    <th>Others</th>
-                                    <th>Player who discard the tile</th>
+                                    <th>Each Other Opponent</th>
+                                    <th>Discarder</th>
                                     <th>Total Credits Payout</th>
-                                    <th>Self-drawn hand (自摸)</th>
-                                    <th>Total Credits Payout (Self-drawn hand, 自摸)</th>
+                                    <th>Self-drawn Hand (自摸)</th>
+                                    <th>Total Credits Payout (Self-drawn Hand, 自摸)</th>
                                 </tr>
                             </thead>
                             <tr>
                                 <td>1</td>
                                 <td>10</td>
                                 <td>20</td>
-                                <td>10+10+20 = 40</td>
+                                <td>40</td>
                                 <td>20</td>
-                                <td>20+20+20 = 60</td>
+                                <td>60</td>
                             </tr>
                             <tr>
                                 <td>2</td>
                                 <td>20</td>
                                 <td>40</td>
-                                <td>20+20+40 = 80</td>
+                                <td>80</td>
                                 <td>40</td>
-                                <td>40+40+40 = 120</td>
+                                <td>120</td>
                             </tr>
                             <tr>
                                 <td>3</td>
                                 <td>40</td>
                                 <td>80</td>
-                                <td>40+40+80 = 160</td>
+                                <td>160</td>
                                 <td>80</td>
-                                <td>80+80+80 = 240</td>
+                                <td>240</td>
                             </tr>
                             <tr>
                                 <td>4</td>
                                 <td>80</td>
                                 <td>160</td>
-                                <td>80+80+160 = 320</td>
+                                <td>320</td>
                                 <td>160</td>
-                                <td>160+160+160 = 480</td>
+                                <td>480</td>
                             </tr>
                             <tr>
                                 <td>5</td>
                                 <td>160</td>
                                 <td>320</td>
-                                <td>160+160+320 = 640</td>
+                                <td>640</td>
                                 <td>320</td>
-                                <td>320+320+320 = 960</td>
+                                <td>960</td>
                             </tr>
                             <tr>
                                 <td colspan="6">
@@ -381,9 +386,9 @@
                                 <td>10</td>
                                 <td>5120</td>
                                 <td>10240</td>
-                                <td>5120+5120+10240 = 20480</td>
+                                <td>20480</td>
                                 <td>10240</td>
-                                <td>10240+10240+10240 = 30720</td>
+                                <td>30720</td>
                             </tr>
                         </table>
 
