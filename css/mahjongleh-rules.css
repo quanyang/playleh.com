@@ -1,0 +1,77 @@
+/* Rules-page additions; shared site styles remain unchanged. */
+.rules-page .preloader { display: none; }
+.rules-page [id] { scroll-margin-top: 20px; }
+.rules-contents {
+  margin: 24px 0 36px;
+  padding: 18px;
+  background: #f6f6f6;
+  border-left: 4px solid #b80000;
+}
+.rules-contents p { margin-bottom: 10px; color: #333; }
+.rules-contents > div, .fei-contents {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 12px;
+}
+.rules-contents a, .fei-contents a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 8px 12px;
+  border: 1px solid #d7d7d7;
+  border-radius: 3px;
+  color: #333;
+  background: #fff;
+  font-size: 16px;
+}
+.rules-page a:focus-visible, .fei-example summary:focus-visible,
+.fei-rules .table-responsive:focus-visible {
+  outline: 3px solid #b80000;
+  outline-offset: 3px;
+}
+.fei-rules {
+  margin: 34px 0 42px;
+  padding: 26px 0;
+  border-top: 2px solid #b80000;
+  border-bottom: 1px solid #dedede;
+  color: #333;
+  font-size: 17px;
+  line-height: 1.6;
+}
+.fei-rules p { color: #454545; letter-spacing: .2px; }
+.fei-rules h3 { font-size: 26px; letter-spacing: .06em; line-height: 1.35; }
+.fei-rules h4 { margin-top: 32px; font-size: 22px; line-height: 1.4; }
+.fei-rules li { margin-bottom: 8px; }
+.fei-contents { margin: 16px 0 24px; }
+.fei-families { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin: 24px 0; }
+.fei-families figure { text-align: center; padding: 12px 6px; background: #f6f6f6; }
+.fei-families .fei-example-tile { width: 76px; max-width: 100%; margin: 0 auto; }
+.fei-families figcaption { font-size: 15px; margin-top: 8px; }
+.fei-table { margin: 8px 0 0; background: #fff; }
+.fei-table caption { color: #454545; font-size: 15px; text-align: left; }
+.fei-table th { background: #f6f6f6; }
+.fei-table td, .fei-table th { padding: 12px !important; white-space: normal !important; vertical-align: top !important; }
+.fei-table th[scope="row"] { min-width: 100px; font-weight: 500; }
+.fei-example { margin: 18px 0; padding: 0 16px; border: 1px solid #d7d7d7; background: #fafafa; }
+.fei-example summary { padding: 14px 0; min-height: 48px; cursor: pointer; font-weight: 700; color: #8f0000; }
+.fei-example[open] summary { margin-bottom: 12px; border-bottom: 1px solid #dedede; }
+.fei-example-grid, .fei-steps { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+.fei-steps { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.fei-tile-row { display: flex; justify-content: flex-start; gap: 8px; margin: 10px 0 14px; }
+.fei-example-tile { display: inline-flex; flex: 0 1 64px; flex-direction: column; min-width: 0; width: 64px; text-align: center; }
+.fei-example-tile img { display: block; width: 100%; height: auto; }
+.fei-example-tile > span { font-size: 14px; line-height: 1.3; margin-top: 6px; overflow-wrap: anywhere; }
+.fei-example figcaption { margin-bottom: 18px; }
+.fei-example > p { margin-top: 14px; }
+.fei-back-link { margin-top: 24px; }
+@media (max-width: 600px) {
+  .rules-contents { padding: 12px; }
+  .fei-rules h3 { font-size: 24px; }
+  .fei-rules h4 { font-size: 21px; }
+  .fei-families { gap: 6px; }
+  .fei-example-grid, .fei-steps { grid-template-columns: minmax(0, 1fr); gap: 12px; }
+  .fei-example { padding: 0 12px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .rules-page * { scroll-behavior: auto !important; }
+}
