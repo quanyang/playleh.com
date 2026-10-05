@@ -211,8 +211,9 @@
                                     False Win
                                 </a>
                             </nav>
-                            <p>Fei are wildcard tiles added to the normal Singapore Mahjong set. Enable Fei in Game Setup for Local Play or a compatible custom multiplayer table when the option is available. Fei is off by default; Quick Match uses Singapore Classic.</p>
-                            <p>The tile faces are <strong>Fei (飛)</strong>, <strong>Fei Joker (飛 with JOKER)</strong> and <strong>Blank Fei</strong>. All have the same wildcard uses. Their physical families matter for Four Matching Fei: representing a different tile does not change a Fei&#x27;s family. Blank Fei is a playable wildcard, not a hidden or missing tile.</p>
+                            <p>Fei are wildcard tiles added to the normal Singapore Mahjong set. Enable Fei in Match Setup for Local Play or a compatible custom multiplayer lobby when the option is available. Fei is off by default; Quick Match uses Singapore Classic.</p>
+                            <p>The tile faces are <strong>Fei (飛)</strong>, <strong>Fei Joker (飛 with JOKER)</strong> and <strong>Blank Fei</strong>. All have the same wildcard uses. A <strong>family</strong> means one of these three printed faces. The family matters for Four Matching Fei; representing a different natural tile does not change the printed face. Blank Fei is a playable wildcard, separate from the natural White Dragon (白板).</p>
+                            <p><strong>For your first Fei game:</strong> use Fei to fill missing tiles in a legal hand, discard a legal natural tile instead of Fei, and check the table&#x27;s settings before using the optional actions below. You still need four sets and an eye, plus the minimum Tai, unless an enabled instant-win rule applies.</p>
                             <div class="fei-families" aria-label="The three physical Fei families">
                                 <figure>
                                     <span class="fei-example-tile">
@@ -266,12 +267,12 @@
                             <h4 id="fei-hands">Making a legal hand</h4>
                             <p>A natural tile is an ordinary Suit or Honor tile. A Fei may stand for a missing natural tile, but each group must remain a legal Mahjong group:</p>
                             <ul>
-                                <li><strong>Chi / sequence:</strong> at most one Fei, with two natural tiles completing three consecutive numbers in one suit.</li>
-                                <li><strong>Pong / triplet:</strong> at least one natural tile. The table permits at most one Fei per triplet by default, or two if configured. This limit also applies to concealed triplets in a winning hand.</li>
+                                <li><strong>Sequence (Chi, also called Chow):</strong> at most one Fei, with two natural tiles completing three consecutive numbers in one suit.</li>
+                                <li><strong>Pong / triplet:</strong> at least one natural tile. The table permits at most one Fei per triplet by default. A two-Fei limit is available only with Open Fei enabled. This limit also applies to concealed triplets in a winning hand.</li>
                                 <li><strong>Ordinary pair / eye:</strong> two identical natural tiles, or one natural tile plus one Fei. Two Fei do not make an ordinary pair; the separate Fei Zou Jie setting is explained below.</li>
                                 <li><strong>Gang:</strong> four identical natural tiles only. A Fei cannot form a Gang, and a Pong still containing a Fei cannot be upgraded into a Gang.</li>
                             </ul>
-                            <p>The full hand must still meet Minimum Tai and the usual source, timing and discard restrictions. Fei substitutions cannot make Seven Pairs, Thirteen Terminals or Nine Heavenly Gates. Those hands remain possible in a Fei game when their required shape contains only natural tiles. Other compatible awards use the valid represented hand. A qualifying ordinary hand containing Fei may rob the natural tile of an Added Gang; this does not permit Fei inside the Gang itself.</p>
+                            <p>The full hand must still meet the table&#x27;s minimum Tai and the usual winning-source, timing and discard restrictions. Fei substitutions cannot make Seven Pairs, Thirteen Terminals or Nine Heavenly Gates. Those hands remain possible in a Fei game when their required shape contains only natural tiles. Other compatible Tai awards use the completed hand with each Fei counted as the tile it represents. The usual maximum Tai cap and payment settings still apply; holding a Fei gives no Tai by itself. A qualifying ordinary hand containing Fei may rob the natural tile of an Added Gang; this does not permit Fei inside the Gang itself.</p>
                             <details class="fei-example">
                                 <summary>See legal and illegal Fei groups</summary>
                                 <div class="fei-example-grid">
@@ -310,7 +311,7 @@
                                         <figcaption><strong>Legal sequence:</strong> the Fei fills 3 Bamboo to make 2–3–4.</figcaption>
                                     </figure>
                                 </div>
-                                <p><strong>Two Bamboo 3 + Fei</strong> can form a triplet of Bamboo 3. <strong>Bamboo 2 + Bamboo 4 + Fei</strong> can form 2–3–4 Bamboo. <strong>Bamboo 3 + two Fei</strong> needs the two-Fei-per-Pong setting. Three Fei alone cannot form a triplet, and two Fei alone cannot form ordinary eyes.</p>
+                                <p><strong>3 Bamboo + 3 Bamboo + Fei</strong> can form a triplet of 3 Bamboo. <strong>2 Bamboo + 4 Bamboo + Fei</strong> can form 2–3–4 Bamboo. <strong>3 Bamboo + two Fei</strong> needs Open Fei and the two-Fei-per-Pong setting. Three Fei alone cannot form a triplet, and two Fei alone cannot form ordinary eyes.</p>
                             </details>
                             <h4 id="fei-claims">Closed Fei and Open Fei</h4>
                             <p>Closed Fei is the default. It prevents using a Fei to claim another player&#x27;s discard for Chi or Pong. It does not prevent a legal Hu using Fei already in your concealed hand, and it does not restrict fully natural claims.</p>
@@ -349,8 +350,10 @@
                                 <li>Draw one replacement from the back of the wall. Flowers and Animals continue their normal replacement sequence.</li>
                                 <li>Continue with the resulting legal actions. You may DUN another held or newly drawn Fei, win if eligible, form a natural Gang, or discard a legal natural tile.</li>
                             </ol>
-                            <p>The dealer may DUN during their first normal turn, after the opening checks and bonus replacements. Other players wait for their own draw turn. There is no separate opening DUN round. DUN is also possible after a Gang replacement, but not immediately after Chi or Pong because those turns have no own draw.</p>
-                            <p>Each declared Fei adds <strong>1 Tai if you later win</strong>. It pays no immediate credits. Declared Fei do not count as wildcard hand tiles, Four Matching Fei, Flowers or Animals. A self-drawn win on the DUN replacement earns the normal +1 Replacement Tile Bonus, including after intervening Flower/Animal replacements. Repeated DUN actions do not count as Gangs or earn Double Gang.</p>
+                            <p>The dealer may DUN during their first normal turn, after the opening checks and bonus replacements. Normally, other players wait for their own draw turn, including a Gang replacement. There is no separate opening DUN round.
+                            </p>
+                            <p><strong>Exception after Chi/Pong:</strong> if the claim leaves no legal discard, the game can offer DUN to avoid False Win, provided DUN is enabled and a replacement remains. This does not allow DUN after every claim. The original post-Chi discard bans still apply to previously held tiles; a newly drawn natural replacement may be discarded, even if it has the same value as a barred tile.</p>
+                            <p>Each declared Fei adds <strong>1 Tai if you later win</strong>. It pays no immediate credits. Declared Fei do not count as wildcard hand tiles, Four Matching Fei, Flowers or Animals. A self-drawn win on the DUN replacement earns the normal +1 Replacement Tile Bonus, including after intervening Flower/Animal replacements. Repeated DUN actions do not count as Gangs or earn Double Gang. DUN starts a separate replacement sequence and ends any active <a href="#payment-house-rules">Gang Shang: Discarder Pays All</a> responsibility. The earlier Gang payment remains settled.</p>
                             <details class="fei-example">
                                 <summary>See what DUN changes</summary>
                                 <div class="fei-steps">
@@ -387,7 +390,7 @@
                                 <li>Return the Fei to your concealed hand, unbound and available for a new legal use.</li>
                             </ol>
                             <p>Open Fei and QI FEI must be enabled. To exchange a Fei from a Chi, also enable Chi claims and QI FEI from Chi. You cannot use an older tile already held, another player&#x27;s discard, another player&#x27;s meld, or a Gang. You can exchange once per draw, including a qualifying replacement draw.</p>
-                            <p>QI FEI draws no extra wall tile and awards no Tai by itself. The meld remains exposed. Continue with the offered actions; the returned Fei may be used in a legal win or declared with DUN if eligible.</p>
+                            <p>QI FEI draws no extra wall tile and awards no Tai by itself. The meld remains exposed. Once all Fei in a Pong have been replaced, it is a natural Pong and may be upgraded with a fourth natural tile when a legal Added Gang is offered. Continue with the offered actions; the returned Fei may be used in a legal win or declared with DUN if eligible.</p>
                             <details class="fei-example">
                                 <summary>See a QI FEI exchange</summary>
                                 <div class="fei-example-grid">
@@ -426,11 +429,15 @@
                                         <figcaption><strong>After:</strong> the drawn natural tile replaces that Fei. The Fei returns to your hand; no extra wall tile is drawn.</figcaption>
                                     </figure>
                                 </div>
-                                <p>Your exposed Pong is <strong>Circle 3 + Circle 3 + Fei representing Circle 3</strong>. On drawing a natural Circle 3, QI FEI leaves <strong>three natural Circle 3</strong> in the exposed Pong and returns the Fei to your hand. An older Circle 3 already in your hand cannot make that exchange.</p>
+                                <p>Your exposed Pong is <strong>3 Circles + 3 Circles + Fei representing 3 Circles</strong>. On drawing a natural 3 Circles, QI FEI leaves <strong>three natural 3 Circles</strong> in the exposed Pong and returns the Fei to your hand. An older 3 Circles already in your hand cannot make that exchange.</p>
                             </details>
                             <h4 id="fei-four-matching">Four Matching Fei</h4>
-                            <p>On a proper ordinary winning hand, holding at least four concealed Fei from <strong>one physical family</strong> adds <strong>5 Tai by default</strong>, configurable from <strong>4 to 10 Tai</strong>. It is awarded once, even if you have more than four or more than one qualifying family. A self-drawn Fei counts; Fei used in exposed melds or set aside with DUN do not.</p>
-                            <p>The optional opening instant win is separate and off by default. It checks once at the selected time: <strong>Initial deal only</strong>, before bonus replacements, or <strong>Before first turn</strong>, after opening Flower/Animal replacements. Eligible players are offered a win starting with the dealer and continuing in turn order, and may pass. The configured Four Matching Fei award must meet Minimum Tai. The shape-bypass route needs no ordinary complete-hand shape and awards only the configured Four Matching Fei Tai before the table cap, without adding Heavenly or Earthly Hand. A legal ordinary opening hand uses its ordinary scoring instead if that produces a higher payable Tai. The opening check is not repeated after DUN. Collecting four later does not automatically end the hand; you still need a proper ordinary win.</p>
+                            <p>On a complete four-set-and-eye winning hand, including a legal Fei Zou Jie hand, holding at least four concealed Fei from <strong>one physical family</strong> adds <strong>5 Tai by default</strong>, configurable from <strong>4 to 10 Tai</strong>. It is awarded once, even if you have more than four or more than one qualifying family. A self-drawn Fei counts; Fei used in exposed melds or set aside with DUN do not.</p>
+                            <p>The optional opening instant win is separate and off by default. It checks once at the selected time. <strong>Initial deal only</strong> checks the dealt tiles before bonus replacements and includes the dealer&#x27;s pre-drawn 14th tile. <strong>Before first turn</strong> checks after opening Flower/Animal replacements. Eligible players are offered a win starting with the dealer and continuing in turn order, and may pass.
+                            </p>
+                            <p>This instant win needs no complete four-set-and-eye hand. The configured Four Matching Fei award must meet the minimum Tai; for example, a 5-Tai award cannot trigger it at a 6-Tai minimum. It awards only the configured Four Matching Fei Tai, then applies the maximum Tai cap. Flower, Animal, Heavenly Hand and Earthly Hand bonuses are not added to this instant-win award.
+                            </p>
+                            <p>If the dealer already has a legal complete opening hand with a higher payout after the cap, the game uses that hand&#x27;s ordinary scoring instead. On an exact payout tie it uses the instant-win award. The opening check is not repeated after DUN. Collecting four later does not automatically end the hand; you still need a complete legal winning hand.</p>
                             <details class="fei-example">
                                 <summary>See why the physical family matters</summary>
                                 <div class="fei-example-grid">
@@ -480,8 +487,10 @@
                                 <p><strong>Four Fei Joker</strong> qualify as one family. <strong>Two Fei + two Fei Joker</strong> do not, even if all four represent the same natural tile.</p>
                             </details>
                             <h4 id="fei-zou-jie">Fei Zou Jie (飛走街) — off by default</h4>
-                            <p>This is a separate winning interpretation, not permission to make arbitrary groups. It allows two concealed Fei, including different families, to represent the same natural identity as a special eye. A natural winning tile may instead complete a valueless eye with one held Fei: that eye cannot be a Dragon, the seat Wind or the prevailing Wind. A natural winning tile can also complete the fourth meld while two held Fei form the special eye. All remaining groups must obey the normal Fei limits and have natural anchors.</p>
-                            <p>Choose <strong>Self-draw only</strong>, or <strong>Discard or self-draw</strong> to also allow eligible natural discards. This special route does not apply to Robbing the Gang. It adds <strong>0 Tai</strong>, does not bypass Minimum Tai, and still respects revealed-tile and discard restrictions. Holding two Fei does not guarantee a win on every tile. The game compares valid interpretations and uses the highest payable Tai.</p>
+                            <p>Fei Zou Jie offers another way to complete the eye while keeping four legal sets. Two concealed Fei, including different families, may represent the same natural tile as a special eye; a self-drawn Fei can complete that two-Fei eye. A natural winning tile may instead complete a valueless eye with one held Fei: that eye cannot be a Dragon, the seat Wind or the prevailing Wind. A natural winning tile can also complete the fourth set while two held Fei form the special eye. All other groups must obey the normal Fei limits and contain natural tiles.
+                            </p>
+                            <p><strong>Example:</strong> with three legal sets already complete and <strong>2 Bamboo + 4 Bamboo + Fei + Fei Joker</strong> still concealed, a winning 3 Bamboo can complete the fourth set (2–3–4 Bamboo). The Fei and Fei Joker form the special eye. The complete hand must still qualify under the table&#x27;s winning-source, minimum Tai and revealed-tile settings.</p>
+                            <p>Choose <strong>Self-draw only</strong>, or <strong>Discard or self-draw</strong> to also allow eligible natural discards. This special route does not apply to Robbing the Gang. It adds <strong>0 Tai</strong>, does not bypass the minimum Tai, and still respects revealed-tile and discard restrictions. Holding two Fei does not guarantee a win on every tile. The game compares legal ways to complete the hand and uses the highest payout after the Tai cap. An ordinary hand takes precedence on an exact payout tie.</p>
                             <h4 id="fei-revealed-limits">Optional revealed-tile limits — off by default</h4>
                             <p>When enabled:</p>
                             <ul>
@@ -509,19 +518,38 @@
                                         </tr>
                                         <tr>
                                             <th scope="row">8</th>
-                                            <td>Eight matching Fei (default), or four Fei + four Fei Joker.</td>
+                                            <td>Eight Fei (default), or four Fei + four Fei Joker.</td>
                                         </tr>
                                         <tr>
                                             <th scope="row">12</th>
-                                            <td>Twelve matching Fei (default), or four each of Fei, Fei Joker and Blank Fei.</td>
+                                            <td>Twelve Fei (default), or four each of Fei, Fei Joker and Blank Fei.</td>
                                         </tr>
                                     </tbody>
                                 </table>
                             </div>
-                            <p>Closed Fei, one Fei per Pong and 5 Tai for Four Matching Fei are the default Fei settings. Open Fei, DUN, QI FEI, QI FEI from Chi, Fei Zou Jie, the opening instant win, revealed-tile limits and the second-Pong restriction are separate choices, subject to the dependencies above. Agree on the displayed Game Setup settings before starting. Fei multiplayer requires compatible apps at every human seat; an incompatible app cannot join or resume a Fei game.</p>
+                            <h5>Rule Settings</h5>
+                            <div class="table-responsive">
+                                <table class="table table-bordered fei-table">
+                                    <caption>Fei settings: defaults, choices and dependencies</caption>
+                                    <thead><tr><th scope="col">Setting</th><th scope="col">Default, choices and effect</th></tr></thead>
+                                    <tbody>
+                                        <tr><th scope="row">Fei discard claims</th><td>Closed Fei. Choose an Open Fei claim policy to allow the Fei-assisted Chi/Pong claims described above.</td></tr>
+                                        <tr><th scope="row">Maximum Fei per triplet</th><td>1. Choose 2 only with Open Fei enabled; the limit applies to exposed and concealed triplets.</td></tr>
+                                        <tr><th scope="row">Four Matching Fei Tai</th><td>5. Choose 4–10 Tai; four concealed tiles must belong to one family.</td></tr>
+                                        <tr><th scope="row">Opening Four Matching instant win</th><td>Off. Choose Initial deal only or Before first turn; the configured award must meet the minimum Tai.</td></tr>
+                                        <tr><th scope="row">DUN</th><td>Off. Set aside a Fei and draw a replacement when offered; each declared Fei adds 1 Tai to a later win before the cap.</td></tr>
+                                        <tr><th scope="row">QI FEI</th><td>Off. Requires Open Fei; exchange only the just-drawn natural tile for a matching Fei in your own exposed meld.</td></tr>
+                                        <tr><th scope="row">QI FEI from Chi</th><td>Off. Also requires QI FEI and the Chi and Pong claim policy.</td></tr>
+                                        <tr><th scope="row">Fei Zou Jie</th><td>Off. Choose Self-draw only or Discard or self-draw; it adds 0 Tai.</td></tr>
+                                        <tr><th scope="row">Revealed-tile limits</th><td>Off. When enabled, public natural copies and existing exposed Pongs restrict new Fei uses as described above.</td></tr>
+                                        <tr><th scope="row">No second natural Pong</th><td>Off. Requires revealed-tile limits; also blocks a later fully natural exposed Pong of that identity.</td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <p>Agree on the settings displayed in Match Setup before starting. Every seated human in a custom lobby needs a compatible app version; an incompatible app cannot join or rejoin while Fei is active. Quick Match remains Singapore Classic.</p>
                             <h4 id="fei-false-win">No legal discard: False Win</h4>
-                            <p>Fei cannot be discarded. If your turn has no legal discard and no other legal action remains, the hand ends automatically as <strong>False Win / Invalid Hand</strong>. This can happen after drawing, after a Chi/Pong, or after returning a Fei with QI FEI. An available legal win or DUN action is considered first.</p>
-                            <p>The affected player pays each other player the fixed <strong>6-Tai base amount</strong>: <strong>credits per Tai × 32</strong> per opponent, or <strong>credits per Tai × 96</strong> in total. This penalty is not doubled for Zimo and does not use the normal winning-hand maximum Tai cap. Previously settled instant payments remain settled.</p>
+                            <p>Fei cannot be discarded. If your turn has no legal discard and no other legal action remains, the hand ends automatically as <strong>False Win / Invalid Hand</strong>. This can happen after drawing, after a Chi/Pong, or after returning a Fei with QI FEI. An available legal win or DUN action is considered first, including the post-claim DUN exception above. Declining a win does not make a Fei discardable. Even when the last drawable tile is reached, a Fei dead end can end as False Win rather than an ordinary stalemate.</p>
+                            <p>The affected player pays each other player the fixed <strong>6-Tai base amount</strong>: <strong>credits per Tai × 32</strong> per opponent, or <strong>credits per Tai × 96</strong> in total. This penalty is not doubled for Zimo and does not use the normal winning-hand maximum Tai cap. For example, at 10 credits per Tai, each opponent receives 320 credits (960 in total), even if the normal maximum is 5 Tai. Previously settled instant payments remain settled.</p>
                             <p class="fei-back-link"><a href="#rules-contents">Back to rule contents</a></p>
                         </section>
 
@@ -545,7 +573,7 @@
                         <ul>
                             <li><strong>Winning on Last Tile Bonus (海底捞月):</strong> Additional one Tai for winning on the last drawable tile in the wall. The bonus does not apply to a replacement tile.</li>
                             <li><strong>Robbing the Gang (抢槓):</strong> Additional one Tai bonus for winning by robbing the Gang</li>
-                            <li><strong>Replacement Tile Bonus (花上/槓上) - 1 Tai:</strong> A self-drawn win from a replacement tile drawn after a Gang or bonus tile</li>
+                            <li><strong>Replacement Tile Bonus (花上/槓上) - 1 Tai:</strong> A self-drawn win from a replacement tile drawn after a Gang, bonus tile, or enabled DUN action</li>
                             <li><strong>Double Gang Bonus (槓槓胡) - 3 Tai:</strong> A self-drawn win from the second replacement tile after two consecutive Gangs. It awards 3 Tai instead of the ordinary 1 Tai Replacement Tile Bonus.</li>
                             <li><strong>Concealed Hand (门清) - 1 Tai:</strong> One Tai bonus only for a self-drawn win with a fully concealed hand (no exposed melds). Seven Pairs uses its configured final Tai and does not add this bonus.</li>
                             <li><strong>Self-drawn Hand (Zimo, 自摸) - 0 Tai:</strong> A normal self-draw adds no Tai. Settlement collects 2u from each of the three opponents.</li>
@@ -661,7 +689,7 @@
                             Both Payment switches are independent and disabled by default. Local Play always offers them; a custom-lobby host may use them when compatible multiplayer support is available. Quick Match uses Singapore Classic payments.
                         </p>
                         <ul>
-                            <li><strong>Gang Shang: Discarder Pays All:</strong> Only an Exposed (Visible) Gang claimed directly from another player's discard starts responsibility. If the Gang player self-draws during the same uninterrupted winning turn, the original discarder pays the full ordinary self-draw total and the other two opponents pay nothing. The immediate Gang declaration payment still applies. If a Flower or Animal appears during the replacement sequence, the final non-bonus tile becomes the latest replacement tile. A later Concealed or Added Gang continues responsibility only when that latest replacement tile completes it. Declaring a Gang that was already complete before the replacement ends responsibility. Responsibility also ends when the Gang player discards, the turn or player changes, a replacement draw fails, or a Gang is cancelled or robbed. Passing a robbery window keeps active responsibility. A Concealed or Added Gang does not create responsibility on its own.</li>
+                            <li><strong>Gang Shang: Discarder Pays All:</strong> Only an Exposed (Visible) Gang claimed directly from another player's discard starts responsibility. If the Gang player self-draws during the same uninterrupted winning turn, the original discarder pays the full ordinary self-draw total and the other two opponents pay nothing. The immediate Gang declaration payment still applies. If a Flower or Animal appears during the replacement sequence, the final non-bonus tile becomes the latest replacement tile. A later Concealed or Added Gang continues responsibility only when that latest replacement tile completes it. Declaring a Gang that was already complete before the replacement ends responsibility. Responsibility also ends when the Gang player discards, the turn or player changes, a replacement draw fails, a Gang is cancelled or robbed, or the player uses DUN. DUN begins a separate replacement sequence with ordinary self-draw payment. Passing a robbery window keeps active responsibility. A Concealed or Added Gang does not create responsibility on its own.</li>
                             <li><strong>Refund Gang Payment When Robbed:</strong> Gang payment remains immediate, as in Singapore Classic. After a confirmed Robbing the Gang win becomes public, the exact payment for that Gang is reversed once before the usual Hu settlement. Passing, an invalid or cancelled robbery, or a Gang that is not robbed causes no refund. The refund does not change the Hu settlement or reveal whether another player could rob the Gang; it also covers the rare permitted robbery of a Concealed Gang for Thirteen Terminals.</li>
                             <li><strong>When both are enabled:</strong> A robbed Gang is paid, refunded once, then settled as an ordinary Robbing the Gang win. No Gang Shang responsibility remains. If the Gang is not robbed and the uninterrupted chain ends in self-draw, its immediate payment remains and the original discarder covers the self-draw settlement.</li>
                         </ul>
@@ -884,7 +912,7 @@
                         <ul>
                             <li>A player wins</li>
                             <li>In a Fei game, a turn with no legal discard or other legal action ends as <a href="#fei-false-win">False Win / Invalid Hand</a>, with the penalty described above.</li>
-                            <li>The game ends in a stalemate when there are no more drawable tiles remaining in the live wall (excluding the 15 tiles in the dead wall). When a player draws the last drawable tile, they need not discard any tile (you might be asked to select one, but it is not actually discarded). After drawing the last tile, the player will not be allowed to draw anymore replacement tiles for bonus tiles or Gang, and will not get any instant payouts as well. The player is allowed to win using the last drawn tile.</li>
+                            <li>If no win or Fei False Win is resolved, the game ends in a stalemate when there are no more drawable tiles remaining in the live wall (excluding the 15 tiles in the dead wall). When a player draws the last drawable tile, they need not discard any tile (you might be asked to select one, but it is not actually discarded). After drawing the last tile, the player will not be allowed to draw anymore replacement tiles for bonus tiles or Gang, and will not get any instant payouts as well. The player is allowed to win using the last drawn tile.</li>
                         </ul>
                         <p>
                             An ordinary wall-exhaustion stalemate has no winning-hand payout. A Fei False Win instead settles its fixed penalty. Previously settled instant payments remain settled in either case.
@@ -996,7 +1024,7 @@
     </div>
 </footer>
 <!-- Back top -->
-<a href="#back-top" class="go-top"><i class="fa fa-angle-up"></i></a>
+<a href="#about" class="rules-back-top" aria-label="Back to top"><i class="fa fa-angle-up" aria-hidden="true"></i></a>
 <!-- javscript js -->
 <script src="js/jquery.js"></script>
 <script src="js/bootstrap.min.js"></script>

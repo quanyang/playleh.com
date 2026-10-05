@@ -1,6 +1,18 @@
 /* Rules-page additions; shared site styles remain unchanged. */
 .rules-page .preloader { display: none; }
 .rules-page [id] { scroll-margin-top: 20px; }
+.rules-back-top {
+  display: block;
+  width: 50px;
+  height: 50px;
+  margin: 24px auto;
+  background: #eee;
+  color: #111112;
+  font-size: 22px;
+  line-height: 50px;
+  text-align: center;
+}
+.rules-back-top:hover { background: #f1c11a; color: #fff; }
 .rules-contents {
   margin: 24px 0 36px;
   padding: 18px;
