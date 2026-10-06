@@ -60,7 +60,7 @@
                     <div class="section-title">
                         <h1>MahjongLeh</h1>
                         <h2>Rules and Regulations</h2>
-                        <p id="updated-at">Updated at 5 October 2026</p>
+                        <p id="updated-at">Updated at 6 October 2026</p>
                         <p>
                             These rules cover Singapore Classic and the optional house rules offered by MahjongLeh.
                             Singapore Classic rules are always active unless a section is marked optional or availability-gated.
@@ -341,7 +341,57 @@
                                     </tbody>
                                 </table>
                             </div>
-                            <p>The discarded tile must be natural. An exposed Fei&#x27;s represented identity cannot be changed later to suit a different hand. Hu takes precedence over meld claims. Among competing Pong claims, a fully natural Pong takes precedence over a Fei-assisted Pong. Normal claim restrictions still apply.</p>
+                            <p>The discarded tile must be natural. An exposed Fei&#x27;s represented identity cannot be changed later to suit a different hand. Normal claim restrictions still apply.</p>
+                            <h4 id="fei-pong-priority">Which Pong takes the discard?</h4>
+                            <p>Among <strong>legal Pong claims on the same discard</strong>, fewer Fei takes precedence. Count all three tiles in the completed Pong, <strong>including the claimed natural discard</strong>:</p>
+                            <ol>
+                                <li><strong>3 natural tiles, no Fei</strong> — supply 2 natural tiles from your hand.</li>
+                                <li><strong>2 natural tiles + 1 Fei</strong> — supply 1 natural tile and 1 Fei from your hand.</li>
+                                <li><strong>1 natural tile + 2 Fei</strong> — supply 2 Fei from your hand, only when the two-Fei limit and an applicable Open Fei claim policy allow it.</li>
+                            </ol>
+                            <p>A Pong with fewer Fei wins even if its claimant sits farther from the discarder. If the Fei counts are equal, the nearest claimant <strong>after the discarder in turn order</strong> wins, wrapping around the table. Responding first gives no priority, and the printed Fei family does not affect the ranking.</p>
+                            <p>This ranking does not make an otherwise illegal claim legal. Closed Fei remains the default; the chosen Open Fei policy, triplet limit, revealed-tile limits and discard restrictions still apply. Action priority remains unchanged: <strong>Hu and Gang outrank Pong; Pong outranks Chi / Chow.</strong></p>
+                            <details class="fei-example" id="fei-pong-priority-example">
+                                <summary>See competing Pongs and the seat-order tie-break</summary>
+                                <p>With Open Fei allowing Suit Pongs and the two-Fei limit enabled, a player discards <strong>3 Bamboo</strong>. The two pictures show alternative Pongs competing for that <strong>same discard</strong>; only the winning Pong is made.</p>
+                                <div class="fei-example-grid">
+                                    <figure>
+                                        <div class="fei-tile-row">
+                                            <span class="fei-example-tile">
+                                                <img src="images/fei/bamboo-3.png" alt="Claimed discard: 3 Bamboo" width="230" height="300" loading="lazy">
+                                                <span aria-hidden="true">Discard: 3 Bamboo</span>
+                                            </span>
+                                            <span class="fei-example-tile">
+                                                <img src="images/fei/bamboo-3.png" alt="3 Bamboo from hand" width="230" height="300" loading="lazy">
+                                                <span aria-hidden="true">Hand: 3 Bamboo</span>
+                                            </span>
+                                            <span class="fei-example-tile">
+                                                <img src="images/fei/fei.png" alt="Fei from hand, representing 3 Bamboo" width="230" height="300" loading="lazy">
+                                                <span aria-hidden="true">Hand: Fei → 3 Bamboo</span>
+                                            </span>
+                                        </div>
+                                        <figcaption><strong>Farther claimant wins:</strong> one natural tile + one Fei from hand makes a Pong with <strong>1 Fei</strong>.</figcaption>
+                                    </figure>
+                                    <figure>
+                                        <div class="fei-tile-row">
+                                            <span class="fei-example-tile">
+                                                <img src="images/fei/bamboo-3.png" alt="Same claimed discard: 3 Bamboo" width="230" height="300" loading="lazy">
+                                                <span aria-hidden="true">Same discard: 3 Bamboo</span>
+                                            </span>
+                                            <span class="fei-example-tile">
+                                                <img src="images/fei/fei.png" alt="First Fei from hand, representing 3 Bamboo" width="230" height="300" loading="lazy">
+                                                <span aria-hidden="true">Hand: Fei → 3 Bamboo</span>
+                                            </span>
+                                            <span class="fei-example-tile">
+                                                <img src="images/fei/joker.png" alt="Fei Joker from hand, representing 3 Bamboo" width="230" height="300" loading="lazy">
+                                                <span aria-hidden="true">Hand: Joker → 3 Bamboo</span>
+                                            </span>
+                                        </div>
+                                        <figcaption><strong>Nearer claimant loses:</strong> two Fei from hand make a Pong with <strong>2 Fei</strong>. Sitting nearer or responding first does not beat the one-Fei Pong.</figcaption>
+                                    </figure>
+                                </div>
+                                <p><strong>Equal Fei count:</strong> suppose turn order is A → B → C → D → A. D discards 3 Bamboo, and A and C each claim with one natural 3 Bamboo and one Fei from hand. Both Pongs have 1 Fei, so <strong>A wins</strong> as the nearest claimant after D, even if C responds first or uses a different Fei family.</p>
+                            </details>
                             <h4 id="fei-dun">DUN / Declare Fei (垫) — off by default</h4>
                             <p>When DUN is enabled and a replacement remains available:</p>
                             <ol>
