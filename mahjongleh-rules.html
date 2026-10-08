@@ -152,7 +152,7 @@
                                 <li>Exposed Gang (明槓): You claim a discarded tile to form a quadruplet with three identical tiles already in your hand.</li>
                                 <li>Added Gang (加槓): You add a fourth tile from your hand to an already exposed Pong meld.</li>
                             </ul>
-                            When forming a Gang, you must draw a replacement tile from the dead wall and discard a tile.
+                            When a Gang is legally offered, draw its replacement from the back of the drawable wall, before the 15-tile reserve. Continue with an eligible win or a legal discard.
                         </li>
                     </ul>
 
@@ -162,7 +162,7 @@
                     </p>
                     <ol>
                         <li>Reveal the tile immediately</li>
-                        <li>Draw a replacement tile from the dead wall</li>
+                        <li>Draw a replacement tile from the back of the drawable wall, before the 15-tile reserve</li>
                         <li>Continue your turn normally</li>
                     </ol>
                     <p>
@@ -217,7 +217,7 @@
                             <p>Fei are wildcard tiles added to the normal Singapore Mahjong set. Enable Fei in Match Setup for Local Play or a compatible custom multiplayer lobby when the option is available. Fei is off by default; Quick Match uses Singapore Classic.</p>
                             <p>The physical families are <strong>red Fei</strong>, <strong>red Fei Joker</strong>, <strong>Blank Fei</strong>, <strong>blue Fei</strong>, <strong>blue Fei Joker</strong>, <strong>green Fei</strong> and <strong>green Fei Joker</strong>. All have the same wildcard uses. A family means one printed face and colour; representing a natural tile does not change that identity. It matters for Four Matching Fei and Five Different Fei. Blank Fei is a playable wildcard, separate from the natural White Dragon (白板).</p>
                             <p><strong>For your first Fei game:</strong> use Fei to fill missing tiles in a legal hand, discard a legal natural tile instead of Fei, and check the table&#x27;s settings before using the optional actions below. A standard Fei-assisted win still needs four sets and an eye, plus the table&#x27;s minimum Tai. Natural special hands and instant wins are explained separately below.</p>
-                            <div class="fei-families" aria-label="Seven physical Fei families; the blue and green families are available only in larger Debug decks">
+                            <div class="fei-families" aria-label="Seven physical Fei families; larger split decks add blue and green families">
                                 <figure>
                                     <span class="fei-example-tile">
                                         <img src="images/fei/fei.png" alt="Fei" width="230" height="300" loading="lazy">
@@ -587,7 +587,7 @@
                             <p>The optional <strong>No second natural Pong of the same tile</strong> setting goes further: after a Pong is exposed, no later exposed Pong of that identity may be called, even using all-natural tiles. It does not forbid a fully natural concealed triplet. It is available only when revealed limits are on.</p>
                             <p>An exposed Fei binding accepted earlier stays legal when more natural copies are revealed later. It is not retroactively changed. If QI FEI returns that Fei to your hand, its next use must satisfy the current limits again.</p>
                             <h4 id="fei-settings">Table settings and tile families</h4>
-                            <p>Fei-capable Release clients support 4, 8 or 12 additional tiles when Fei is enabled. The normal 148-tile set and 15-tile reserve remain intact. Larger 16, 20, 24 and 28 Fei decks, their blue and green families, and Five Different Fei are <strong>Debug-only options</strong>; they are not available in Release. Online rooms also require compatible clients and backend support.</p>
+                            <p>When Fei is enabled, choose 4, 8, 12, 16, 20, 24 or 28 additional tiles. The normal 148-tile set and 15-tile reserve remain intact. Split decks add physical families as the Fei count grows, up to all seven at 28 Fei. Five Different Fei is available with 20, 24 or 28 Fei in a four-of-each-type split deck. Online rooms also require compatible clients, backend support and an enabled Fei rollout.</p>
                             <div class="table-responsive">
                                 <table class="table table-bordered fei-table">
                                     <caption>Table settings and tile families</caption>
@@ -611,19 +611,19 @@
                                             <td>Twelve Fei (default), or four each of Fei, Fei Joker and Blank Fei.</td>
                                         </tr>
                                         <tr>
-                                            <th scope="row">16 · Debug</th>
+                                            <th scope="row">16</th>
                                             <td>Sixteen red Fei (default), or four each of red Fei, red Fei Joker, Blank Fei and blue Fei.</td>
                                         </tr>
                                         <tr>
-                                            <th scope="row">20 · Debug</th>
+                                            <th scope="row">20</th>
                                             <td>Twenty red Fei (default), or four each of the first five families, adding blue Fei Joker.</td>
                                         </tr>
                                         <tr>
-                                            <th scope="row">24 · Debug</th>
+                                            <th scope="row">24</th>
                                             <td>Twenty-four red Fei (default), or four each of the first six families, adding green Fei.</td>
                                         </tr>
                                         <tr>
-                                            <th scope="row">28 · Debug</th>
+                                            <th scope="row">28</th>
                                             <td>Twenty-eight red Fei (default), or four each of all seven families, adding green Fei Joker.</td>
                                         </tr>
                                     </tbody>
@@ -639,7 +639,7 @@
                                         <tr><th scope="row">Maximum Fei per triplet</th><td>1. Choose 2 only with Open Fei enabled; the limit applies to exposed and concealed triplets.</td></tr>
                                         <tr><th scope="row">Four Matching Fei Tai</th><td>5. Choose 4–10 Tai; four concealed tiles must belong to one family.</td></tr>
                                         <tr><th scope="row">Opening Four Matching instant win</th><td>Off. Choose Initial deal only or Before first turn; the configured award must meet the minimum Tai.</td></tr>
-                                        <tr><th scope="row">Five Different Fei</th><td>Off. Available only with 20, 24 or 28 Fei and four of each physical type in Debug. Keep five different families concealed; the award defaults to 5 Tai and can be set from 4–10.</td></tr>
+                                        <tr><th scope="row">Five Different Fei</th><td>Off. Available only with 20, 24 or 28 Fei and four of each physical type. Keep five different families concealed; the award defaults to 5 Tai and can be set from 4–10.</td></tr>
                                         <tr><th scope="row">Opening Five Different instant win</th><td>Off. Choose Initial deal only or Before first turn independently of Four Matching; the configured award must meet the minimum Tai.</td></tr>
                                         <tr><th scope="row">DUN</th><td>Off. Set aside a Fei and draw a replacement when offered; each declared Fei adds 1 Tai to a later win before the cap.</td></tr>
                                         <tr><th scope="row">QI FEI</th><td>Off. Requires Open Fei; exchange only the just-drawn natural tile for a matching Fei in your own exposed meld.</td></tr>
@@ -1007,7 +1007,7 @@
                         </ul>
 
                         <h3 id="ending">Ending the Game</h3>
-                        <h4>Dead Wall</h4>
+                        <h4>15-tile reserve and replacement draws</h4>
                         <p>
                             The last 15 tiles are reserved and cannot be drawn. Flower, Animal, Gang and enabled <a href="#fei-dun">DUN replacements</a> come from the back of the wall while a legal replacement remains. The same 15-tile reserve applies in Fei games.
                         </p>
@@ -1019,7 +1019,7 @@
                         <ul>
                             <li>A player wins</li>
                             <li>In a Fei game, a turn with no legal discard or other legal action ends as <a href="#fei-false-win">False Win / Invalid Hand</a>, with the penalty described above.</li>
-                            <li>If no win or Fei False Win is resolved, the game ends in a stalemate when there are no more drawable tiles remaining in the live wall (excluding the 15 tiles in the dead wall). When a player draws the last drawable tile, they need not discard any tile (you might be asked to select one, but it is not actually discarded). After drawing the last tile, the player will not be allowed to draw anymore replacement tiles for bonus tiles or Gang, and will not get any instant payouts as well. The player is allowed to win using the last drawn tile.</li>
+                            <li>If no win or Fei False Win is resolved, the game ends in a stalemate when there are no more drawable tiles remaining before the 15-tile reserve. When a player draws the last drawable tile, they need not discard any tile (you might be asked to select one, but it is not actually discarded). After drawing the last tile, the player will not be allowed to draw anymore replacement tiles for bonus tiles or Gang, and will not get any instant payouts as well. The player is allowed to win using the last drawn tile.</li>
                         </ul>
                         <p>
                             An ordinary wall-exhaustion stalemate has no winning-hand payout. A Fei False Win instead settles its fixed penalty. Previously settled instant payments remain settled in either case.
