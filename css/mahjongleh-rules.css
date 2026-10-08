@@ -55,7 +55,7 @@
 .fei-rules h4 { margin-top: 32px; font-size: 22px; line-height: 1.4; }
 .fei-rules li { margin-bottom: 8px; }
 .fei-contents { margin: 16px 0 24px; }
-.fei-families { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin: 24px 0; }
+.fei-families { display: grid; grid-template-columns: repeat(auto-fit, minmax(110px, 1fr)); gap: 12px; margin: 24px 0; }
 .fei-families figure { text-align: center; padding: 12px 6px; background: #f6f6f6; }
 .fei-families .fei-example-tile { width: 76px; max-width: 100%; margin: 0 auto; }
 .fei-families figcaption { font-size: 15px; margin-top: 8px; }
