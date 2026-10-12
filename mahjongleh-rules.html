@@ -71,7 +71,7 @@
                             <p><strong>Singapore Classic</strong></p>
                             <div><a href="#general">Tiles</a><a href="#gameplay">Gameplay</a><a href="#ending">Ending the hand</a><a href="#discard-rules">Discard rules</a><a href="#scoring">Scoring</a><a href="#payout-calculation">Payments</a></div>
                             <p><strong>Optional house rules</strong></p>
-                            <div><a href="#house-rules">Payment variants</a><a href="#seven-pairs">Seven Pairs</a><a href="#optional-winning-hands">Other winning hands</a><a href="#animal-special">Animal Special</a><a href="#bite-flowers">Bite Flowers</a><a href="#fei">Fei / Joker</a><a href="#glossary">Glossary</a></div>
+                            <div><a href="#house-rules">Payment variants</a><a href="#seven-pairs">Seven Pairs</a><a href="#optional-winning-hands">Other winning hands</a><a href="#honor-instant-wins">Honor Instant Wins</a><a href="#animal-special">Animal Special</a><a href="#bite-flowers">Bite Flowers</a><a href="#fei">Fei / Joker</a><a href="#glossary">Glossary</a></div>
                         </nav>
                         <h3 id="general">The Tiles</h3>
                         <p>
@@ -139,10 +139,11 @@
                         <h4>Game Flow</h4>
                         <p>The <strong>wall</strong> is the face-down supply of tiles. Ordinary draws come from the front of the remaining wall; replacement draws come from its back. Stop all draws when only <strong>15 tiles remain</strong>. Those remaining tiles are not drawn.</p>
                         <p>
-                            Deal 13 tiles to each player, then give the dealer (East) an extra 14th tile. Keep track of which bonus tiles belonged to each player's original 13: the dealer's extra tile is excluded from the higher opening-pair payment, but still participates in opening win checks and bonus replacements. The dealer begins with that extra tile and does not take another ordinary draw before their first discard. After the opening turn, players take turns in counterclockwise order:
+                            Deal 13 tiles to each player, then give the dealer (East) an extra 14th tile. Keep track of which bonus tiles belonged to each player's original 13: the dealer's extra tile is excluded from the higher opening-pair payment, but still participates in opening win checks and bonus replacements. Resolve opening bonus replacements and any agreed opening instant-win checks in their stated order. If nobody takes an instant win, the dealer may declare a legal ordinary opening win or begin their turn with that extra tile, without another ordinary draw. After the opening turn, players take turns in counterclockwise order:
                         </p>
                         <ol>
-                            <li><strong>Draw:</strong> Draw one tile from the wall</li>
+                            <li><strong>Draw:</strong> Draw one tile from the wall and resolve any Flower or Animal replacements and applicable instant-win checks.</li>
+                            <li><strong>Win or continue:</strong> Check for a legal win, applying any agreed instant-win rules first. If using Fei, you may also make an eligible <a href="#fei-qi-fei">Qi Fei</a> or <a href="#fei-dun">Dun</a> action and then check for a win again.</li>
                             <li><strong>Melding using tiles in hand (Optional):</strong> After drawing a tile, a player may form a quadruplet meld using tiles in their hand</li>
                             <li><strong>Discard:</strong> Discard one tile face-up</li>
                             <li><strong>Melding by claiming the discard (Optional):</strong> Other players may claim the discarded tile to form a meld</li>
@@ -150,7 +151,7 @@
 
                         <h4>Melding Actions</h4>
                         <p>
-                            Tiles kept in your hand are <strong>concealed</strong>. A group shown after claiming another player's discard is an <strong>exposed meld</strong>. During play, you can form melds using your own tiles or by claiming a discard:
+                            Tiles kept in your hand are <strong>concealed</strong>. A group made by claiming another player's discard is an <strong>exposed meld</strong>. A declared Concealed Gang remains concealed for scoring. During play, you can form melds using your own tiles or by claiming a discard:
                         </p>
                         <p>Keep each declared meld together beside your concealed tiles. It counts as one of your four winning sets; you cannot take it apart, move its tiles into another set or discard them. A Pong may be upgraded by Added Gang, and an agreed <a href="#fei-qi-fei">Qi Fei</a> exchange may replace a Fei in an exposed meld.</p>
                         <ul>
@@ -167,18 +168,19 @@
                     </ul>
 
                     <h4>Competing claims and the next turn</h4>
-                    <p>Give everyone a chance to claim each discard before the next draw. Among legal claims, the priority is <strong>Hu, then Gang, then Pong, then Chi</strong>. Responding first gives no priority. If several players declare a legal Hu on the same tile, only the player nearest after the discarder in counterclockwise turn order wins. For competing Robbing the Gang wins, count from the player declaring the Gang.</p>
+                    <p>Give everyone a chance to claim each discard before the next draw, except the <a href="#ending">final discard at the wall limit</a>, which cannot be claimed. Among legal claims, the priority is <strong>Hu, then Gang, then Pong, then Chi</strong>. Responding first gives no priority. If several players declare a legal Hu on the same tile, only the player nearest after the discarder in counterclockwise turn order wins. For competing Robbing the Gang wins, count from the player declaring the Gang.</p>
                     <p>After Chi or Pong, the claimant reveals the meld and discards <strong>without an ordinary draw</strong>, unless an accepted <a href="#honor-instant-wins">Honor Instant Win</a> ends the hand. After Gang, resolve any legal robbery before offering an Honor Instant Win. If the hand continues, the claimant draws a replacement and then wins or discards. If nobody claims the claimant's discard, the next player after the claimant draws. Seats between the original discarder and an out-of-turn claimant are skipped. Among competing Pongs, the nearest claimant after the discarder wins; when using Fei, first apply the <a href="#fei-pong-priority">fewer-Fei priority</a>.</p>
 
                     <h4>Bonus Tiles</h4>
-                    <p>Before normal play begins, reveal and replace all Flowers and Animals in the dealt tiles, including the dealer's extra tile. If a replacement is another bonus tile, reveal and replace it again. Keep track of the original 13 for opening payments. When using optional Fei opening wins, first perform any <a href="#fei-four-matching">agreed check before replacements</a>.</p>
+                    <p>Before normal play begins, reveal and replace all Flowers and Animals in the dealt tiles, including the dealer's extra tile, unless an <a href="#automatic-flower-wins">Eight-Flower win</a> ends the hand. If a replacement is another bonus tile, resolve it in the same way. Keep track of the original 13 for opening payments. When using optional Fei opening wins, first perform any <a href="#fei-four-matching">agreed check before replacements</a>.</p>
                     <p>
                         Whenever you draw a Flower or Animal during play, you must:
                     </p>
                     <ol>
                         <li>Reveal the tile immediately</li>
-                        <li>Draw a replacement tile from the back of the remaining wall, only while more than 15 tiles remain</li>
-                        <li>If the replacement is another Flower or Animal, reveal and replace it again; otherwise continue your turn</li>
+                        <li>Check whether the reveal causes an <a href="#automatic-flower-wins">All Flowers or accepted Robbing the Eighth win</a>. An accepted win ends the hand without a replacement; follow that section's scoring and payment instructions.</li>
+                        <li>If the hand continues, draw a replacement from the back of the remaining wall, only while more than 15 tiles remain.</li>
+                        <li>If the replacement is another Flower or Animal, repeat these steps; otherwise check for a legal win or continue your turn.</li>
                     </ol>
                     <p>
                         Bonus tiles do not count toward your hand structure but may provide bonus Tai (台) when calculating your total Tai.
@@ -208,8 +210,9 @@
                         <ul>
                             <li>A player wins</li>
                             <li>In a Fei game, a turn with no legal discard or other legal action ends as <a href="#fei-false-win">False Win / Invalid Hand</a>, with its fixed penalty.</li>
-                            <li>If nobody wins and there is no Fei False Win, the hand ends in a stalemate when only 15 tiles remain in the wall. You may win with the final drawn tile, but otherwise do not discard it. No further bonus-tile or Gang replacements are drawn, and no new instant payments are made.</li>
+                            <li>After the final draw of a natural tile or Fei leaves 15 tiles in the wall, you may still take legal actions on that turn, including an eligible <a href="#fei-qi-fei">Qi Fei</a> exchange, and declare a legal win. A final discard cannot be claimed. If no win or Fei False Win follows, the hand ends in a stalemate. No further bonus-tile, Gang or Dun replacements are drawn, and no new instant payments are made.</li>
                         </ul>
+                        <p>If the final draw is a Flower or Animal, reveal it and resolve any <a href="#automatic-flower-wins">Eight-Flower win</a>. Otherwise the hand ends in a stalemate because no replacement can be drawn.</p>
                         <p>
                             An ordinary wall-exhaustion stalemate has no winning-hand payout. A Fei False Win instead settles its fixed penalty. Previously settled instant payments remain settled in either case.
                         </p>
@@ -261,7 +264,7 @@
                         <ol>
                             <li><strong>Arrange the winning tiles:</strong> identify a legal four-set-and-eye hand, or a permitted special hand such as <a href="#seven-pairs">Seven Pairs</a> or <a href="#thirteen-terminals">Thirteen Terminals</a>.</li>
                             <li><strong>Add the hand awards:</strong> for one four-set-and-eye arrangement, add every matching shape award listed below, once each. Do not simply take the largest award. Special hands and instant wins follow their own scoring instructions.</li>
-                            <li><strong>Add eligible bonuses:</strong> include Dragon/Wind sets, Flowers, Animals, opening timing awards and winning bonuses that apply to that arrangement. An immediate credit payment is not Tai.</li>
+                            <li><strong>Add eligible bonuses:</strong> include Dragon/Wind sets, Flowers, Animals, opening timing awards and winning bonuses that apply to that arrangement. If using Fei, also add any earned <a href="#fei-four-matching">Four Matching Fei</a>, <a href="#fei-five-different">Five Different Fei</a> and <a href="#fei-dun">Dun</a> Tai to this same total. An immediate credit payment is not Tai.</li>
                             <li><strong>Check the minimum before the cap:</strong> the complete Tai total, including bonuses, must reach the agreed minimum to win. A 0-Tai Coward Hand can qualify through its bonuses. The Eight-Flower wins have their stated exception.</li>
                             <li><strong>Cap the total for payment:</strong> if the total exceeds the agreed maximum, use the maximum. Apply the cap to the sum, not to each award. If more than one legal complete-hand arrangement qualifies, score each separately and use the highest capped Tai; do not mix their awards. <a href="#seven-pairs">Seven Pairs has its own tie rule</a>. See <a href="#payout-calculation">who pays</a> below.</li>
                         </ol>
@@ -280,7 +283,7 @@
                         <h4 id="win-bonuses">Win Bonuses</h4>
                         <p>Apply a bonus only when the chosen winning route allows it. <a href="#seven-pairs">Seven Pairs</a>, <a href="#automatic-flower-wins">Eight-Flower wins</a>, <a href="#honor-instant-wins">Honor Instant Wins</a> and <a href="#fei-four-matching">Fei opening instant wins</a> explain their exceptions to these bonuses.</p>
                         <ul>
-                            <li><strong>Winning on Last Tile Bonus (海底捞月):</strong> Additional one Tai for winning on the last drawable tile in the wall. The bonus does not apply to a replacement tile.</li>
+                            <li><strong>Winning on Last Tile Bonus (海底捞月):</strong> Additional one Tai for a self-drawn win after the final ordinary draw, including a legal win after Qi Fei on that draw. A replacement draw or Robbing the Gang does not receive this bonus.</li>
                             <li><strong>Robbing the Gang (抢槓):</strong> Additional one Tai bonus for winning by robbing the Gang</li>
                             <li><strong>Replacement Tile Bonus (花上/槓上) - 1 Tai:</strong> A self-drawn win from a replacement tile drawn after a Gang, bonus tile, or an agreed Dun action, including an eligible <a href="#honor-instant-wins">Honor Instant Win</a>.</li>
                             <li><strong>Double Gang Bonus (槓槓胡) - 3 Tai:</strong> On one turn, declare a Gang, draw its replacement, declare a second Gang and win on the replacement drawn for that second Gang. No discard, Dun, or Flower/Animal reveal may interrupt this sequence, including a bonus tile drawn after the second Gang. The optional <a href="#fei-qi-fei">Qi Fei exchange</a>, replacing a Fei in your own exposed meld, does not interrupt it. Award 3 Tai instead of the ordinary 1 Tai Replacement Tile Bonus.</li>
@@ -343,7 +346,7 @@
                             <li><strong>Robbing the Eighth with the optional <a href="#shooter-rule">Shooter rule</a>:</strong> Under this rule, the responsible player pays everyone’s share. Treat the Flower drawer as the discarder. The drawer pays the full amount in the <strong>Total Credits Payout column</strong>; the other two opponents pay nothing.</li>
                             <li><strong>Robbing the Eighth without Shooter:</strong> The drawer pays the amount in the <strong>Discarder column</strong>, and each other opponent pays the amount in the <strong>Each Other Opponent column</strong>. The winner receives the amount shown in the <strong>Total Credits Payout column</strong>.</li>
                         </ul>
-                        <p>If using <a href="#bite-flowers">Bite Flowers</a>, the winning eighth Flower receives no new pair or complete-group instant payment. Earlier payments remain settled.</p>
+                        <p>An All Flowers winner also keeps any ordinary pair or complete-group instant payment earned by their own eighth-Flower reveal, provided more than 15 tiles remain. If using <a href="#bite-flowers">Bite Flowers</a>, the winning eighth Flower receives no new pair or complete-group instant payment. Earlier payments remain settled.</p>
 
                         <h4 id="payout-calculation">Payout Calculation</h4>
                         <p>
@@ -355,6 +358,7 @@
                             <li><strong>Self-draw:</strong> each of the three opponents pays the Self-drawn Hand amount. Shooter alone does not change self-draw payments. A qualifying <a href="#payment-house-rules">Gang Shang win</a> instead makes its responsible discarder pay the full self-draw total.</li>
                         </ul>
                         <p>The table gives ordinary winning-hand payments. Immediate Gang and bonus-tile payments are settled separately. On the same Tai row, self-draw pays more credits than a discard win; it does not add Tai just for being self-drawn.</p>
+                        <p>If your table permits a win worth <strong>0 Tai</strong> after bonuses, its winning-hand payment is zero. Earlier instant payments remain settled.</p>
                         <h5>Win on a discard — without Shooter</h5>
                         <div class="table-responsive" role="region" aria-label="Discard-win payment amounts" tabindex="0">
                             <table class="table table-bordered rules-payout-table">
@@ -402,7 +406,7 @@
 
                         <h4 id="instant-payout">Instant Payout</h4>
                         <p>
-                            These payments are collected as the qualifying Gang or bonus tile is declared, whether or not the collector later wins. They are separate from Tai and the winning-hand payment: do not double them for a high-Tai hand or apply the winning Tai cap. The amounts below are examples; agree on your amounts before play. Earlier payments remain settled even in a stalemate, apart from the optional robbed-Gang refund. No new instant payments are made once the last drawable tile has been drawn. The optional <a href="#bite-flowers">Bite Flowers</a> rule changes payments on a winning eighth Flower. <a href="#animal-special">Animal Special</a> replaces the ordinary Animal-pair payment for the collector's assigned pair; it does not add both pair payments together.
+                            These payments are normally collected as the qualifying Gang or bonus tile is declared, whether or not the collector later wins. A qualifying <a href="#honor-instant-wins">Concealed Gang with an Honor Instant Win</a> has the robbery exception explained below. They are separate from Tai and the winning-hand payment: do not double them for a high-Tai hand or apply the winning Tai cap. The amounts below are examples; agree on your amounts before play. Earlier payments remain settled even in a stalemate, apart from the optional robbed-Gang refund. No new instant payments are made once the last drawable tile has been drawn. The optional <a href="#bite-flowers">Bite Flowers</a> rule changes payments on a winning eighth Flower. <a href="#animal-special">Animal Special</a> replaces the ordinary Animal-pair payment for the collector's assigned pair; it does not add both pair payments together. <a href="#gang-bite-rule">Gang Bite: Discarder Pays All</a> can change the payer of qualifying pair and All Four Animals awards without changing their totals.
                         </p>
                         <ol>
                             <li>
@@ -424,7 +428,7 @@
                                 <strong>Complete Flower group - 40 credits:</strong> For each complete group of all four Seasons or all four Flowers, each opponent pays you 40 credits. Four tiles split between those groups do not qualify. This payment adds to any qualifying pair payment, and the tiles may still give Flower Tai if you later win.
                             </li>
                             <li>
-                                <strong>All four Animal tiles - 40 credits:</strong> If a player draws all four Animal tiles, every other player will pay 40 credits to the player.
+                                <strong>All four Animal tiles - 40 credits:</strong> Each opponent pays an additional 40 credits. This stacks with the applicable Animal-pair payment. On a later draw, the final Animal normally earns 20 for completing its pair plus 40 for all four: 60 from each opponent on that reveal.
                             </li>
                         </ol>
 
@@ -453,20 +457,25 @@
 
                         <h4 id="payment-house-rules">Payment Variants — Optional House Rules</h4>
                         <p>
-                            Agree before play whether to use either of these variations, or both. They change who pays after a Gang; the ordinary immediate Gang payments still apply.
+                            Agree before play which of these variations to use; you may combine them. Ordinary immediate Gang payments still apply, except for the stated robbed-Gang exceptions.
                         </p>
                         <h5>Gang Shang: Discarder Pays All</h5>
                         <p>If you claim an Exposed Gang from another player's discard and then win by self-draw during that uninterrupted replacement sequence, the original discarder pays the full self-draw total. The other two opponents pay nothing. This winning-hand payment is separate from the immediate Gang payment.</p>
                         <p>This applies to a qualifying <a href="#automatic-flower-wins">All Flowers win</a> or <a href="#honor-instant-wins">Honor Instant Win</a> on a replacement, as well as a complete-hand win. An Honor Instant Win accepted immediately after declaring a Gang, before its replacement draw, does not use Gang Shang.</p>
                         <ul>
-                            <li><strong>Flower and Animal replacements:</strong> keep drawing replacements until you get a non-bonus tile. That final tile is the latest replacement for this rule.</li>
+                            <li><strong>Flower and Animal replacements:</strong> continue while a replacement is available, unless an <a href="#automatic-flower-wins">Eight-Flower win</a> ends the hand first. The final non-bonus tile is the latest replacement for this rule.</li>
                             <li><strong>A further Gang:</strong> a Concealed or Added Gang continues the sequence only if that latest replacement tile completes it. Declaring a Gang that was already complete before the replacement ends the discarder’s responsibility.</li>
                             <li><strong>When responsibility ends:</strong> a discard, a turn or player change, an unavailable replacement, a cancelled or robbed Gang, or Dun ends it. A Dun replacement starts a separate sequence with ordinary self-draw payment.</li>
                             <li>Passing an opportunity to rob the Gang does not end the responsibility. A Concealed or Added Gang cannot start it on its own.</li>
                         </ul>
                         <h5>Refund a Robbed Gang</h5>
                         <p>If a Gang is successfully robbed, return the immediate payment for that Gang once, then settle the Robbing the Gang win normally. Do not refund a passed, invalid or cancelled robbery, or a Gang that was not robbed. This also covers the permitted Concealed Gang robbery for Thirteen Terminals.</p>
-                        <p><strong>Using both variations:</strong> a robbed Gang is paid, refunded once, then followed by ordinary Robbing the Gang payment. Gang Shang responsibility ends. If the Gang is not robbed and the replacement sequence ends in self-draw, its immediate payment remains and the original discarder pays the full self-draw total.</p>
+                        <p><strong>Using Gang Shang and Refund a Robbed Gang:</strong> a robbed Gang is paid, refunded once, then followed by ordinary Robbing the Gang payment. Gang Shang responsibility ends. If the Gang is not robbed and the replacement sequence ends in self-draw, its immediate payment remains and the original discarder pays the full self-draw total.</p>
+
+                        <h5 id="gang-bite-rule">Gang Bite: Discarder Pays All</h5>
+                        <p>This separate variation changes who pays for eligible pair and All Four Animals awards during a replacement sequence begun by a discard-claimed Exposed Gang. The player whose discard supplied that Gang pays the <strong>full usual award total</strong>; the other opponents pay nothing for that award. Use the same replacement-chain continuation and ending conditions described under Gang Shang above.</p>
+                        <p>It covers ordinary Animal pairs, All Four Animals, your own-seat Flower pair, an <a href="#animal-special">Animal Special pair</a>, and another seat's Flower pair when using <a href="#bite-flowers">Bite Flowers</a>. With the example rates, if B claims A's discard for Gang and its replacement completes an ordinary Animal pair, A alone pays B <strong>60 credits</strong>. For another seat's Flower pair, A instead pays the existing <strong>20-credit</strong> award in place of the seat owner.</p>
+                        <p>This rule is independent of Shooter and Gang Shang. Standalone Animal Special reveals, complete Flower-group payments and Gang fees keep their usual payers. Winning-hand payments follow their own rules; Gang Bite alone does not change who pays for a win.</p>
 
                         <h4 id="seven-pairs">Seven Pairs (七对子) — Optional House Rule</h4>
                         <p>Seven Pairs lets you win with seven pairs instead of the usual four sets and an eye. It is an optional variation outside Singapore Classic: agree to use it before the first deal.</p>
@@ -529,6 +538,7 @@
                             <li><strong>Added Gang:</strong> after you have passed a qualifying instant win, an Added Gang of a Dragon or Wind can give you another chance to declare it. This uses self-draw settlement, with the Added Gang fee paid separately.</li>
                         </ul>
                         <p><strong>Robbing the Gang takes priority:</strong> resolve any legal robbery of an Added Gang, or the Thirteen Terminals exception for a Concealed Gang, first. The Gang declarer may take the Honor Instant Win only if nobody robs that Gang.</p>
+                        <p><strong>Concealed Gang fee during this check:</strong> without the refund variation, wait until the permitted Thirteen Terminals robbery has been ruled out before collecting the fee for a Concealed Gang that qualifies for an Honor Instant Win. If it is robbed, undo that Gang and collect no Gang fee; settle the robbery win instead. With the refund variation, any fee already paid for the robbed Gang is returned once.</p>
                         <p>Accepting an instant win immediately after a Gang ends the hand <strong>before its replacement draw</strong>. It earns neither Replacement Tile nor Double Gang Tai, and Gang Shang does not redirect that win payment: a discard-claimed Gang uses discard settlement, while a Concealed or Added Gang uses ordinary self-draw settlement. If you pass instead, keep the Gang payment and take its replacement in the usual way. Winning-hand amounts follow the <a href="#payout-calculation">discard or self-draw payment tables</a>.</p>
                         <p><strong>Honor wins during Gang Shang:</strong> while the original discarder is responsible, the eligible replacement must newly complete the required natural honor sets. It may supply the third matching natural tile of the final triplet, or use an agreed <a href="#fei-qi-fei">Qi Fei</a> exchange to replace the final Fei in a qualifying exposed Pong. An unrelated replacement cannot turn an already complete Honor Instant Win into a payment by that discarder. A legal complete hand may still win under its ordinary rules.</p>
 
@@ -550,7 +560,8 @@
                         <p>
                             Agree on the payment amounts before play; the table below gives an example schedule. Here, <strong>opening 13</strong> means only your first 13 dealt tiles. It excludes the dealer's extra 14th tile and every replacement draw. A <strong>bite payment (Yao Dao, 咬到)</strong> is an immediate payment for a qualifying bonus-tile collection, separate from the payment for winning a hand.
                         </p>
-                        <p>There are <strong>two separate awards</strong>: one when you reveal your assigned animal, and one when you complete its pair. Each is paid once per hand, by all three opponents. If revealing the assigned animal also completes its pair, collect both awards on that reveal. Do not add the ordinary Animal-pair payment as well.</p>
+                        <p>There are <strong>two separate awards</strong>: one when you reveal your assigned animal, and one when you complete its pair. With ordinary payers, each is paid once per hand by all three opponents; the examples below use those payers. If revealing the assigned animal also completes its pair, collect both awards on that reveal. Do not add the ordinary Animal-pair payment as well.</p>
+                        <p>When <a href="#gang-bite-rule">Gang Bite: Discarder Pays All</a> applies, the original Gang discarder instead pays the full pair-award total. The assigned-animal reveal still uses its ordinary payers.</p>
                         <div class="table-responsive">
                             <table class="table table-bordered">
                                 <thead><tr><th scope="col">Event</th><th scope="col">Each opponent pays</th></tr></thead>
@@ -580,6 +591,7 @@
                         <p>
                             A Flower and Season with the same printed number form a pair. Numbers follow the current seat Winds: East = 1, South = 2, West = 3, North = 4. Use the current seat Winds, so the payer can change as the dealer rotates. The higher opening payment requires both pair members in your original 13; it excludes the dealer’s extra 14th tile and all replacements, regardless of reveal order.
                         </p>
+                        <p>The table below uses ordinary Bite Flowers payers. If <a href="#gang-bite-rule">Gang Bite: Discarder Pays All</a> applies, the original Gang discarder pays the same award in place of the seat owner.</p>
                         <div class="table-responsive">
                             <table class="table table-bordered">
                                 <thead>
@@ -641,7 +653,7 @@
                                 </a>
                             </nav>
                             <p>Fei are optional wildcard tiles added to a Singapore Mahjong set. A wildcard can stand for a missing ordinary tile when you make a legal hand. Agree on the Fei rules before dealing; the extra actions and awards below apply only when your table has agreed to use them.</p>
-                            <p><strong>A few terms:</strong> a <strong>natural tile</strong> is an ordinary suit or honor tile, excluding Flowers, Animals and Fei. <strong>Concealed</strong> tiles remain in your hand; an <strong>exposed meld</strong> is a group shown on the table. An <strong>eye</strong> is the pair in a standard winning hand. <strong>Tai</strong> are scoring units.</p>
+                            <p><strong>A few terms:</strong> a <strong>natural tile</strong> is an ordinary suit or honor tile, excluding Flowers, Animals and Fei. <strong>Concealed</strong> tiles remain in your hand; an <strong>exposed meld</strong> is made by claiming another player's discard. A declared Concealed Gang remains concealed for scoring. An <strong>eye</strong> is the pair in a standard winning hand. <strong>Tai</strong> are scoring units.</p>
                             <p><strong>Physical families</strong> are the printed faces and colours: <strong>red Fei</strong>, <strong>red Fei Joker</strong>, <strong>Blank Fei</strong>, <strong>blue Fei</strong>, <strong>blue Fei Joker</strong>, <strong>green Fei</strong> and <strong>green Fei Joker</strong>. They all have the same wildcard uses. Their printed identity matters for Four Matching Fei and Five Different Fei, even when they represent the same natural tile. Blank Fei is a playable wildcard, separate from the natural White Dragon (白板).</p>
                             <p><strong>Start here:</strong> use Fei to fill gaps in legal groups, but remember that <strong>Fei cannot be discarded</strong>. A standard Fei-assisted win still needs four sets and an eye, and must meet the table&#x27;s minimum Tai. Special hands and opening instant wins have their own conditions below.</p>
                             <div class="fei-families" aria-label="Seven physical Fei families, identified by printed face and colour">
