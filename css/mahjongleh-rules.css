@@ -2,6 +2,7 @@
 .rules-page .preloader { display: none; }
 .rules-page [id] { scroll-margin-top: 20px; }
 .rules-page .rules-payout-table th { white-space: normal !important; }
+.rules-page .rules-award-table th, .rules-page .rules-award-table td { white-space: normal !important; vertical-align: top !important; }
 .rules-page .table-responsive:focus-visible { outline: 3px solid #b80000; outline-offset: 3px; }
 .rules-back-top {
   display: block;
