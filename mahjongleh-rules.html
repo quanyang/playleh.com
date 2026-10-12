@@ -137,7 +137,7 @@
                         </ul>
 
                         <h4>Game Flow</h4>
-                        <p>The <strong>wall</strong> is the face-down supply of tiles. Ordinary draws come from the front; replacement draws come from the back. The final 15 tiles are reserved and cannot be drawn.</p>
+                        <p>The <strong>wall</strong> is the face-down supply of tiles. Ordinary draws come from the front of the remaining wall; replacement draws come from its back. Stop all draws when only <strong>15 tiles remain</strong>. Those remaining tiles are not drawn.</p>
                         <p>
                             Deal 13 tiles to each player, then give the dealer (East) an extra 14th tile. Keep track of which bonus tiles belonged to each player's original 13: the dealer's extra tile is excluded from the higher opening-pair payment, but still participates in opening win checks and bonus replacements. The dealer begins with that extra tile and does not take another ordinary draw before their first discard. After the opening turn, players take turns in counterclockwise order:
                         </p>
@@ -152,6 +152,7 @@
                         <p>
                             Tiles kept in your hand are <strong>concealed</strong>. A group shown after claiming another player's discard is an <strong>exposed meld</strong>. During play, you can form melds using your own tiles or by claiming a discard:
                         </p>
+                        <p>Keep each declared meld together beside your concealed tiles. It counts as one of your four winning sets; you cannot take it apart, move its tiles into another set or discard them. A Pong may be upgraded by Added Gang, and an agreed <a href="#fei-qi-fei">Qi Fei</a> exchange may replace a Fei in an exposed meld.</p>
                         <ul>
                          <li><strong>Triplet (Pong, 碰):</strong> Claim a discarded tile from any player to form a triplet. You must reveal the triplet and discard a tile.</li>
                          <li><strong>Sequence (Chi, 吃):</strong> Claim the discarded tile from the player immediately before you to form a sequence. You must reveal the sequence and discard a tile.</li>
@@ -161,7 +162,7 @@
                                 <li>Exposed Gang (明槓): You claim a discarded tile to form a quadruplet with three identical tiles already in your hand.</li>
                                 <li>Added Gang (加槓): You add a fourth tile from your hand to an already exposed Pong meld.</li>
                             </ul>
-                            After declaring a legal Gang, resolve any legal Robbing the Gang claim before offering an <a href="#honor-instant-wins">Honor Instant Win</a>. If neither ends the hand, draw a <strong>replacement tile</strong> from the back of the wall, leaving the 15-tile reserve untouched. Then win if your hand qualifies, or continue your turn and discard.
+                            After declaring a legal Gang, resolve any legal Robbing the Gang claim before offering an <a href="#honor-instant-wins">Honor Instant Win</a>. If neither ends the hand, draw a <strong>replacement tile</strong> from the back of the remaining wall; a replacement is available only while more than 15 tiles remain. Then win if your hand qualifies, or continue your turn and discard.
                         </li>
                     </ul>
 
@@ -176,7 +177,7 @@
                     </p>
                     <ol>
                         <li>Reveal the tile immediately</li>
-                        <li>Draw a replacement tile from the back of the drawable wall, before the 15-tile reserve</li>
+                        <li>Draw a replacement tile from the back of the remaining wall, only while more than 15 tiles remain</li>
                         <li>If the replacement is another Flower or Animal, reveal and replace it again; otherwise continue your turn</li>
                     </ol>
                     <p>
@@ -195,9 +196,9 @@
                         </ul>
 
                         <h3 id="ending">Ending a Hand</h3>
-                        <h4>15-tile reserve and replacement draws</h4>
+                        <h4>Stop with 15 tiles left</h4>
                         <p>
-                            The last 15 tiles are reserved and cannot be drawn. Flower, Animal and Gang replacements come from the back of the wall while a legal replacement remains. With the optional Fei rule, <a href="#fei-dun">Dun</a> means setting aside a held Fei and drawing a replacement; its draws use the same back of the wall and 15-tile reserve.
+                            Count the tiles left in the wall after every draw. Ordinary draws take the front tile and replacements take the back tile. With 16 tiles left, either draw leaves 15, so no further draw is allowed. Do not set aside a fixed block and draw replacements from in front of it. With the optional Fei rule, <a href="#fei-dun">Dun</a> means setting aside a held Fei and drawing a replacement; its draws use the same back of the wall and stop at the same limit.
                         </p>
 
                         <h4>When the hand ends</h4>
@@ -207,7 +208,7 @@
                         <ul>
                             <li>A player wins</li>
                             <li>In a Fei game, a turn with no legal discard or other legal action ends as <a href="#fei-false-win">False Win / Invalid Hand</a>, with its fixed penalty.</li>
-                            <li>If nobody wins and there is no Fei False Win, the hand ends in a stalemate when no drawable tiles remain before the 15-tile reserve. You may win with the final drawable tile, but otherwise do not discard it. No further bonus-tile or Gang replacements are drawn, and no new instant payments are made.</li>
+                            <li>If nobody wins and there is no Fei False Win, the hand ends in a stalemate when only 15 tiles remain in the wall. You may win with the final drawn tile, but otherwise do not discard it. No further bonus-tile or Gang replacements are drawn, and no new instant payments are made.</li>
                         </ul>
                         <p>
                             An ordinary wall-exhaustion stalemate has no winning-hand payout. A Fei False Win instead settles its fixed penalty. Previously settled instant payments remain settled in either case.
@@ -238,6 +239,7 @@
                             </li>
                         </ul>
 
+                        <p>Sacred and Missed Discard restrictions do not prevent self-draw or Robbing the Gang. They apply only to the discard claims listed above.</p>
                         <p>In Fei games, these restrictions apply to the natural discard being claimed. Open Fei does not bypass them. A held Fei cannot be discarded; see <a href="#fei-false-win">False Win when no legal action remains</a>.</p>
 
                         <h4>Swap Calling (换吃) Rule</h4>
@@ -302,7 +304,7 @@
                         <p><strong>Worked score:</strong> when Honor Instant Wins are not used, three Dragon Pongs, a 3 Bamboo Pong and a 5 Bamboo pair, with at least one Pong exposed, won on an ordinary discard with no Flowers, Animals or timing bonuses, earn <strong>Three Great Scholars 10 + All Pong 2 + Mixed Suit 2 + Dragon-set bonuses 3 = 17 Tai</strong>. With an agreed maximum of 5 Tai, pay it as a 5-Tai hand. The cap limits the final payment score; it does not erase the qualifying awards.</p>
                         <ul>
                             <li><strong>Coward Hand (鸡胡) - 0 Tai:</strong> A winning hand consisting of any four melds and one pair, provided it does not qualify for any other winning hand combination</li>
-                            <li><strong>Ping Hu (平胡) - 4 Tai:</strong> Four Chi sets and one pair, with no bonus tiles. The pair cannot be Dragons, the round Wind or your seat Wind. You may win by self-draw. For a discard win, you must have been waiting for more than one tile type: a middle-tile wait such as 4–6 waiting for 5 (<strong>Kalong</strong>), or a wait to complete the final pair (<strong>Dan Diao</strong>), does not qualify.</li>
+                            <li><strong>Ping Hu (平胡) - 4 Tai:</strong> Four Chi sets and one pair, with no bonus tiles. The pair cannot be Dragons, the round Wind or your seat Wind. You may win by self-draw. For a discard win, more than one tile type must be able to complete the hand as four Chi and one pair. A wait on only one tile type, including an isolated middle, edge or final-pair wait, does not qualify. Completing the pair can qualify when another tile type also completes a valid sequence hand.</li>
                             <li><strong>All Chow (臭平胡) - 1 Tai:</strong> The same sequence, pair and winning-wait rules as Ping Hu, but you have at least one Flower or Animal. Even a Flower that gives you no Tai prevents Ping Hu; use this 1-Tai award instead.</li>
                             <li><strong>All Pong (碰碰胡) - 2 Tai:</strong> A winning hand consisting of four Pong or Gang melds and one pair</li>
                             <li><strong>Mixed Suit (半色) - 2 Tai:</strong> A winning hand consisting of honor tiles and tiles from only one suit</li>
@@ -322,6 +324,7 @@
                             <li><strong>Nine Heavenly Gates (九连宝灯) - 6 Tai:</strong> A fully concealed 1112345678999 hand in one numbered suit, plus any duplicate rank from that suit. Any exposed meld or declared Concealed Gang disqualifies it. It also receives Pure Suit. With Fei substitutions, self-draw only, with legal groups and eyes; a two-Fei pair needs the optional <a href="#fei-zou-jie">Fei Zou Jie</a> eye rule.</li>
                             <li><strong>Hidden Treasure (Four Concealed Pongs, 四暗刻) - 6 Tai:</strong> Four concealed Pong or Gang sets plus a pair. It may be self-drawn, or won from a discard only when that tile completes the pair, not the fourth Pong, and never by Robbing the Gang. It also receives All Pong; a self-drawn win also receives the ordinary Concealed Hand bonus.</li>
                         </ul>
+                        <p><strong>Ping Hu with two possible pair completions:</strong> with no Flowers or Animals, you have a declared <strong>2–3–4 Characters Chi</strong> and concealed <strong>2–3–4 Bamboo, 5–6–7 Bamboo, and 5–6–7–8 Circles</strong>. A 5 Circles discard makes a 5–5 pair and a 6–7–8 Chi; an 8 Circles discard makes a 5–6–7 Chi and an 8–8 pair. Both earn the Ping Hu award because two tile types complete four Chi and one pair.</p>
 
                         <h4 id="automatic-flower-wins">Eight-Flower Wins</h4>
                         <p>
@@ -514,6 +517,7 @@
                         <p><strong>Opening checks:</strong> after completing all opening Flower and Animal replacements, first complete any <a href="#fei-four-matching">Four Matching Fei</a> or <a href="#fei-five-different">Five Different Fei</a> opening check agreed for this point. Do not repeat a check already completed before replacements. If nobody takes a Fei opening win, check Honor Instant Wins in normal counterclockwise turn order, starting with the dealer. Each qualifying player may declare the win or pass; a win ends the hand, while passing lets the check continue to the next player.</p>
                         <p><strong>Instant-win score:</strong> Three Great Scholars gives 10 Tai and Four Great Blessings gives 13 Tai. Add only eligible Flower, Animal, Dragon and Wind bonuses, plus any Dun Tai described below, then apply the usual cap. Do not add ordinary shape awards such as All Pong or Pure Honors, opening timing awards, Concealed Hand, Double Gang, last-tile or robbed-Gang bonuses. An ordinary Gang or Flower replacement adds no replacement Tai; the Dun replacement exception is explained below. The total must reach the agreed minimum Tai.</p>
                         <p>This limited score applies when you accept the instant win, <strong>even if your tiles also form a complete ordinary hand worth more</strong>. During play, passing does not let you declare an ordinary Hu or Zimo on that same tile instead. After everyone passes the initial instant-win checks, the dealer may still declare a legal ordinary opening win.</p>
+                        <p>Passing does not permanently give up the Honor Instant Win. If the required natural sets remain complete and the score meets the minimum, you may declare it on a later own draw even when the drawn tile is unrelated. Gang Shang replacements have the extra condition below.</p>
                         <p>
                             In Fei games, these three Dragon sets or four Wind sets must be fully natural: Fei cannot substitute for tiles in the qualifying sets. A complete legal hand with four sets and an eye may still earn its usual Three Great Scholars or Four Great Blessings award using Fei. If the table allows <a href="#fei-qi-fei">Qi Fei</a>, replacing the final Fei in an exposed Pong with a natural tile can make that Pong qualify for an Honor Instant Win. The 1 Tai per Fei set aside with <a href="#fei-dun">Dun</a> also counts towards this instant win&#x27;s score and minimum Tai. A self-drawn Honor Instant Win during a Dun replacement sequence adds the 1-Tai Replacement Tile Bonus, even if Flower or Animal replacements intervened.
                         </p>
@@ -524,7 +528,8 @@
                             <li><strong>Added Gang:</strong> after you have passed a qualifying instant win, an Added Gang of a Dragon or Wind can give you another chance to declare it. This uses self-draw settlement, with the Added Gang fee paid separately.</li>
                         </ul>
                         <p><strong>Robbing the Gang takes priority:</strong> resolve any legal robbery of an Added Gang, or the Thirteen Terminals exception for a Concealed Gang, first. The Gang declarer may take the Honor Instant Win only if nobody robs that Gang.</p>
-                        <p>Accepting an instant win immediately after a Gang ends the hand <strong>before its replacement draw</strong>, so Gang Shang does not redirect that win payment: a discard-claimed Gang uses discard settlement, while a Concealed or Added Gang uses ordinary self-draw settlement. If you pass instead, keep the Gang payment and take its replacement in the usual way. An instant win accepted after that replacement may use Gang Shang if its responsibility is still active. Winning-hand amounts follow the <a href="#payout-calculation">discard or self-draw payment tables</a>.</p>
+                        <p>Accepting an instant win immediately after a Gang ends the hand <strong>before its replacement draw</strong>, so Gang Shang does not redirect that win payment: a discard-claimed Gang uses discard settlement, while a Concealed or Added Gang uses ordinary self-draw settlement. If you pass instead, keep the Gang payment and take its replacement in the usual way. Winning-hand amounts follow the <a href="#payout-calculation">discard or self-draw payment tables</a>.</p>
+                        <p><strong>Honor wins during Gang Shang:</strong> while the original discarder is responsible, the eligible replacement must newly complete the required natural honor sets. It may supply the third matching natural tile of the final triplet, or use an agreed <a href="#fei-qi-fei">Qi Fei</a> exchange to replace the final Fei in a qualifying exposed Pong. An unrelated replacement cannot turn an already complete Honor Instant Win into a payment by that discarder. A legal complete hand may still win under its ordinary rules.</p>
 
                         <h4 id="animal-special">Animal Special — Optional House Rule</h4>
                         <p>
@@ -749,7 +754,7 @@
                             </div>
                             <p>A natural winning tile may supply the <strong>second tile of the natural pair</strong>, or complete another missing identity while the natural pair is already held. Natural discard wins still follow the <a href="#discard-rules">Sacred and Missed Discard rules</a>. Gang robbery uses its existing eligible claim windows. Physical-copy limits and any agreed public-tile limits still apply.</p>
                             <p>Score the Thirteen Terminals award as <strong>13 Tai</strong>, plus eligible Flower, Animal and winning bonuses, including <a href="#opening-timing-awards">opening timing awards</a>. Eligible <a href="#fei-four-matching">Four Matching Fei</a>, <a href="#fei-five-different">Five Different Fei</a> and <a href="#fei-dun">Dun</a> awards also add. Apply the usual cap to the complete total. A qualifying natural-pair discard win may add the optional Humanly Hand award. A discard win uses ordinary discard payment; Robbing the Gang adds its usual <strong>1 Tai</strong> and uses the Gang declarer's ordinary robbery payment. Neither receives self-draw-only bonuses, and Gang robbery receives no opening timing award. See <a href="#payout-calculation">who pays</a>.</p>
-                            <p>The usual maximum Tai cap and agreed payments apply. Merely holding a Fei gives no Tai. A legal ordinary hand containing Fei may win by Robbing the Gang, taking the natural tile used to add to an exposed natural Pong. This does not allow a Fei inside the Gang.</p>
+                            <p>The usual maximum Tai cap and agreed payments apply. A Fei used as a substitute gives no Tai of its own; the agreed Fei awards above have separate conditions. A legal ordinary hand containing Fei may win by Robbing the Gang, taking the natural tile used to add to an exposed natural Pong. This does not allow a Fei inside the Gang.</p>
                             <p><strong>Concealed two-Fei Chi example:</strong> 7 Dots–Fei–Joker may represent 7–8–9 Dots. Keep that sequence concealed; your other groups may be exposed. It can form part of a legal win on self-draw or a tile from another player when the win is allowed, in either Open or Closed Fei. It does not let you claim a Chi with two Fei. A hand with four Chi sets may qualify for Ping Hu if the whole hand meets its scoring conditions. The hand must still meet the minimum Tai and any agreed public-tile limits.</p>
                             <p><strong>Concealed two-Fei triplet example:</strong> North + Fei + Joker may represent three Norths, even if claimed Pongs are limited to one Fei. It earns the usual Wind Triplet Bonus when North is the round wind or your seat wind, and both bonuses when it is both. A concealed Fei may be used in the best legal winning arrangement. A Fei in an exposed Chi or Pong stays assigned to that meld and cannot be moved into this triplet. Minimum Tai, the Tai cap, any agreed matching-tile rule and public-tile limits still apply.</p>
                             <p><strong>Why holding a matching tile matters:</strong> some tables require a matching natural tile already in your hand before two Fei can complete a triplet using another player&#x27;s tile. Under that agreement, West + two Fei already held is legal, and a self-drawn West may also complete the triplet. A discard may complete a different group. But two held Fei alone cannot use a discarded West as their only natural tile, whether claiming Pong, Hu or Robbing the Gang. Another legal arrangement may still win. See the <a href="#fei-claims">matching-tile agreement</a> below.</p>
@@ -1042,7 +1047,7 @@
                             <p>The table may additionally ban a <strong>second exposed Pong of the same tile</strong>, even when the later Pong is fully natural. Use this extra rule only with the public-tile limits. It still allows a fully natural concealed triplet.</p>
                             <p>A Fei already legally assigned in an exposed meld keeps that identity when more natural tiles become public later. Its earlier use remains legal. If Qi Fei returns it to your hand, its next use must meet the current limits.</p>
                             <h4 id="fei-settings">Agree before play</h4>
-                            <p>Add your agreed Fei tiles to the normal <strong>148-tile set</strong> and keep the <strong>15-tile reserve</strong>, the tiles held back from ordinary draws. For example, 8 Fei may be four red Fei and four red Fei Joker; 12 may be four each of red Fei, red Fei Joker and Blank Fei. A 20-Fei set with four of each of the first five families supports Five Different Fei; sets of 24 or 28 add the green families. More tiles with one printed face still count as just one physical family.</p>
+                            <p>Add your agreed Fei tiles to the normal <strong>148-tile set</strong>. Ordinary draws still take the front tile and replacements the back tile; stop both when only <strong>15 tiles remain</strong>. For example, 8 Fei may be four red Fei and four red Fei Joker; 12 may be four each of red Fei, red Fei Joker and Blank Fei. A 20-Fei set with four of each of the first five families supports Five Different Fei; sets of 24 or 28 add the green families. More tiles with one printed face still count as just one physical family.</p>
                             <p>Use this checklist before dealing:</p>
                             <ul>
                                 <li><strong>Tile set:</strong> how many Fei you will add and which physical families you will use. Five Different Fei needs 20, 24 or 28 Fei, with four of each family.</li>
@@ -1064,7 +1069,7 @@
                             <li><strong>Natural tile:</strong> A numbered Suit tile, Wind or Dragon. Flowers, Animals and Fei are not natural tiles.</li>
                             <li><strong>Tai:</strong> Scoring units earned from a winning hand and bonuses.</li>
                             <li><strong>Eye:</strong> The pair in a standard four-set winning hand.</li>
-                            <li><strong>Wall:</strong> The face-down supply of tiles. The last 15 tiles are reserved.</li>
+                            <li><strong>Wall:</strong> The face-down supply of tiles. Draw from its front or back as instructed, and stop when only 15 tiles remain.</li>
                             <li><strong>Yao Dao (咬到):</strong> An immediate bite payment for a qualifying bonus-tile collection.</li>
                             <li><strong>Dun (垫):</strong> Set aside a held Fei and draw a replacement; <a href="#fei-dun">see Dun</a>.</li>
                             <li><strong>Qi Fei (起飞):</strong> Exchange a newly drawn natural tile for a Fei representing that tile in your own exposed meld; <a href="#fei-qi-fei">see Qi Fei</a>.</li>
@@ -1072,7 +1077,7 @@
                                 <strong>Kalong (卡张):</strong> Waiting on the middle tile of a sequence (e.g., waiting for 5 to complete 4-5-6).
                             </li>
                             <li>
-                                <strong>Dan Diao (单吊):</strong> Waiting on a single tile to complete the final pair.
+                                <strong>Dan Diao (单吊):</strong> Waiting on only one tile type to complete the final pair.
                             </li>
                         </ul>
                     </div>
