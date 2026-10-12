@@ -1,1 +1,13 @@
 include: [".well-known"]
+# Jekyll 3 replaces its default exclusions when this list is set.
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+  - CNAME
+  - AGENTS.md
+  - AGENTS.MD
