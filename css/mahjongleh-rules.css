@@ -1,6 +1,8 @@
 /* Rules-page additions; shared site styles remain unchanged. */
 .rules-page .preloader { display: none; }
 .rules-page [id] { scroll-margin-top: 20px; }
+.rules-page .rules-payout-table th { white-space: normal !important; }
+.rules-page .table-responsive:focus-visible { outline: 3px solid #b80000; outline-offset: 3px; }
 .rules-back-top {
   display: block;
   width: 50px;
